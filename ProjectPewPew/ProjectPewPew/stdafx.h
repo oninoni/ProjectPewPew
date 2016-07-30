@@ -21,7 +21,5 @@
 #include "FGGrid.h"
 #include "BGGrid.h"
 #include "Game.h"
-
-
-
+                                
 // TODO: Hier auf zusätzliche Header, die das Programm erfordert, verweisen.
