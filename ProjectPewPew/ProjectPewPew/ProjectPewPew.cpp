@@ -3,10 +3,9 @@
 
 #include "stdafx.h"
 
-
-int main()
+int main(int* argc, char** argv)
 {
-    printf("TestNeger\n");
+    Game game(argc, argv);
     return 0;
 }
 

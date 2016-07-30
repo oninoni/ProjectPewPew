@@ -7,8 +7,20 @@
 
 #include "targetver.h"
 
+#include <GL/freeglut.h>
+#include <GLFW/glfw3.h>
+
 #include <stdio.h>
 #include <tchar.h>
+
+#include <iostream>
+#include <vector>
+
+#include "Player.h"
+#include "Grid.h"
+#include "FGGrid.h"
+#include "BGGrid.h"
+#include "Game.h"
 
 
 
