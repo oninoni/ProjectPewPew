@@ -6,6 +6,7 @@
 
 int main()
 {
+    printf("TestNeger\n");
     return 0;
 }
 
