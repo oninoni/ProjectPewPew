@@ -30,8 +30,12 @@ using namespace std;
 #include "GLEnums.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "VAO.h"
 
 // Game Logic
+
+#include "Tile.h"
+
 #include "BGGrid.h"
 #include "FGGrid.h"
 #include "Player.h"

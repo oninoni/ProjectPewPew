@@ -1,13 +1,12 @@
 #include "stdafx.h"
 
-FGGrid::FGGrid()
+FGGrid::FGGrid(int sizeX, int sizeY)
 {
-	BGGrid::BGGrid();
-}                  
+	BGGrid::BGGrid(sizeX, sizeY);
+}
 
 FGGrid::~FGGrid()
 {
-	BGGrid::~BGGrid();
 }
 
 void FGGrid::update(double deltaT) {

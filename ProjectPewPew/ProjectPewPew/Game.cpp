@@ -43,6 +43,11 @@ bool Game::initGL()
 
 void Game::start()
 {
+	fgGrid = new FGGrid(10, 10);
+	bgGrid = new BGGrid(10, 10);
+
+	player = new Player();
+
     runTime = 0;
     oldTime = glfwGetTime();
 
@@ -57,6 +62,7 @@ void Game::start()
 
 void Game::updateDeltaTime()
 {
+	player->update(deltaTime);
     double time = glfwGetTime();
     deltaTime = time - oldTime;
     oldTime = time;
@@ -70,8 +76,8 @@ void Game::update()
 
 	player.update(deltaTime);
 
-	fgGrid.update(deltaTime);
-	bgGrid.update(deltaTime);
+	fgGrid->update(deltaTime);
+	bgGrid->update(deltaTime);
 }
 
 void Game::render()
