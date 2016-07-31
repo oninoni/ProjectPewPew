@@ -2,12 +2,10 @@
 
 FGGrid::FGGrid()
 {
-	BGGrid::BGGrid();
 }                  
 
 FGGrid::~FGGrid()
 {
-	BGGrid::~BGGrid();
 }
 
 void FGGrid::update(double deltaT) {
