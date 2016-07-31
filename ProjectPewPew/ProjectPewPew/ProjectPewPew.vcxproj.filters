@@ -45,9 +45,6 @@
     <ClInclude Include="FGGrid.h">
       <Filter>Headerdateien\Grid</Filter>
     </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>Headerdateien\Grid</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -72,9 +69,6 @@
       <Filter>Quelldateien\Grid</Filter>
     </ClCompile>
     <ClCompile Include="FGGrid.cpp">
-      <Filter>Quelldateien\Grid</Filter>
-    </ClCompile>
-    <ClCompile Include="Grid.cpp">
       <Filter>Quelldateien\Grid</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">

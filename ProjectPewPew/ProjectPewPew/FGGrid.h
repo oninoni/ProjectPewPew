@@ -1,5 +1,5 @@
 #pragma once
-class FGGrid : public Grid
+class FGGrid : public BGGrid
 {
 public:
     FGGrid();

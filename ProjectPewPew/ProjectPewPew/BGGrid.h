@@ -1,8 +1,7 @@
 #pragma once
-class BGGrid : public Grid
+class BGGrid
 {
 public:
     BGGrid();
     ~BGGrid();
 };
-

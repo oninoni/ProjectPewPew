@@ -2,8 +2,10 @@
 
 FGGrid::FGGrid()
 {
+
 }                  
 
 FGGrid::~FGGrid()
 {
+
 }

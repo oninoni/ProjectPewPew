@@ -23,8 +23,7 @@ using namespace std;
 #include "Shader.h"
 
 // Game Logic
-#include "Player.h"
-#include "Grid.h"
-#include "FGGrid.h"
 #include "BGGrid.h"
+#include "FGGrid.h"
+#include "Player.h"
 #include "Game.h"
