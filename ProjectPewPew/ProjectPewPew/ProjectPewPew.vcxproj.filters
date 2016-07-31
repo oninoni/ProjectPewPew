@@ -19,9 +19,6 @@
     <Filter Include="Quelldateien\Grid">
       <UniqueIdentifier>{8e5969e4-714f-406a-8219-eb7fbe8820ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ressourcendateien\Shader">
-      <UniqueIdentifier>{502fb41f-5fae-4b0e-98fa-6304b24815c0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headerdateien\OpenGL">
       <UniqueIdentifier>{141e31c8-ffc2-4474-97ce-18bab25c0912}</UniqueIdentifier>
     </Filter>
