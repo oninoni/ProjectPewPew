@@ -10,3 +10,11 @@ BGGrid::~BGGrid()
 {
 
 }
+
+void BGGrid::update(double deltaT) {
+
+}
+
+void BGGrid::render() {
+
+}

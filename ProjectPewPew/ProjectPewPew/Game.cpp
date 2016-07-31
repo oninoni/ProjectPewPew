@@ -54,7 +54,10 @@ void Game::start()
 
 void Game::update(double deltaTime)
 {
+	player.update(deltaTime);
 
+	fgGrid.update(deltaTime);
+	bgGrid.update(deltaTime);
 }
 
 void Game::render()
