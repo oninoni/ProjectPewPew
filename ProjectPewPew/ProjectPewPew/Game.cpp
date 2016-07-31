@@ -61,12 +61,6 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glBegin(GL_TRIANGLES);
-		glVertex2d(-1,-1);
-		glVertex2d( 1,-1);
-		glVertex2d(-1, 1);
-	glEnd();
-
 	glfwSwapBuffers(window);
 }
 
