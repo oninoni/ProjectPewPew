@@ -13,6 +13,8 @@ bool Game::initGL()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
 
@@ -50,7 +52,7 @@ void Game::start()
     }
 }
 
-void Game::update(float deltaT)
+void Game::update(float deltaTime)
 {
 
 }
@@ -73,7 +75,7 @@ Game::Game(int* argc, char** argv)
         return;
 
     Shader test;
-    test.addShaderFromFile(stVertex, "data/shader/test.vs");
+    test.loadVertFragShader("test");
 
     start();
 }
