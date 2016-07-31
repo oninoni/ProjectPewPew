@@ -15,6 +15,8 @@ using namespace std;
 #include <Windows.h>
 #include <filesystem>
 #include <unordered_map>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 // External GL   
 #include "GL/glew.h"
@@ -22,11 +24,13 @@ using namespace std;
 
 // Other
 #include "TypeDefs.h"
+#include "lodePNG.h"
 #include "KeyManager.h"
 
 // OpenGL
 #include "GLEnums.h"
 #include "Shader.h"
+#include "Texture.h"
 #include "VAO.h"
 
 // Game Logic

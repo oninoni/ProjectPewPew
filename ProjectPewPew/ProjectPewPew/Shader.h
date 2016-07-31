@@ -3,6 +3,7 @@ class Shader
 {
 private:
     int program;
+    string_hashmap<int*> locations;
 
     static Shader* activeShader;
 
@@ -18,8 +19,8 @@ public:
 
     bool loadVertFragShader(string filename);
 
-    // TODO: Possseidon GetUniformLocation and save in string hashtable
-
+    int getUniformLocation(string name);
+    int getAttribLocation(string name);
 
     void enable();
     static void disable();

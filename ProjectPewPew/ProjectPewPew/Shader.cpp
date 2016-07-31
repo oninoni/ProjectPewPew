@@ -9,6 +9,9 @@ Shader::Shader()
 
 Shader::~Shader()
 {
+    // free all allocated memory
+    for (pair<string, int*> i : locations)
+        delete i.second;
     glDeleteProgram(program);
 }
 
@@ -92,6 +95,24 @@ bool Shader::loadVertFragShader(string filename)
     return addShaderFromFile(stVertex, tmp.append(".vert")) &&
            addShaderFromFile(stFragment, filename.append(".frag")) &&
            link();
+}
+
+int Shader::getUniformLocation(string name)
+{
+    int* l = locations[name];
+    if (l)
+        return *l;
+    else
+        return *(l = new int(glGetUniformLocation(program, name.c_str())));
+}
+
+int Shader::getAttribLocation(string name)
+{
+    int* l = locations[name];
+    if (l)
+        return *l;
+    else
+        return *(l = new int(glGetAttribLocation(program, name.c_str())));
 }
 
 void Shader::enable()

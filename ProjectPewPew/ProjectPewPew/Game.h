@@ -13,17 +13,28 @@ private:
     Player* player;
 
 	double oldTime;
+    double deltaTime;
+    double runTime;
 
-    //std::vector<Entity> entitys
+    Shader* testShader;
+
+    //std::vector<Entity> entitys;
+
+    bool initShader();
 
     bool initGL();
     void start();
 
-	void update(double deltaT);
+    void updateDeltaTime();
+
+	void update();
 	void render();
 
 public:
     Game(int* argc, char** argv);
     ~Game();
+
+    double getDeltaTime();
+    double getRunTime();
 };
 

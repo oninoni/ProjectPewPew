@@ -162,10 +162,12 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
     <ClInclude Include="KeyManager.h" />
+    <ClInclude Include="lodePNG.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="VAO.h" />
@@ -175,16 +177,21 @@
     <ClCompile Include="FGGrid.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="KeyManager.cpp" />
+    <ClCompile Include="lodePNG.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProjectPewPew.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag" />
     <None Include="test.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="grass_top.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

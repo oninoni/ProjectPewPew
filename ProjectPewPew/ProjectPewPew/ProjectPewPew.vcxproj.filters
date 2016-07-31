@@ -69,6 +69,12 @@
     <ClInclude Include="TypeDefs.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="lodePNG.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>Headerdateien\Grid\Tiles</Filter>
     </ClInclude>
@@ -101,6 +107,12 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="lodePNG.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Quelldateien\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Quelldateien\Grid\Tiles</Filter>
     </ClCompile>
@@ -116,10 +128,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag">
-      <Filter>Ressourcendateien\Shader</Filter>
+      <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="test.vert">
-      <Filter>Ressourcendateien\Shader</Filter>
+      <Filter>Ressourcendateien</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="grass_top.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
 </Project>
