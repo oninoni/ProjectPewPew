@@ -12,10 +12,15 @@ private:
 
     Player player;
 
+	double oldTime;
+
     //std::vector<Entity> entitys
 
     bool initGL();   
     void start();
+
+	void update(float deltaT);
+	void render();
 
 public:
     Game(int* argc, char** argv);

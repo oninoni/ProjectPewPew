@@ -19,6 +19,9 @@
     <Filter Include="Quelldateien\Grid">
       <UniqueIdentifier>{8e5969e4-714f-406a-8219-eb7fbe8820ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ressourcendateien\Shader">
+      <UniqueIdentifier>{502fb41f-5fae-4b0e-98fa-6304b24815c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
