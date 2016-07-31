@@ -28,6 +28,12 @@
     <Filter Include="Ressourcendateien\Shader">
       <UniqueIdentifier>{d7a3545d-50d9-4e97-b553-47b6b41fccd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Grid\Tiles">
+      <UniqueIdentifier>{4757ebfa-a3d6-450e-a2f7-45711cf977e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Grid\Tiles">
+      <UniqueIdentifier>{1b59ef54-5d2e-4046-9349-bbfcfde1b09c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -60,6 +66,9 @@
     <ClInclude Include="TypeDefs.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Headerdateien\Grid\Tiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Quelldateien\Grid\Tiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
