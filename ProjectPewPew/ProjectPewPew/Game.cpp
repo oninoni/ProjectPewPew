@@ -52,7 +52,7 @@ void Game::start()
     }
 }
 
-void Game::update(float deltaTime)
+void Game::update(double deltaTime)
 {
 
 }

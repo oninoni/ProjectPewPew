@@ -25,6 +25,9 @@
     <Filter Include="Quelldateien\OpenGL">
       <UniqueIdentifier>{aea89340-fdca-40e6-abd3-b3d635ae6ef3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ressourcendateien\Shader">
+      <UniqueIdentifier>{d7a3545d-50d9-4e97-b553-47b6b41fccd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -83,10 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag">
-      <Filter>Ressourcendateien</Filter>
+      <Filter>Ressourcendateien\Shader</Filter>
     </None>
     <None Include="test.vert">
-      <Filter>Ressourcendateien</Filter>
+      <Filter>Ressourcendateien\Shader</Filter>
     </None>
   </ItemGroup>
 </Project>

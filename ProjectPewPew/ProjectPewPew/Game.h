@@ -19,7 +19,7 @@ private:
     bool initGL();
     void start();
 
-	void update(float deltaT);
+	void update(double deltaT);
 	void render();
 
 public:
