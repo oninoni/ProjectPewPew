@@ -52,14 +52,20 @@ void Game::start()
     }
 }
 
-void Game::update(float deltaT)
+void Game::update(float deltaTime)
 {
 
 }
 
 void Game::render()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(amColorDepth);
+
+    glBegin(rmTriangles);
+    glVertex2f(0, 0);
+    glVertex2f(1, 0);
+    glVertex2f(0, 1);
+    glEnd();
 
 	glfwSwapBuffers(window);
 }
@@ -75,7 +81,7 @@ Game::Game(int* argc, char** argv)
         return;
 
     Shader test;
-    test.addShaderFromFile(stVertex, "data/shader/test.vs");
+    test.loadVertFragShader("test");
 
     start();
 }

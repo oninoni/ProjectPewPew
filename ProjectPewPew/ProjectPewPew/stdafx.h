@@ -9,14 +9,19 @@ using namespace std;
 #include <tchar.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>  
 #include <string.h>
 #include <vector>
 #include <Windows.h>
 #include <filesystem>
+#include <unordered_map>
 
 // External GL   
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
+
+// Other
+#include "TypeDefs.h"
 
 // OpenGL
 #include "GLEnums.h"

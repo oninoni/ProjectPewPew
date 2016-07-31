@@ -54,6 +54,9 @@
     <ClInclude Include="Shader.h">
       <Filter>Headerdateien\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="TypeDefs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -77,5 +80,13 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="test.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
   </ItemGroup>
 </Project>

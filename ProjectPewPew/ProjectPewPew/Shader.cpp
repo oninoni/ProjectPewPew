@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+Shader* Shader::activeShader = 0;
+
 Shader::Shader()
 {
     program = glCreateProgram();
@@ -10,31 +12,95 @@ Shader::~Shader()
     glDeleteProgram(program);
 }
 
+bool Shader::checkShaderErrors(string shaderName, int shader)
+{
+    int blen;       
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &blen); 
+
+    if (blen <= 1)
+        return true;
+    
+    char* infoLog = new char[blen];   
+    int slen;
+    glGetShaderInfoLog(shader, blen, &slen, infoLog);
+    cout << "Shader Error in " << shaderName << ':' << endl << infoLog << endl;     
+    delete[] infoLog;
+
+    return false;
+}
+
+bool Shader::checkProgramErrors()
+{
+    int blen;      
+    glGetProgramiv(program, GL_INFO_LOG_LENGTH, &blen);  
+    if (blen <= 1)
+        return true;
+
+    char* infoLog = new char[blen];
+    int slen;
+    glGetProgramInfoLog(program, blen, &slen, infoLog);
+    cout << "Linking Error:" << endl << infoLog << endl;  
+    delete[] infoLog;
+
+    return false;
+}
+
 bool Shader::addShaderFromFile(GLShaderType shaderType, string filename)
 {
     int shader = glCreateShader(shaderType);
 
     ifstream shaderFile(filename);
     if (!shaderFile.good())
+    {
+        cout << "Can't open shader file " << filename << "!" << endl;
         return false;
+    }
+    stringstream buffer;                 
+    buffer << shaderFile.rdbuf();
 
-    int size = shaderFile.gcount();
-    char* data = new char[size + 1];
-    shaderFile.read(data, size);
+    int length = buffer.str().size();
+    char* data = new char[length + 1];
+    buffer.read(data, length);
+    data[length] = 0;
 
-    cout << "Loading Shader:" << endl;
-    cout << data << endl;
-
+    glShaderSource(shader, 1, &data, &length);
     delete[] data;
 
+    glCompileShader(shader);
+
+    if (!checkShaderErrors(filename, shader))
+        return false;
+
+    glAttachShader(program, shader);
     glDeleteShader(shader);
 
     return true;
 }
 
+bool Shader::link()
+{
+    glLinkProgram(program);
+    if (!checkProgramErrors())
+        return false;
+    enable();
+    return true;
+}
+
+bool Shader::loadVertFragShader(string filename)
+{
+    string tmp = filename;
+    return addShaderFromFile(stVertex, tmp.append(".vert")) &&
+           addShaderFromFile(stFragment, filename.append(".frag")) &&
+           link();
+}
+
 void Shader::enable()
 {
-    glUseProgram(program);
+    if (activeShader != this)
+    {
+        glUseProgram(program);
+        activeShader = this;
+    }
 }
 
 void Shader::disable()
