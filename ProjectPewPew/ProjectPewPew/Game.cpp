@@ -4,19 +4,29 @@ bool Game::initGL()
 {
     if (!glfwInit())
     {
-        std::cout << "OpenGL failed. You suck!" << std::endl;
+        cout << "GLFW failed. You suck!" << endl;
         return false;
     }
-      
-    window = glfwCreateWindow(1280, 720, "Project PewPew", NULL, NULL);
-   
-    if (!window)
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+
+    if (!(window = glfwCreateWindow(1280, 720, "Project PewPew", NULL, NULL)))
     {
-        std::cout << "Window could not be created! You suck!" << std::endl;
+        cout << "Window could not be created! You suck!" << endl;
         return false;
     }
 
     glfwMakeContextCurrent(window);
+
+    if (glewInit())
+    {
+        cout << "Glew could not be initilalized. You suck!" << endl;
+        return false;
+    }
 
     glClearColor(0, 0, 0, 0);
 
@@ -27,7 +37,7 @@ void Game::start()
 {
     while (!glfwWindowShouldClose(window))
     {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(amColorDepth);
 
         // update
         // render
@@ -40,7 +50,7 @@ void Game::start()
 
 Game::Game(int* argc, char** argv)
 {
-    std::cout << "Game started!" << std::endl;
+    cout << "Game started!" << endl;
 
     this->argc = argc;
     this->argv = argv;
@@ -48,11 +58,14 @@ Game::Game(int* argc, char** argv)
     if (!initGL())
         return;
 
+    Shader test;
+    test.addShaderFromFile(stVertex, "data/shader/test.vs");
+
     start();
-}             
+}
 
 Game::~Game()
 {
     glfwTerminate();
-    std::cout << "Game stopped!" << std::endl;
+    cout << "Game stopped!" << endl;
 }

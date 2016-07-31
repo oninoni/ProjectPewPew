@@ -12,9 +12,9 @@ private:
 
     Player player;
 
-    //std::vector<Entity> entitys
+    //vector<Entity> entitys
 
-    bool initGL();   
+    bool initGL();
     void start();
 
 public:
