@@ -1,6 +1,8 @@
 #pragma once
 class BGGrid
 {
+private:
+
 public:
     BGGrid();
     ~BGGrid();
