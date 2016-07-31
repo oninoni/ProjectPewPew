@@ -1,9 +1,13 @@
 #include "stdafx.h"
 
+bool Game::initShader()
+{
+    testShader = new Shader;
+    return testShader->loadVertFragShader("test");
+}
+
 bool Game::initGL()
 {
-	oldTime = 0;
-
     if (!glfwInit())
     {
         cout << "GLFW failed. You suck!" << endl;
@@ -39,21 +43,31 @@ bool Game::initGL()
 
 void Game::start()
 {
+    runTime = 0;
+    oldTime = glfwGetTime();
+
     while (!glfwWindowShouldClose(window))
     {
-        double time = glfwGetTime();
-		double deltaT = oldTime - time;
-		oldTime = time;
-
-		update(deltaT);
+		update();
 		render();
 
 		glfwPollEvents();
     }
 }
 
-void Game::update(double deltaTime)
+void Game::updateDeltaTime()
 {
+    double time = glfwGetTime();
+    deltaTime = time - oldTime;
+    oldTime = time;
+
+    runTime += deltaTime;
+}
+
+void Game::update()
+{
+    updateDeltaTime();
+
 	player.update(deltaTime);
 
 	fgGrid.update(deltaTime);
@@ -64,6 +78,16 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+    glUniform3f(testShader->getUniformLocation("color"), sin(runTime) / 2 + 0.5, cos(runTime) / 2 + 0.5, 0);
+
+    glBegin(rmTriangles);
+
+    glVertex2f(0, 0);
+    glVertex2f(1, 0);
+    glVertex2f(0, 1);
+
+    glEnd();
+
 	glfwSwapBuffers(window);
 }
 
@@ -77,14 +101,26 @@ Game::Game(int* argc, char** argv)
     if (!initGL())
         return;
 
-    Shader test;
-    test.loadVertFragShader("test");
+    if (!initShader())
+        return;
 
     start();
 }
 
 Game::~Game()
 {
+    delete testShader;
+
     glfwTerminate();
     cout << "Game stopped!" << endl;
+}
+
+double Game::getDeltaTime()
+{
+    return deltaTime;
+}
+
+double Game::getRunTime()
+{
+    return runTime;
 }

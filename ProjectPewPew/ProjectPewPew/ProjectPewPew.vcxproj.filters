@@ -25,9 +25,6 @@
     <Filter Include="Quelldateien\OpenGL">
       <UniqueIdentifier>{aea89340-fdca-40e6-abd3-b3d635ae6ef3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ressourcendateien\Shader">
-      <UniqueIdentifier>{d7a3545d-50d9-4e97-b553-47b6b41fccd8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -60,6 +57,12 @@
     <ClInclude Include="TypeDefs.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="lodePNG.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -83,13 +86,24 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="lodePNG.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Quelldateien\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag">
-      <Filter>Ressourcendateien\Shader</Filter>
+      <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="test.vert">
-      <Filter>Ressourcendateien\Shader</Filter>
+      <Filter>Ressourcendateien</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="grass_top.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
 </Project>
