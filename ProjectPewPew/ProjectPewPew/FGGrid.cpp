@@ -1,8 +1,9 @@
 #include "stdafx.h"
 
-FGGrid::FGGrid()
+FGGrid::FGGrid(int sizeX, int sizeY)
 {
-}                  
+	BGGrid::BGGrid(sizeX, sizeY);
+}
 
 FGGrid::~FGGrid()
 {

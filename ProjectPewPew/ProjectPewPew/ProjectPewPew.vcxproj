@@ -167,6 +167,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TypeDefs.h" />
+    <ClInclude Include="VAO.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BGGrid.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag" />

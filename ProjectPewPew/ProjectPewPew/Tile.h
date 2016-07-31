@@ -8,5 +8,7 @@ private:
 public:
 	Tile(int x, int y, string texID);
 	~Tile();
+
+	void addtoVAO(VAO vao);
 };
 

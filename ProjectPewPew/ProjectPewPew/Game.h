@@ -7,10 +7,10 @@ private:
     int* argc;
     char** argv;
 
-    FGGrid fgGrid;
-    BGGrid bgGrid;
+    FGGrid* fgGrid;
+    BGGrid* bgGrid;
 
-    Player player;
+    Player* player;
 
 	double oldTime;
 

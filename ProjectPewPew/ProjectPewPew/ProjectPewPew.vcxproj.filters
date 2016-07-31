@@ -69,6 +69,9 @@
     <ClInclude Include="Tile.h">
       <Filter>Headerdateien\Grid\Tiles</Filter>
     </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -94,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Quelldateien\Grid\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

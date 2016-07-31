@@ -26,6 +26,7 @@ using namespace std;
 // OpenGL
 #include "GLEnums.h"
 #include "Shader.h"
+#include "VAO.h"
 
 // Game Logic
 
