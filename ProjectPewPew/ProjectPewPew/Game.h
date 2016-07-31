@@ -16,7 +16,7 @@ private:
 
     //std::vector<Entity> entitys
 
-    bool initGL();   
+    bool initGL();
     void start();
 
 	void update(float deltaT);

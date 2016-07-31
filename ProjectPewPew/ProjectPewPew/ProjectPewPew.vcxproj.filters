@@ -22,6 +22,12 @@
     <Filter Include="Ressourcendateien\Shader">
       <UniqueIdentifier>{502fb41f-5fae-4b0e-98fa-6304b24815c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\OpenGL">
+      <UniqueIdentifier>{141e31c8-ffc2-4474-97ce-18bab25c0912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\OpenGL">
+      <UniqueIdentifier>{aea89340-fdca-40e6-abd3-b3d635ae6ef3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -48,6 +54,12 @@
     <ClInclude Include="Player.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="GLEnums.h">
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -71,8 +83,8 @@
     <ClCompile Include="Player.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClCompile Include="Shader.cpp">
+      <Filter>Quelldateien\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
