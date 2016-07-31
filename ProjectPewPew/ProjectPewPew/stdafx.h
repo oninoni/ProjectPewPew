@@ -22,6 +22,7 @@ using namespace std;
 
 // Other
 #include "TypeDefs.h"
+#include "KeyManager.h"
 
 // OpenGL
 #include "GLEnums.h"

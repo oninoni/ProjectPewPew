@@ -34,6 +34,12 @@
     <Filter Include="Quelldateien\Grid\Tiles">
       <UniqueIdentifier>{1b59ef54-5d2e-4046-9349-bbfcfde1b09c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Player">
+      <UniqueIdentifier>{96613372-9045-4aad-bf67-49dd9fbb61f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Player">
+      <UniqueIdentifier>{d230d48f-c889-409c-8559-ec7310394766}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -54,9 +60,6 @@
     <ClInclude Include="FGGrid.h">
       <Filter>Headerdateien\Grid</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="GLEnums.h">
       <Filter>Headerdateien\OpenGL</Filter>
     </ClInclude>
@@ -71,6 +74,12 @@
     </ClInclude>
     <ClInclude Include="VAO.h">
       <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Headerdateien\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +98,6 @@
     <ClCompile Include="FGGrid.cpp">
       <Filter>Quelldateien\Grid</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
@@ -100,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="VAO.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Quelldateien\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

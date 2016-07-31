@@ -42,7 +42,7 @@ void Game::start()
 	fgGrid = new FGGrid(10, 10);
 	bgGrid = new BGGrid(10, 10);
 
-	player = new Player();
+	player = new Player(window, 1.0f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -90,6 +90,10 @@ Game::Game(int* argc, char** argv)
 
 Game::~Game()
 {
+	delete player;
+	delete bgGrid;
+	delete fgGrid;
+
     glfwTerminate();
     cout << "Game stopped!" << endl;
 }

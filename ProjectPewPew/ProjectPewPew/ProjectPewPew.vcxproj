@@ -161,6 +161,7 @@
     <ClInclude Include="FGGrid.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
+    <ClInclude Include="KeyManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stdafx.h" />
@@ -173,6 +174,7 @@
     <ClCompile Include="BGGrid.cpp" />
     <ClCompile Include="FGGrid.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProjectPewPew.cpp" />
     <ClCompile Include="Shader.cpp" />
