@@ -12,9 +12,9 @@ private:
 
     Player* player;
 
-	double oldTime;
-    double deltaTime;
-    double runTime;
+	float oldTime;
+    float deltaTime;
+    float runTime;
 
     Shader* testShader;
 
@@ -34,7 +34,7 @@ public:
     Game(int* argc, char** argv);
     ~Game();
 
-    double getDeltaTime();
-    double getRunTime();
+    float getDeltaTime();
+    float getRunTime();
 };
 

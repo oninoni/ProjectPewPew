@@ -1,14 +1,14 @@
 #pragma once
 class Tile {
 private:
-	int xPos;
-	int yPos;
+    ivec2 pos;
 
-	string textureID;
+	string texture;
 public:
-	Tile(int x, int y, string texID);
+	Tile(int x, int y, string texture);
+    Tile(ivec2 pos, string texture);
 	~Tile();
 
-	void addtoVAO(VAO vao);
+	void addToVAO(VAO vao);
 };
 

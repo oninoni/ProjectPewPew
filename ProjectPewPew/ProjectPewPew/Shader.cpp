@@ -99,15 +99,17 @@ bool Shader::loadVertFragShader(string filename)
 
 int Shader::getUniformLocation(string name)
 {
+    // save the location to minimize shader-gets
     int* l = locations[name];
     if (l)
         return *l;
     else
-        return *(l = new int(glGetUniformLocation(program, name.c_str())));
+        return *(locations[name] = new int(glGetUniformLocation(program, name.c_str())));
 }
 
 int Shader::getAttribLocation(string name)
 {
+    // save the location to minimize shader-gets
     int* l = locations[name];
     if (l)
         return *l;

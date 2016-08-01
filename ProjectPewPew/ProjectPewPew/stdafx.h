@@ -17,6 +17,7 @@ using namespace std;
 #include <unordered_map>
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <vld.h>
 
 // External GL   
 #include "GL/glew.h"
@@ -26,17 +27,18 @@ using namespace std;
 #include "TypeDefs.h"
 #include "lodePNG.h"
 #include "KeyManager.h"
+#include "vec2.h"
 
 // OpenGL
 #include "GLEnums.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "TextureData.h"
+#include "TextureMap.h"
 #include "VAO.h"
 
-// Game Logic
-
+// Game Logic       
 #include "Tile.h"
-
 #include "BGGrid.h"
 #include "FGGrid.h"
 #include "Player.h"

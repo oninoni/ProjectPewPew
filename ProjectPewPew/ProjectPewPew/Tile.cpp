@@ -1,14 +1,22 @@
 #include "stdafx.h"
 
-Tile::Tile(int x, int y, string texID) {
-	xPos = x;
-	yPos = y;
-	textureID = texID;
+Tile::Tile(int x, int y, string texture) 
+{
+    Tile(ivec2(x, y), texture);
 }
 
-Tile::~Tile() {
+Tile::Tile(ivec2 pos, string texture)
+{
+    this->pos = pos;
+    this->texture = texture;
 }
 
-void Tile::addtoVAO(VAO vao) {
+Tile::~Tile() 
+{
+
+}
+
+void Tile::addToVAO(VAO vao) 
+{
 
 }

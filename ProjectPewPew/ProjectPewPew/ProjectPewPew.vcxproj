@@ -168,9 +168,12 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureMap.h" />
+    <ClInclude Include="TextureData.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="VAO.h" />
+    <ClInclude Include="vec2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BGGrid.cpp" />
@@ -183,15 +186,21 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureMap.cpp" />
+    <ClCompile Include="TextureData.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.frag" />
-    <None Include="test.vert" />
+    <None Include="test.frag">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="test.vert">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="grass_top.png" />
+    <Image Include="grass.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

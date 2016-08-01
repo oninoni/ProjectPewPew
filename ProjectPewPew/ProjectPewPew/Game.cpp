@@ -46,10 +46,10 @@ void Game::start()
 	fgGrid = new FGGrid(10, 10);
 	bgGrid = new BGGrid(10, 10);
 
-	player = new Player(window, 1.0f, 1.0f);
+	player = new Player(0, 0);
 
     runTime = 0;
-    oldTime = glfwGetTime();
+    oldTime = (float)glfwGetTime();
 
     while (!glfwWindowShouldClose(window))
     {
@@ -62,8 +62,7 @@ void Game::start()
 
 void Game::updateDeltaTime()
 {
-	player->update(deltaTime);
-    double time = glfwGetTime();
+    float time = (float)glfwGetTime();
     deltaTime = time - oldTime;
     oldTime = time;
 
@@ -74,7 +73,7 @@ void Game::update()
 {
     updateDeltaTime();
 
-	player.update(deltaTime);
+	player->update(deltaTime);
 
 	fgGrid->update(deltaTime);
 	bgGrid->update(deltaTime);
@@ -84,7 +83,7 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-    glUniform3f(testShader->getUniformLocation("color"), sin(runTime) / 2 + 0.5, cos(runTime) / 2 + 0.5, 0);
+    glUniform3f(testShader->getUniformLocation("color"), sin(runTime) / 2.0f + 0.5f, cos(runTime) / 2 + 0.5f, 0);
 
     glBegin(rmTriangles);
 
@@ -125,12 +124,12 @@ Game::~Game()
     cout << "Game stopped!" << endl;
 }
 
-double Game::getDeltaTime()
+float Game::getDeltaTime()
 {
     return deltaTime;
 }
 
-double Game::getRunTime()
+float Game::getRunTime()
 {
     return runTime;
 }

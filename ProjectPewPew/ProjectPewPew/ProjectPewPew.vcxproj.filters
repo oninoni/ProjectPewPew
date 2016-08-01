@@ -40,6 +40,15 @@
     <Filter Include="Quelldateien\Player">
       <UniqueIdentifier>{d230d48f-c889-409c-8559-ec7310394766}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ressourcendateien\textures">
+      <UniqueIdentifier>{92d55141-68ff-4f16-bd35-2f34749feeae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Math">
+      <UniqueIdentifier>{b9ef64af-bd0f-47f7-bc0b-d8a3fa294eb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Math">
+      <UniqueIdentifier>{553334be-ff56-4f4e-8f9b-50d649b65dd5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -87,6 +96,15 @@
     <ClInclude Include="KeyManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="vec2.h">
+      <Filter>Headerdateien\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMap.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -125,18 +143,24 @@
     <ClCompile Include="KeyManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="TextureMap.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureData.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag">
-      <Filter>Ressourcendateien</Filter>
+      <Filter>Ressourcendateien\Shader</Filter>
     </None>
     <None Include="test.vert">
-      <Filter>Ressourcendateien</Filter>
+      <Filter>Ressourcendateien\Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="grass_top.png">
-      <Filter>Ressourcendateien</Filter>
+    <Image Include="grass.png">
+      <Filter>Ressourcendateien\textures</Filter>
     </Image>
   </ItemGroup>
 </Project>

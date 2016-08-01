@@ -11,8 +11,7 @@ BGGrid::BGGrid(int sX, int sY)
 
 	for (int x = 0; x < sizeX; x++) {
 		for (int y = 0; y < sizeY; y++) {
-			Tile* tile = new Tile(x, y, "Test");
-			tileMap.push_back(*tile);
+			tileMap.push_back(Tile(x, y, "Test"));
 		}
 	}
 }
@@ -20,7 +19,6 @@ BGGrid::BGGrid(int sX, int sY)
 
 BGGrid::~BGGrid()
 {
-
 }
 
 void BGGrid::update(double deltaT) {
@@ -28,7 +26,7 @@ void BGGrid::update(double deltaT) {
 }
 
 void BGGrid::render() {
-	for (int i = 0; i < tileMap.size(); i++) {
+	for (size_t i = 0; i < tileMap.size(); i++) {
 		tileMap.at(i);
 	}
 }

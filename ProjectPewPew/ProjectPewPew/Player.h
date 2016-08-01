@@ -2,12 +2,11 @@
 class Player
 {
 private:
-	float xPos;
-	float yPos;
+    vec2 pos;
 
-	GLFWwindow* window;
 public:
-    Player(GLFWwindow* w, float x, float y);
+    Player(vec2 pos);
+    Player(float x, float y);
     ~Player();
 
 	void update(double deltaT);
