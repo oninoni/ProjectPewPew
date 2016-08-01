@@ -19,7 +19,7 @@ using namespace std;
 #include <math.h>
 #include <vld.h>
 
-// External GL   
+// External GL
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 

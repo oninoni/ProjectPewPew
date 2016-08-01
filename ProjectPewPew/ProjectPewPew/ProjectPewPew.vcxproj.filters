@@ -78,9 +78,6 @@
     <ClInclude Include="TypeDefs.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="lodePNG.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Headerdateien\OpenGL</Filter>
     </ClInclude>
@@ -93,17 +90,20 @@
     <ClInclude Include="Player.h">
       <Filter>Headerdateien\Player</Filter>
     </ClInclude>
-    <ClInclude Include="KeyManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="vec2.h">
       <Filter>Headerdateien\Math</Filter>
     </ClInclude>
     <ClInclude Include="TextureMap.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="TextureData.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="lodePNG.h">
+      <Filter>Headerdateien\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>Headerdateien\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +125,6 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="lodePNG.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
@@ -141,13 +138,16 @@
       <Filter>Quelldateien\Player</Filter>
     </ClCompile>
     <ClCompile Include="KeyManager.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Player</Filter>
     </ClCompile>
-    <ClCompile Include="TextureMap.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="lodePNG.cpp">
+      <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="TextureData.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMap.cpp">
+      <Filter>Quelldateien\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
