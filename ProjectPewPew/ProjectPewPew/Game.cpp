@@ -55,7 +55,7 @@ void Game::start()
 	fgGrid = new FGGrid(10, 10);
 	bgGrid = new BGGrid(10, 10);
 
-	player = new Player(0, 0);
+	player = new Player(0, 0, this);
 
     runTime = 0;
     oldTime = (float)glfwGetTime();
@@ -149,4 +149,20 @@ float Game::getDeltaTime()
 float Game::getRunTime()
 {
     return runTime;
+}
+
+GLFWwindow * Game::getWindow() {
+	return window;
+}
+
+FGGrid * Game::getFGGrid() {
+	return fgGrid;
+}
+
+BGGrid * Game::getBGGrid() {
+	return bgGrid;
+}
+
+Player * Game::getPlayer() {
+	return player;
 }

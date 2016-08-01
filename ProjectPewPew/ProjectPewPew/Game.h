@@ -36,5 +36,10 @@ public:
 
     float getDeltaTime();
     float getRunTime();
+
+	GLFWwindow* getWindow();
+	FGGrid* getFGGrid();
+	BGGrid* getBGGrid();
+	Player* getPlayer();
 };
 

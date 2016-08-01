@@ -13,8 +13,8 @@ private:
 	GLFWwindow* window;
 
 	int keyBinds[K_SIZE];
-	boolean keyStateOld[K_SIZE];
-	boolean keyState[K_SIZE];
+	bool keyStateOld[K_SIZE];
+	bool keyState[K_SIZE];
 public:
 	KeyManager(GLFWwindow* w);
 	~KeyManager();
@@ -23,9 +23,9 @@ public:
 
 	void update();
 
-	boolean keyPressed(KeyCodes keycode);
-	boolean keyReleased(KeyCodes keycode);
-	boolean keyDown(KeyCodes keycode);
-	boolean keyUp(KeyCodes keycode);
+	bool keyPressed(KeyCodes keycode);
+	bool keyReleased(KeyCodes keycode);
+	bool keyDown(KeyCodes keycode);
+	bool keyUp(KeyCodes keycode);
 };
 

@@ -19,7 +19,7 @@ using namespace std;
 #include <math.h>
 #include <vld.h>
 
-// External GL   
+// External GL
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
@@ -38,7 +38,8 @@ using namespace std;
 #include "TextureMap.h"
 #include "VAO.h"
 
-// Game Logic       
+// Game Logic    
+class Game;
 #include "Tile.h"
 #include "BGGrid.h"
 #include "FGGrid.h"
