@@ -22,7 +22,7 @@ void KeyManager::bindKey(KeyCodes keycode, int keyID) {
 void KeyManager::update() {
 	for (int i = 0; i < K_SIZE; i++) {
 		keyStateOld[i] = keyState[i];
-		keyState[i] = glfwGetKey(window, keyBinds[i]);
+		keyState[i] = glfwGetKey(window, keyBinds[i]) == 1;
 	}
 }
 
