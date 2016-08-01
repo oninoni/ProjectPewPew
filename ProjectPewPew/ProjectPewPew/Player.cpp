@@ -1,23 +1,30 @@
 #include "stdafx.h"
 
-Player::Player(float x, float y)
+Player::Player(float x, float y, GLFWwindow* w):
+	Player(vec2(x, y), w)
 {
-    Player(vec2(x, y));
+
 }
 
-Player::Player(vec2 pos) 
+Player::Player(vec2 pos, GLFWwindow* w)
 {
+	window = w;
+	keyManager = new KeyManager(window);
     this->pos = pos;
 }
 
 Player::~Player()
 {
+	delete keyManager;
 }
 
 void Player::update(double deltaT) 
 {
-    // dafür schreibste ja grad ein controls manager :P
-	//int key = glfwGetKey(window, GLFW_KEY_W);
+	keyManager->update();
+
+	if (keyManager->keyPressed(K_UP)) {
+		cout << "GEDRÖCKT!!!" << endl;
+	}
 }
 
 void Player::render() {
