@@ -49,6 +49,12 @@
     <Filter Include="Headerdateien\Math">
       <UniqueIdentifier>{553334be-ff56-4f4e-8f9b-50d649b65dd5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\OpenGL\Texture">
+      <UniqueIdentifier>{c9d0c054-8014-4f1d-858d-e120db29c44a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\OpenGL\Texture">
+      <UniqueIdentifier>{aa292625-9755-4e17-8412-2c54312c680c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -81,9 +87,6 @@
     <ClInclude Include="lodePNG.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>Headerdateien\Grid\Tiles</Filter>
     </ClInclude>
@@ -99,11 +102,17 @@
     <ClInclude Include="vec2.h">
       <Filter>Headerdateien\Math</Filter>
     </ClInclude>
-    <ClInclude Include="TextureMap.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="Texture.h">
+      <Filter>Headerdateien\OpenGL\Texture</Filter>
     </ClInclude>
     <ClInclude Include="TextureData.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\OpenGL\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMap.h">
+      <Filter>Headerdateien\OpenGL\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMapItem.h">
+      <Filter>Headerdateien\OpenGL\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +137,6 @@
     <ClCompile Include="lodePNG.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Quelldateien\Grid\Tiles</Filter>
     </ClCompile>
@@ -143,11 +149,17 @@
     <ClCompile Include="KeyManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="TextureMap.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Quelldateien\OpenGL\Texture</Filter>
     </ClCompile>
     <ClCompile Include="TextureData.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMap.cpp">
+      <Filter>Quelldateien\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMapItem.cpp">
+      <Filter>Quelldateien\OpenGL\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

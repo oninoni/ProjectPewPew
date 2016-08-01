@@ -5,18 +5,23 @@ struct gvec2 sealed
 {
     gvec2();
     gvec2(type x, type y);
-
+    
     gvec2<type> operator+(const gvec2<type> &other);
-    gvec2<type> operator+(const type value);
+    gvec2<type> operator+(type value);
+    template<typename t>
+    friend gvec2<t> operator+(t value, const gvec2<t> &vec);
 
     gvec2<type> operator-(const gvec2<type> &other);
-    gvec2<type> operator-(const type value);
+    gvec2<type> operator-(type value);
 
     gvec2<type> operator*(const gvec2<type> &other);
-    gvec2<type> operator*(const type value);
-
+    gvec2<type> operator*(type value);
+    
     gvec2<type> operator/(const gvec2<type> &other);
-    gvec2<type> operator/(const type value);
+    gvec2<type> operator/(type value);
+
+    bool operator==(const gvec2<type> &other);
+    bool operator!=(const gvec2<type> &other);
 
     gvec2<type> vectorTo(const gvec2<type> &other);
 
@@ -53,9 +58,15 @@ inline gvec2<type> gvec2<type>::operator+(const gvec2<type> &other)
 }
 
 template<typename type>
-inline gvec2<type> gvec2<type>::operator+(const type value)
+inline gvec2<type> gvec2<type>::operator+(type value)
 {
     return gvec2<type>(x + value, y + value);
+}
+
+template<typename t>
+gvec2<t> operator+(t value, const gvec2<t> &vec)
+{
+    return gvec2<t>(value + vec.x, value + vec.y);
 }
 
 template<typename type>
@@ -65,7 +76,7 @@ inline gvec2<type> gvec2<type>::operator-(const gvec2<type> &other)
 }
 
 template<typename type>
-inline gvec2<type> gvec2<type>::operator-(const type value)
+inline gvec2<type> gvec2<type>::operator-(type value)
 {
     return gvec2<type>(x - value, y - value);
 }
@@ -77,7 +88,7 @@ inline gvec2<type> gvec2<type>::operator*(const gvec2<type> &other)
 }
 
 template<typename type>
-inline gvec2<type> gvec2<type>::operator*(const type value)
+inline gvec2<type> gvec2<type>::operator*(type value)
 {
     return gvec2<type>(x * value, y * value);
 }
@@ -89,9 +100,21 @@ inline gvec2<type> gvec2<type>::operator/(const gvec2<type> &other)
 }
 
 template<typename type>
-inline gvec2<type> gvec2<type>::operator/(const type value)
+inline gvec2<type> gvec2<type>::operator/(type value)
 {
     return gvec2<type>(x / value, y / value);
+}
+
+template<typename type>
+inline bool gvec2<type>::operator==(const gvec2<type>& other)
+{
+    return x == other.x && y == other.y;
+}
+
+template<typename type>
+inline bool gvec2<type>::operator!=(const gvec2<type>& other)
+{
+    return !(*this == other);
 }
 
 template<typename type>

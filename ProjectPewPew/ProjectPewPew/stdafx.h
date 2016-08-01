@@ -34,6 +34,7 @@ using namespace std;
 #include "Shader.h"
 #include "Texture.h"
 #include "TextureData.h"
+#include "TextureMapItem.h"
 #include "TextureMap.h"
 #include "VAO.h"
 

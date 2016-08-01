@@ -14,7 +14,7 @@ TextureData::TextureData(string filename)
     if (a == string::npos)
     {
         if (b == string::npos)
-            pos == string::npos;
+            pos = string::npos;
         else
             pos = b;
     }
@@ -62,7 +62,7 @@ void TextureData::freeData()
     if (!data)
         return;
     delete[] data;
-    data = 0;
+    data = NULL;
 }
 
 cvec2 TextureData::getSize()

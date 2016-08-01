@@ -1,10 +1,13 @@
 #pragma once
+
 class TextureData
 {
 private:
     cvec2 size;
     byte* data;
     string name;
+
+    TextureData() {};
 
 public:
     TextureData(string filename);

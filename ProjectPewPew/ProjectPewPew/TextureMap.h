@@ -5,12 +5,20 @@ class TextureMap :
 {
 private:
     int size;
-    int maxTextureCount;
+    int textureCount;
+    cvec2 texSize;
 
-    vector<TextureData> tiles;
+    string_hashmap<TextureMapItem*> tiles;
 
 public:
-    TextureMap(int maxTextureCount);
+    TextureMap();
     ~TextureMap();
+
+    bool addTexture(string filename);
+    bool delTexture(string name);
+    
+    void buildPage(bool freeTextureData = true);
+
+    texcoord getTexCoord(string name, texcoord texCoord);
 };
 

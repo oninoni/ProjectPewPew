@@ -34,6 +34,12 @@ void Texture::bind()
     }
 }
 
+void Texture::uniform(Shader & shader, string name)
+{
+    shader.enable();
+    glUniform1i(shader.getUniformLocation(name), unitID);
+}
+
 void Texture::init()
 {
     glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &maxUnits);

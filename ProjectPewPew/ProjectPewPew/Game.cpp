@@ -43,6 +43,15 @@ bool Game::initGL()
 
 void Game::start()
 {
+    TextureMap texmap;
+    texmap.addTexture("grass.png");
+    texmap.buildPage();
+    texmap.uniform(*testShader, "tex");
+
+    int w, h;
+    glfwGetWindowSize(window, &w, &h);
+    glUniform1f(testShader->getUniformLocation("aspect"), (float)w / h);
+
 	fgGrid = new FGGrid(10, 10);
 	bgGrid = new BGGrid(10, 10);
 
@@ -83,13 +92,21 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-    glUniform3f(testShader->getUniformLocation("color"), sin(runTime) / 2.0f + 0.5f, cos(runTime) / 2 + 0.5f, 0);
-
     glBegin(rmTriangles);
 
-    glVertex2f(0, 0);
-    glVertex2f(1, 0);
-    glVertex2f(0, 1);
+    glTexCoord2f(0, 0);
+    glVertex2f(-0.5, -0.5);
+    glTexCoord2f(1, 0);
+    glVertex2f(0.5, -0.5);
+    glTexCoord2f(1, 1);
+    glVertex2f(0.5, 0.5);
+    glTexCoord2f(1, 1);
+    glVertex2f(0.5, 0.5);
+    glTexCoord2f(0, 1);
+    glVertex2f(-0.5, 0.5);
+    glTexCoord2f(0, 0);
+    glVertex2f(-0.5, -0.5);
+
 
     glEnd();
 

@@ -1,10 +1,12 @@
 #version 420
+  
+uniform sampler2D tex;
 
-uniform vec3 color;
+in vec2 ftexcoord;
 
 out vec4 outcolor;
 
 void main()
 {
-    outcolor = vec4(color, 1);    
+    outcolor = texture(tex, ftexcoord);    
 }
