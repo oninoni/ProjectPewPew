@@ -1,197 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Quelldateien">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Headerdateien">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Ressourcendateien">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Headerdateien\Grid">
-      <UniqueIdentifier>{5eed1fdb-38b6-48ef-ab86-ae4e282bee11}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\Grid">
-      <UniqueIdentifier>{8e5969e4-714f-406a-8219-eb7fbe8820ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headerdateien\OpenGL">
-      <UniqueIdentifier>{141e31c8-ffc2-4474-97ce-18bab25c0912}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\OpenGL">
-      <UniqueIdentifier>{aea89340-fdca-40e6-abd3-b3d635ae6ef3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ressourcendateien\Shader">
-      <UniqueIdentifier>{d7a3545d-50d9-4e97-b553-47b6b41fccd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headerdateien\Grid\Tiles">
-      <UniqueIdentifier>{4757ebfa-a3d6-450e-a2f7-45711cf977e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\Grid\Tiles">
-      <UniqueIdentifier>{1b59ef54-5d2e-4046-9349-bbfcfde1b09c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headerdateien\Player">
-      <UniqueIdentifier>{96613372-9045-4aad-bf67-49dd9fbb61f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\Player">
-      <UniqueIdentifier>{d230d48f-c889-409c-8559-ec7310394766}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ressourcendateien\textures">
-      <UniqueIdentifier>{92d55141-68ff-4f16-bd35-2f34749feeae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\Math">
-      <UniqueIdentifier>{b9ef64af-bd0f-47f7-bc0b-d8a3fa294eb0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headerdateien\Math">
-      <UniqueIdentifier>{553334be-ff56-4f4e-8f9b-50d649b65dd5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headerdateien\OpenGL\Texture">
-      <UniqueIdentifier>{c9d0c054-8014-4f1d-858d-e120db29c44a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\OpenGL\Texture">
-      <UniqueIdentifier>{aa292625-9755-4e17-8412-2c54312c680c}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <ClCompile Include="ProjectPewPew.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureData.cpp">
+      <Filter>Source\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMap.cpp">
+      <Filter>Source\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMapItem.cpp">
+      <Filter>Source\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source\Game\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="FGGrid.cpp">
+      <Filter>Source\Game\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="BGGrid.cpp">
+      <Filter>Source\Game\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="lodePNG.cpp">
+      <Filter>Source\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="BGGrid.h">
-      <Filter>Headerdateien\Grid</Filter>
-    </ClInclude>
-    <ClInclude Include="FGGrid.h">
-      <Filter>Headerdateien\Grid</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="GLEnums.h">
-      <Filter>Headerdateien\OpenGL</Filter>
+      <Filter>Header\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="TypeDefs.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="lodePNG.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Header\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Headerdateien\Grid\Tiles</Filter>
-    </ClInclude>
-    <ClInclude Include="VAO.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Headerdateien\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="vec2.h">
-      <Filter>Headerdateien\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Headerdateien\OpenGL\Texture</Filter>
+      <Filter>Header\OpenGL\Texture</Filter>
     </ClInclude>
     <ClInclude Include="TextureData.h">
-      <Filter>Headerdateien\OpenGL\Texture</Filter>
+      <Filter>Header\OpenGL\Texture</Filter>
     </ClInclude>
     <ClInclude Include="TextureMap.h">
-      <Filter>Headerdateien\OpenGL\Texture</Filter>
-      <Filter>Headerdateien\OpenGL</Filter>
+      <Filter>Header\OpenGL\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="TextureData.h">
-      <Filter>Headerdateien\OpenGL</Filter>
+    <ClInclude Include="TextureMapItem.h">
+      <Filter>Header\OpenGL\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="vec2.h">
+      <Filter>Header\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Header\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header\Game</Filter>
     </ClInclude>
     <ClInclude Include="lodePNG.h">
-      <Filter>Headerdateien\OpenGL</Filter>
+      <Filter>Header\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeDefs.h">
+      <Filter>Header\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="BGGrid.h">
+      <Filter>Header\Game\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="FGGrid.h">
+      <Filter>Header\Game\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header\Game\Grid</Filter>
     </ClInclude>
     <ClInclude Include="KeyManager.h">
-      <Filter>Headerdateien\Player</Filter>
-    <ClInclude Include="TextureMapItem.h">
-      <Filter>Headerdateien\OpenGL\Texture</Filter>
+      <Filter>Header\Game</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectPewPew.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="BGGrid.cpp">
-      <Filter>Quelldateien\Grid</Filter>
-    </ClCompile>
-    <ClCompile Include="FGGrid.cpp">
-      <Filter>Quelldateien\Grid</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="lodePNG.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Quelldateien\Grid\Tiles</Filter>
-    </ClCompile>
-    <ClCompile Include="VAO.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Quelldateien\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyManager.cpp">
-      <Filter>Quelldateien\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Quelldateien\OpenGL\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureData.cpp">
-      <Filter>Quelldateien\OpenGL\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureMap.cpp">
-      <Filter>Quelldateien\OpenGL\Texture</Filter>
-    <ClCompile Include="lodePNG.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureMapItem.cpp">
-      <Filter>Quelldateien\OpenGL\Texture</Filter>
-    <ClCompile Include="TextureData.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureMap.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag">
-      <Filter>Ressourcendateien\Shader</Filter>
+      <Filter>Resources</Filter>
     </None>
     <None Include="test.vert">
-      <Filter>Ressourcendateien\Shader</Filter>
+      <Filter>Resources</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{0b70c933-0ea9-4a68-8e83-58d63c018900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{a2dae797-f8ea-453a-9897-63d6c1b45ad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{c6a224a4-f13e-45c9-ae5d-ef728cca23a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\OpenGL">
+      <UniqueIdentifier>{801f4d66-791b-40b2-9cd0-1a47849f32dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\OpenGL\Texture">
+      <UniqueIdentifier>{277c0db6-b669-47f9-8879-a05728828335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Math">
+      <UniqueIdentifier>{747a07a1-ce1a-44ee-8661-d8d288ef659f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Game">
+      <UniqueIdentifier>{9be63ce7-f52d-474b-b6bb-bc9675c58a37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Other">
+      <UniqueIdentifier>{9e784fbd-1a86-4a52-a315-b6d74622e395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGL">
+      <UniqueIdentifier>{5d1c49b3-b3d6-4825-9ef0-5b7c50c7f8ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGL\Texture">
+      <UniqueIdentifier>{ad0d0cce-1495-4411-b5c0-2f0a753bcce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game">
+      <UniqueIdentifier>{cc165509-daf2-4e92-a82e-d7cd01b80610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Grid">
+      <UniqueIdentifier>{3baf72ef-aade-4150-b5f0-d53dccb561e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Game\Grid">
+      <UniqueIdentifier>{e80f7512-d617-4f20-8323-ccf1cb54c491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Other">
+      <UniqueIdentifier>{d6aeac6b-d8e5-4ac1-ac40-b98917b84e41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
     <Image Include="grass.png">
-      <Filter>Ressourcendateien\textures</Filter>
+      <Filter>Resources</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
 </Project>
