@@ -16,7 +16,7 @@ private:
     float deltaTime;
     float runTime;
 
-    Shader* testShader;
+    Shader* textureShader;
 
     //std::vector<Entity> entitys;
 
@@ -41,5 +41,6 @@ public:
 	FGGrid* getFGGrid();
 	BGGrid* getBGGrid();
 	Player* getPlayer();
+    Shader* getTextureShader();
 };
 

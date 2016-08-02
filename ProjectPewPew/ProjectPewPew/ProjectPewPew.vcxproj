@@ -157,12 +157,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Attribute.h" />
     <ClInclude Include="BGGrid.h" />
     <ClInclude Include="FGGrid.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
     <ClInclude Include="KeyManager.h" />
+    <ClInclude Include="Location.h" />
     <ClInclude Include="lodePNG.h" />
+    <ClInclude Include="matrix3.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stdafx.h" />
@@ -180,8 +183,11 @@
     <ClCompile Include="BGGrid.cpp" />
     <ClCompile Include="FGGrid.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GLEnums.cpp" />
     <ClCompile Include="KeyManager.cpp" />
+    <ClCompile Include="Location.cpp" />
     <ClCompile Include="lodePNG.cpp" />
+    <ClCompile Include="matrix3.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProjectPewPew.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -194,10 +200,10 @@
     <ClCompile Include="VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.frag">
+    <None Include="texture.frag">
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="test.vert">
+    <None Include="texture.vert">
       <DeploymentContent>true</DeploymentContent>
     </None>
   </ItemGroup>

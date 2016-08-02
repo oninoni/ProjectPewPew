@@ -2,8 +2,8 @@
 
 bool Game::initShader()
 {
-    testShader = new Shader;
-    return testShader->loadVertFragShader("test");
+    textureShader = new Shader;
+    return textureShader->loadVertFragShader("texture");
 }
 
 bool Game::initGL()
@@ -46,16 +46,16 @@ void Game::start()
     TextureMap texmap;
     texmap.addTexture("grass.png");
     texmap.buildPage();
-    texmap.uniform(*testShader, "tex");
+    texmap.uniform(*textureShader, "tex");
 
     int w, h;
     glfwGetWindowSize(window, &w, &h);
-    glUniform1f(testShader->getUniformLocation("aspect"), (float)w / h);
+    glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);
 
 	fgGrid = new FGGrid(10, 10);
 	bgGrid = new BGGrid(10, 10);
 
-	player = new Player(0, 0, this);
+	player = new Player(this);
 
     runTime = 0;
     oldTime = (float)glfwGetTime();
@@ -64,9 +64,11 @@ void Game::start()
     {
 		update();
 		render();
-
-		glfwPollEvents();
+        
+        glfwPollEvents();
     }
+
+    cout << "Test" << endl;
 }
 
 void Game::updateDeltaTime()
@@ -92,23 +94,7 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-    glBegin(rmTriangles);
-
-    glTexCoord2f(0, 0);
-    glVertex2f(-0.5, -0.5);
-    glTexCoord2f(1, 0);
-    glVertex2f(0.5, -0.5);
-    glTexCoord2f(1, 1);
-    glVertex2f(0.5, 0.5);
-    glTexCoord2f(1, 1);
-    glVertex2f(0.5, 0.5);
-    glTexCoord2f(0, 1);
-    glVertex2f(-0.5, 0.5);
-    glTexCoord2f(0, 0);
-    glVertex2f(-0.5, -0.5);
-
-
-    glEnd();
+    player->render();
 
 	glfwSwapBuffers(window);
 }
@@ -135,7 +121,7 @@ Game::~Game()
 	delete bgGrid;
 	delete fgGrid;
 
-    delete testShader;
+    delete textureShader;
 
     glfwTerminate();
     cout << "Game stopped!" << endl;
@@ -165,4 +151,9 @@ BGGrid * Game::getBGGrid() {
 
 Player * Game::getPlayer() {
 	return player;
+}
+
+Shader * Game::getTextureShader()
+{
+    return textureShader;
 }

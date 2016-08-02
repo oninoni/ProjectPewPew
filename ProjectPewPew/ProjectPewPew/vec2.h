@@ -11,6 +11,8 @@ struct gvec2 sealed
     template<typename t>
     friend gvec2<t> operator+(t value, const gvec2<t> &vec);
 
+    gvec2<type> operator-();
+
     gvec2<type> operator-(const gvec2<type> &other);
     gvec2<type> operator-(type value);
 
@@ -22,6 +24,9 @@ struct gvec2 sealed
 
     bool operator==(const gvec2<type> &other);
     bool operator!=(const gvec2<type> &other);
+
+    gvec2<type> operator+=(const gvec2<type> &other);
+    gvec2<type> operator-=(const gvec2<type> &other);
 
     gvec2<type> vectorTo(const gvec2<type> &other);
 
@@ -67,6 +72,12 @@ template<typename t>
 gvec2<t> operator+(t value, const gvec2<t> &vec)
 {
     return gvec2<t>(value + vec.x, value + vec.y);
+}
+
+template<typename type>
+inline gvec2<type> gvec2<type>::operator-()
+{
+    return gvec2<type>(-x, -y);
 }
 
 template<typename type>
@@ -118,9 +129,32 @@ inline bool gvec2<type>::operator!=(const gvec2<type>& other)
 }
 
 template<typename type>
+inline gvec2<type> gvec2<type>::operator+=(const gvec2<type>& other)
+{
+    x += other.x;
+    y += other.y;
+    return *this;
+}
+
+template<typename type>
+inline gvec2<type> gvec2<type>::operator-=(const gvec2<type>& other)
+{
+    x -= other.x;
+    y -= other.y;
+    return *this;
+}
+
+template<typename type>
 inline gvec2<type> gvec2<type>::vectorTo(const gvec2<type> &other)
 {
     return gvec2<type>(this* - other);
+}
+
+template<typename type>
+inline ostream & operator<<(ostream &stream, gvec2<type> vec)
+{
+    stream << "[" << vec.x << "|" << vec.y << "]";
+    return stream;
 }
 
 template<typename type>

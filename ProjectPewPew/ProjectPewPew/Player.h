@@ -8,14 +8,17 @@ private:
 	GLFWwindow* window;
 	FGGrid* grid;
 
-    vec2 pos;
+    Location pos;
+
+    VAO* vao;
+
+    void initVAO();
 
 public:
-	Player(vec2 pos, Game* g);
-    Player(float x, float y, Game* g);
+	Player(Game* g);
     ~Player();
 
-	void update(double deltaT);
+	void update(float deltaT);
 	void render();
 };
 

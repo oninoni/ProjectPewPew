@@ -26,8 +26,11 @@ using namespace std;
 // Other
 #include "TypeDefs.h"
 #include "lodePNG.h"
-#include "KeyManager.h"
+
+// Math
 #include "vec2.h"
+#include "matrix3.h"
+#include "Location.h"
 
 // OpenGL
 #include "GLEnums.h"
@@ -43,5 +46,6 @@ class Game;
 #include "Tile.h"
 #include "BGGrid.h"
 #include "FGGrid.h"
+#include "KeyManager.h"
 #include "Player.h"
 #include "Game.h"

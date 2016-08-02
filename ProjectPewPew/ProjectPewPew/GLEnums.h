@@ -16,14 +16,14 @@ enum GLBoolean {
     blTrue
 };
 
-enum GLBeginMode {
+enum GLRenderMode {
     rmPoints = GL_POINTS,
     rmLines,
     rmLineLoop,
     rmLineStrip,
     rmTriangles,
     rmTriangleStrip,
-    rmTriangleFan,
+    rmTriangleFan,   
     rmLinesAdjacency = GL_LINES_ADJACENCY,
     rmLineStripAdjacency,
     rmTrianglesAdjacency,
@@ -243,3 +243,5 @@ enum GLBufferUsage {
     buDynamicRead,
     buDynamicCopy
 };
+
+DWORD getDataSize(GLDataType dataType);
