@@ -36,6 +36,8 @@ bool Game::initGL()
         return false;
     }
 
+    // sinnloses kommentar
+
     glfwSwapInterval(1); // V-Sync on (on is default, but it glitches if you don't call it)
 
     return true;
@@ -58,12 +60,18 @@ void Game::start()
 
 	player = new Player(this);
 
+    view = new View(textureShader);
+    view->setScale(vec2(0.2f, 0.2f));
+    view->uniform("view");
+
     runTime = 0;
     oldTime = (float)glfwGetTime();
 
     while (!glfwWindowShouldClose(window))
     {
 		update();
+
+        view->render();
 		render();
 
         glfwPollEvents();

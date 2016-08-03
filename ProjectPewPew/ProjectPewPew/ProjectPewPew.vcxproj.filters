@@ -55,6 +55,9 @@
     <ClCompile Include="GLEnums.cpp">
       <Filter>source\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>source\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="Location.h">
       <Filter>header\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>header\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

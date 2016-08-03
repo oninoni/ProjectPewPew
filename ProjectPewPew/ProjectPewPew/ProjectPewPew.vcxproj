@@ -178,6 +178,7 @@
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="vec2.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BGGrid.cpp" />
@@ -198,6 +199,7 @@
     <ClCompile Include="TextureMapItem.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="VAO.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="texture.frag">
