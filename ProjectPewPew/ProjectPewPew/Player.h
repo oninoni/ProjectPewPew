@@ -9,6 +9,7 @@ private:
 	FGGrid* grid;
 
 	View* view;
+	TextureMap* textureMap;
 
     Location pos;
 

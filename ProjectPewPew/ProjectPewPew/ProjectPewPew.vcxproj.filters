@@ -186,6 +186,12 @@
     <Image Include="grass.png">
       <Filter>resources</Filter>
     </Image>
+    <Image Include="player.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="stone.png">
+      <Filter>resources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
