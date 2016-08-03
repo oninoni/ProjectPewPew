@@ -9,7 +9,6 @@ Shader::Shader()
 
 Shader::~Shader()
 {
-    // free all allocated memory
     for (pair<string, int*> i : locations)
         delete i.second;
     glDeleteProgram(program);
@@ -114,7 +113,7 @@ int Shader::getAttribLocation(string name)
     if (l)
         return *l;
     else
-        return *(l = new int(glGetAttribLocation(program, name.c_str())));
+        return *(locations[name] = new int(glGetAttribLocation(program, name.c_str())));
 }
 
 void Shader::enable()

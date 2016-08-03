@@ -5,7 +5,7 @@ void Location::doTranslation(vec2 vec)
     matrix3 m;
     m.loadIdentity();
     m(2, 0) = vec.x;
-    m(2, 0) = vec.y;
+    m(2, 1) = vec.y;
     mat = mat * m;
 }
 
@@ -15,10 +15,10 @@ void Location::doRotation(float angle)
     m.clear();
     m(2, 2) = 1;  
     float r = angle / 180 * (float)PI;
-    mat(0, 0) = sin(r);
-    mat(0, 1) = -cos(r);
-    mat(1, 0) = sin(r);
-    mat(1, 1) = cos(r);
+    m(0, 0) = cos(r);
+    m(0, 1) = -sin(r);
+    m(1, 0) = sin(r);
+    m(1, 1) = cos(r);
     mat = mat * m;
 }
 

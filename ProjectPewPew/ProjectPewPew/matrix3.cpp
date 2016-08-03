@@ -27,6 +27,11 @@ void matrix3::loadIdentity()
     data[2][2] = 1;
 }
 
+float * matrix3::ptr()
+{
+    return data[0]; // = (float*)data
+}
+
 float &matrix3::operator()(int x, int y)
 {
     return data[x][y];

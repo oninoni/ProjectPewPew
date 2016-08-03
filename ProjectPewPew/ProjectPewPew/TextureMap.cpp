@@ -8,6 +8,8 @@ TextureMap::TextureMap()
 
 TextureMap::~TextureMap()
 {
+    for (pair<string, TextureMapItem*> item : tiles)
+        delete item.second;
 }
 
 bool TextureMap::addTexture(string filename)

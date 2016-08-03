@@ -11,6 +11,8 @@ public:
     void clear(float value = 0);
     void loadIdentity();
 
+    float * ptr();
+
     float &operator()(int x, int y);
 
     // matrix with matrix

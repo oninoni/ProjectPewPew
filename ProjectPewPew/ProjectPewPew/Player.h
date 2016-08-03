@@ -10,6 +10,7 @@ private:
 
     Location pos;
 
+    Shader* shader;
     VAO* vao;
 
     void initVAO();

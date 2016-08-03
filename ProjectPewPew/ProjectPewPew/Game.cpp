@@ -36,7 +36,7 @@ bool Game::initGL()
         return false;
     }
 
-    glClearColor(0, 0, 0, 0);
+    glfwSwapInterval(1); // V-Sync on (on is default, but it glitches if you don't call it)
 
     return true;
 }
@@ -64,11 +64,9 @@ void Game::start()
     {
 		update();
 		render();
-        
+
         glfwPollEvents();
     }
-
-    cout << "Test" << endl;
 }
 
 void Game::updateDeltaTime()

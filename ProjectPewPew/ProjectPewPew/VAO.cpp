@@ -40,14 +40,14 @@ void VAO::bind()
 {
     if (boundVAO != this)
     {
-        glBindBuffer(btArrayBuffer, vao);
+        glBindVertexArray(vao);
         boundVAO = this;
     }
 }
 
 void VAO::unbind()
 {
-    glBindBuffer(btArrayBuffer, 0);
+    glBindVertexArray(0);
     boundVAO = NULL;
 }
 
@@ -87,7 +87,7 @@ void VAO::generate(DWORD maxSize, GLBufferUsage usage)
     if (maxSize == 0)
         return;
     glBindBuffer(btArrayBuffer, vbo);
-    glBufferData(btArrayBuffer, maxSize, NULL, usage);
+    glBufferData(btArrayBuffer, maxSize * stride, NULL, usage);
 }
 
 bool VAO::map(GLBufferAccess access)
