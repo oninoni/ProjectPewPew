@@ -19,6 +19,7 @@ void Location::doRotation(float angle)
     m(0, 1) = -sin(r);
     m(1, 0) = sin(r);
     m(1, 1) = cos(r);
+
     mat = mat * m;
 }
 
@@ -109,4 +110,9 @@ matrix3 Location::getMatrix()
     if (matChanged)
         buildMatrix();
     return mat;
+}
+
+bool Location::getChanged()
+{
+    return matChanged;
 }

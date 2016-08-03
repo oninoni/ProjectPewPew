@@ -57,12 +57,18 @@ void Game::start()
 
 	player = new Player(this);
 
+    view = new View(textureShader);
+    view->setScale(vec2(0.2f, 0.2f));
+    view->uniform("view");
+
     runTime = 0;
     oldTime = (float)glfwGetTime();
 
     while (!glfwWindowShouldClose(window))
     {
 		update();
+
+        view->render();
 		render();
 
         glfwPollEvents();

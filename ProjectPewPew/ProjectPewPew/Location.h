@@ -4,7 +4,6 @@ class Location
 private:
     vec2 position;
     vec2 offset;
-
     float rotation;
 
     bool inverted;
@@ -33,5 +32,6 @@ public:
     void rotate(float angle);
 
     matrix3 getMatrix();
+    bool getChanged();
 };
 

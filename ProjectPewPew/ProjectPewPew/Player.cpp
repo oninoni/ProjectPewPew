@@ -46,6 +46,8 @@ Player::Player(Game* g)
     shader = g->getTextureShader();
     keyManager = new KeyManager(window);
     
+    pos.setOffset(vec2(-0.5, -0.5));
+
     initVAO();
 }
 
@@ -59,8 +61,8 @@ void Player::update(float deltaTime)
 {
 	keyManager->update();
 
-	if (keyManager->keyDown(K_UP)) 
-		pos.translatePosition(vec2(0, 1.42f * deltaTime));
+    if (keyManager->keyDown(K_UP))
+        pos.translatePosition(vec2(0, 1.42f * deltaTime));
 	
     if (keyManager->keyDown(K_DOWN)) 
         pos.translatePosition(vec2(0, -1.42f * deltaTime));

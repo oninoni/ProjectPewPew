@@ -11,6 +11,8 @@ private:
     BGGrid* bgGrid;
 
     Player* player;
+    
+    View* view;
 
 	float oldTime;
     float deltaTime;

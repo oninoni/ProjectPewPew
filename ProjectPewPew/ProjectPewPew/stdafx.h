@@ -40,6 +40,7 @@ using namespace std;
 #include "TextureMapItem.h"
 #include "TextureMap.h"
 #include "VAO.h"
+#include "View.h"
 
 // Game Logic    
 class Game;
