@@ -24,22 +24,22 @@ void Tile::addToVAO(VAO* vao)
 		vec2 tex;
 	} data;
 
-	data.pos = vec2(pos.x + 0, pos.y + 0);
+	data.pos = vec2(pos.x + 0.0f, pos.y + 0.0f);
 	data.tex = textureMap->getTexCoord(texture, vec2(0, 0));
 	vao->addVertex(&data);
-	data.pos = vec2(pos.x + 1, pos.y + 0);
+	data.pos = vec2(pos.x + 1.0f, pos.y + 0.0f);
 	data.tex = textureMap->getTexCoord(texture, vec2(1, 0));
 	vao->addVertex(&data);
-	data.pos = vec2(pos.x + 1, pos.y + 1);
+	data.pos = vec2(pos.x + 1.0f, pos.y + 1.0f);
 	data.tex = textureMap->getTexCoord(texture, vec2(1, 1));
 	vao->addVertex(&data);
-	data.pos = vec2(pos.x + 1, pos.y + 1);
+	data.pos = vec2(pos.x + 1.0f, pos.y + 1.0f);
 	data.tex = textureMap->getTexCoord(texture, vec2(1, 1));
 	vao->addVertex(&data);
-	data.pos = vec2(pos.x + 0, pos.y + 1);
+	data.pos = vec2(pos.x + 0.0f, pos.y + 1.0f);
 	data.tex = textureMap->getTexCoord(texture, vec2(0, 1));
 	vao->addVertex(&data);
-	data.pos = vec2(pos.x + 0, pos.y + 0);
+	data.pos = vec2(pos.x + 0.0f, pos.y + 0.0f);
 	data.tex = textureMap->getTexCoord(texture, vec2(0, 0));
 	vao->addVertex(&data);
 }
