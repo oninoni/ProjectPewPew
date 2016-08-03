@@ -36,6 +36,8 @@ bool Game::initGL()
         return false;
     }
 
+    // sinnloses kommentar
+
     glfwSwapInterval(1); // V-Sync on (on is default, but it glitches if you don't call it)
 
     return true;
