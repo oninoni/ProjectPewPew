@@ -4,6 +4,8 @@ class Game
 private:
     GLFWwindow* window;
 
+	TextureMap* textureMap;
+
     int* argc;
     char** argv;
 
@@ -44,5 +46,6 @@ public:
 	BGGrid* getBGGrid();
 	Player* getPlayer();
     Shader* getTextureShader();
+	TextureMap* getTextureMap();
 };
 

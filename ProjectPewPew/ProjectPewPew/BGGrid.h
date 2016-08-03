@@ -5,9 +5,15 @@ private:
 	vector<Tile> tileMap;
 	int sizeX;
 	int sizeY;
+
+	int uniformLocation;
+
+	VAO* vao;
+
+	void buildVAO();
 public:
 	BGGrid();
-    BGGrid(int sizeX, int sizeY);
+    BGGrid(int sizeX, int sizeY, Game* g);
     ~BGGrid();
 
 	void update(double deltaT);

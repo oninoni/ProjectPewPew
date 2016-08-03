@@ -55,7 +55,7 @@ void TextureMap::buildPage(bool freeTextureData)
 {
     bind();
 
-    int size = 1;
+    size = 1;
     while (size * size < textureCount)
         size *= 2;
 
@@ -81,7 +81,7 @@ void TextureMap::buildPage(bool freeTextureData)
 texcoord TextureMap::getTexCoord(string name, texcoord texCoord)
 {
     texcoord result;
-    result.x = tiles[name]->pos.x + texCoord.x * texSize.x / size;
-    result.y = tiles[name]->pos.y + texCoord.y * texSize.y / size;
+    result.x = tiles[name]->pos.x + texCoord.x * texSize.x / (size * texSize.x);
+    result.y = tiles[name]->pos.y + texCoord.y * texSize.y / (size * texSize.y);
     return result;
 }

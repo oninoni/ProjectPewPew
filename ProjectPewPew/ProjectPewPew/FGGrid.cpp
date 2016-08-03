@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
-FGGrid::FGGrid(int sizeX, int sizeY):
-	BGGrid(sizeX, sizeY)
+FGGrid::FGGrid(int sizeX, int sizeY, Game* g):
+	BGGrid(sizeX, sizeY, g)
 {
 }
 

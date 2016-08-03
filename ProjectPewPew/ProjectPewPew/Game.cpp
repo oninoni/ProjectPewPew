@@ -45,17 +45,18 @@ bool Game::initGL()
 
 void Game::start()
 {
-    TextureMap texmap;
-    texmap.addTexture("grass.png");
-    texmap.buildPage();
-    texmap.uniform(*textureShader, "tex");
+	textureMap = new TextureMap();
+
+    textureMap->addTexture("grass.png");
+	textureMap->buildPage();
+	textureMap->uniform(*textureShader, "tex");
 
     int w, h;
     glfwGetWindowSize(window, &w, &h);
     glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);
 
-	fgGrid = new FGGrid(10, 10);
-	bgGrid = new BGGrid(10, 10);
+	fgGrid = new FGGrid(10, 10, this);
+	bgGrid = new BGGrid(10, 10, this);
 
 	player = new Player(this);
 
@@ -100,6 +101,9 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+	bgGrid->render();
+	fgGrid->render();
+
     player->render();
 
 	glfwSwapBuffers(window);
@@ -128,6 +132,7 @@ Game::~Game()
 	delete fgGrid;
 
     delete textureShader;
+	delete textureMap;
 
     glfwTerminate();
     cout << "Game stopped!" << endl;
@@ -162,4 +167,8 @@ Player * Game::getPlayer() {
 Shader * Game::getTextureShader()
 {
     return textureShader;
+}
+
+TextureMap * Game::getTextureMap() {
+	return textureMap;
 }
