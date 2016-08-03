@@ -71,6 +71,12 @@ void Player::update(float deltaTime)
     if (keyManager->keyDown(K_LEFT))
         pos.translatePosition(vec2(-1.42f * deltaTime, 0));
 
+	if (keyManager->keyPressed(K_ZOOM_IN))
+
+
+	if (keyManager->keyPressed(K_ZOOM_IN))
+
+
 	//cout << pos.getPosition() << endl;
 }
 

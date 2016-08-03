@@ -164,3 +164,7 @@ Shader * Game::getTextureShader()
 TextureMap * Game::getTextureMap() {
 	return textureMap;
 }
+
+View * Game::getView() {
+	return nullptr;
+}
