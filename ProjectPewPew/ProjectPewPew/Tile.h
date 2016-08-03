@@ -2,13 +2,13 @@
 class Tile {
 private:
     ivec2 pos;
-
+	TextureMap* textureMap;
 	string texture;
 public:
-	Tile(int x, int y, string texture);
-    Tile(ivec2 pos, string texture);
+	Tile(int x, int y, string texture, Game* g);
+    Tile(ivec2 pos, string texture, Game* g);
 	~Tile();
 
-	void addToVAO(VAO vao);
+	void addToVAO(VAO* vao);
 };
 
