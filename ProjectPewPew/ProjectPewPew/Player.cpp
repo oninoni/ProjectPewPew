@@ -44,6 +44,7 @@ Player::Player(Game* g)
 	window = g->getWindow();
 	grid = g->getFGGrid();
     shader = g->getTextureShader();
+	view = g->getView();
     keyManager = new KeyManager(window);
     
     pos.setOffset(vec2(-0.5, -0.5));
@@ -74,10 +75,10 @@ void Player::update(float deltaTime)
         pos.translatePosition(vec2(-1.42f * deltaTime, 0));
 
 	if (keyManager->keyPressed(K_ZOOM_IN))
+		view->setScale(view->getScale() * 1.1f);
 
-
-	if (keyManager->keyPressed(K_ZOOM_IN))
-
+	if (keyManager->keyPressed(K_ZOOM_OUT))
+		view->setScale(view->getScale() / 1.1f);
 
 	//cout << pos.getPosition() << endl;
 }

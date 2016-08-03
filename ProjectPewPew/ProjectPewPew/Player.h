@@ -8,6 +8,8 @@ private:
 	GLFWwindow* window;
 	FGGrid* grid;
 
+	View* view;
+
     Location pos;
 
     Shader* shader;

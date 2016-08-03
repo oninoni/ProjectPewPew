@@ -50,6 +50,6 @@ void BGGrid::update(double deltaT) {
 void BGGrid::render() {
 	matrix3 matrix42;
 	matrix42.loadIdentity();
-	//glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix42.ptr());
+	glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix42.ptr());
 	vao->render();
 }
