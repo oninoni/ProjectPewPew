@@ -62,8 +62,8 @@ void Game::start()
 	view->setScale(vec2(0.2f, 0.2f));
 	view->uniform("view");
 
-	fgGrid = new FGGrid(10, 10, this);
-	bgGrid = new BGGrid(10, 10, this);
+	fgGrid = new FGGrid(20, 10, this);
+	bgGrid = new BGGrid(20, 10, this);
 
 	player = new Player(this);
 

@@ -18,11 +18,11 @@ BGGrid::BGGrid() {
 
 BGGrid::BGGrid(int sX, int sY, Game* g)
 {
-	sizeX = sX;
-	sizeY = sY;
+	size.x = sX;
+	size.y = sY;
 
-	for (int x = 0; x < sizeX; x++) {
-		for (int y = 0; y < sizeY; y++) {
+	for (int x = 0; x < size.x; x++) {
+		for (int y = 0; y < size.y; y++) {
 			tileMap.push_back(Tile(x, y, "grass", g));
 		}
 	}
@@ -52,4 +52,8 @@ void BGGrid::render() {
 	matrix42.loadIdentity();
 	glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix42.ptr());
 	vao->render();
+}
+
+ivec2 BGGrid::getSize() {
+	return size;
 }
