@@ -66,11 +66,11 @@ void TextureMap::buildPage(bool freeTextureData)
     for (pair<string, TextureMapItem*> pair : tiles)
     {
         TextureMapItem* t = pair.second;
-        t->pos = vec2((float)x, (float)y) / (float)size;
+        t->pos = vec2((float)x, (float)y) / vec2((float) texSize.x, (float) texSize.y);
 
         glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, texSize.x, texSize.y, GL_BGRA, GL_UNSIGNED_BYTE, t->getData());
 
-        if ((x = (x += texSize.x) % size) == 0)
+        if ((x = (x += texSize.x) % (size * texSize.x)) == 0)
             y += texSize.y;
 
         if (freeTextureData)
@@ -81,7 +81,7 @@ void TextureMap::buildPage(bool freeTextureData)
 texcoord TextureMap::getTexCoord(string name, texcoord texCoord)
 {
     texcoord result;
-    result.x = tiles[name]->pos.x + texCoord.x * texSize.x / (size * texSize.x);
-    result.y = tiles[name]->pos.y + texCoord.y * texSize.y / (size * texSize.y);
+    result.x = tiles[name]->pos.x + texCoord.x / size;
+    result.y = tiles[name]->pos.y + texCoord.y / size;
     return result;
 }

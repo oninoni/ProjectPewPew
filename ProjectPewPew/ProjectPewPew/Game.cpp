@@ -38,6 +38,9 @@ bool Game::initGL()
 
     glfwSwapInterval(1); // V-Sync on (on is default, but it glitches if you don't call it)
 
+	glEnable(GL_BLEND);
+	glBlendFunc(bfsSrcAlpha, bfdOneMinusSrcAlpha);
+
     return true;
 }
 
@@ -46,6 +49,8 @@ void Game::start()
 	textureMap = new TextureMap();
 
     textureMap->addTexture("grass.png");
+	textureMap->addTexture("player.png");
+	textureMap->addTexture("stone.png");
 	textureMap->buildPage();
 	textureMap->uniform(*textureShader, "tex");
 
@@ -53,14 +58,14 @@ void Game::start()
     glfwGetWindowSize(window, &w, &h);
     glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);
 
+	view = new View(textureShader);
+	view->setScale(vec2(0.2f, 0.2f));
+	view->uniform("view");
+
 	fgGrid = new FGGrid(10, 10, this);
 	bgGrid = new BGGrid(10, 10, this);
 
 	player = new Player(this);
-
-    view = new View(textureShader);
-    view->setScale(vec2(0.2f, 0.2f));
-    view->uniform("view");
 
     runTime = 0;
     oldTime = (float)glfwGetTime();
@@ -169,4 +174,8 @@ Shader * Game::getTextureShader()
 
 TextureMap * Game::getTextureMap() {
 	return textureMap;
+}
+
+View * Game::getView() {
+	return view;
 }

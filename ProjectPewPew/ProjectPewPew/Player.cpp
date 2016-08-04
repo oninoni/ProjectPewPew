@@ -19,22 +19,22 @@ void Player::initVAO()
 
     vao->map(baWriteOnly);
     data.pos = vec2(0, 0);
-    data.tex = vec2(0, 0);
+    data.tex = textureMap->getTexCoord("player", vec2(0, 0));
     vao->addVertex(&data);
     data.pos = vec2(1, 0);
-    data.tex = vec2(1, 0);
+    data.tex = textureMap->getTexCoord("player", vec2(1, 0));
     vao->addVertex(&data);
     data.pos = vec2(1, 1);
-    data.tex = vec2(1, 1);
+    data.tex = textureMap->getTexCoord("player", vec2(1, 1));
     vao->addVertex(&data);
     data.pos = vec2(1, 1);
-    data.tex = vec2(1, 1);
+    data.tex = textureMap->getTexCoord("player", vec2(1, 1));
     vao->addVertex(&data);
     data.pos = vec2(0, 1);
-    data.tex = vec2(0, 1);
+    data.tex = textureMap->getTexCoord("player", vec2(0, 1));
     vao->addVertex(&data);
     data.pos = vec2(0, 0);
-    data.tex = vec2(0, 0);
+    data.tex = textureMap->getTexCoord("player", vec2(0, 0));
     vao->addVertex(&data);
     vao->unmap();
 }
@@ -44,6 +44,8 @@ Player::Player(Game* g)
 	window = g->getWindow();
 	grid = g->getFGGrid();
     shader = g->getTextureShader();
+	view = g->getView();
+	textureMap = g->getTextureMap();
     keyManager = new KeyManager(window);
     
     pos.setOffset(vec2(-0.5, -0.5));
@@ -72,6 +74,12 @@ void Player::update(float deltaTime)
 	
     if (keyManager->keyDown(K_LEFT))
         pos.translatePosition(vec2(-1.42f * deltaTime, 0));
+
+	if (keyManager->keyPressed(K_ZOOM_IN))
+		view->setScale(view->getScale() * 1.1f);
+
+	if (keyManager->keyPressed(K_ZOOM_OUT))
+		view->setScale(view->getScale() / 1.1f);
 
 	//cout << pos.getPosition() << endl;
 }

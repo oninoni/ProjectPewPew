@@ -5,6 +5,8 @@ enum KeyCodes {
 	K_DOWN,
 	K_LEFT,
 	K_RIGHT,
+	K_ZOOM_OUT,
+	K_ZOOM_IN,
 	K_SIZE
 };
 

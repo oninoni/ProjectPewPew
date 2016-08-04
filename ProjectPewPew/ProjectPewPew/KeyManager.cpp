@@ -7,6 +7,8 @@ KeyManager::KeyManager(GLFWwindow* w) {
     bindKey(K_LEFT , GLFW_KEY_A); 
     bindKey(K_DOWN , GLFW_KEY_S);
 	bindKey(K_RIGHT, GLFW_KEY_D);
+	bindKey(K_ZOOM_IN, GLFW_KEY_E);
+	bindKey(K_ZOOM_OUT, GLFW_KEY_Q);
 }
 
 KeyManager::~KeyManager() {

@@ -47,5 +47,6 @@ public:
 	Player* getPlayer();
     Shader* getTextureShader();
 	TextureMap* getTextureMap();
+	View* getView();
 };
 
