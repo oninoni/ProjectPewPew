@@ -138,6 +138,9 @@ Game::Game(int* argc, char** argv)
     if (!initTextureShader())
         return;
 
+	if (!initLaserShader())
+		return;
+
     srand(GetTickCount());
 
     start();
