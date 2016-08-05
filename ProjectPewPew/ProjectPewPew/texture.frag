@@ -10,5 +10,10 @@ out vec4 outcolor;
 
 void main()
 {
+/*
+    vec2 reltc = ftexcoord - fmtexcoord; // -0.5/mapsize > +0.5/mapsize
+    vec2 border =  / tilesize;
+    reltc = clamp(reltc, -0.5 + border, +0.5 - border);
+*/
     outcolor = texture(tex, ftexcoord);
 }

@@ -134,6 +134,12 @@
     <None Include="texture.frag">
       <Filter>resources\Shader</Filter>
     </None>
+    <None Include="laser.vert">
+      <Filter>resources\Shader</Filter>
+    </None>
+    <None Include="laser.frag">
+      <Filter>resources\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">

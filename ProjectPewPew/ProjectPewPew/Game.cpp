@@ -19,8 +19,8 @@ bool Game::initGL()
 
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     if (!(window = glfwCreateWindow(1280, 720, "Project PewPew", NULL, NULL)))
     {
@@ -61,7 +61,7 @@ void Game::start()
 
     int w, h;
     glfwGetWindowSize(window, &w, &h);
-    glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);
+    glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);     
 
 	view = new View(textureShader);
 	view->setScale(vec2(2 * 64.0f / h, 2 * 64.0f / h));

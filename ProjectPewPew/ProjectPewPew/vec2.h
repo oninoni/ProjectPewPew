@@ -30,6 +30,8 @@ struct gvec2 sealed
 
     gvec2<type> vectorTo(const gvec2<type> &other);
 
+    gvec2<type> cross();
+
     float lengthSqr();
     float length();
 
@@ -148,6 +150,12 @@ template<typename type>
 inline gvec2<type> gvec2<type>::vectorTo(const gvec2<type> &other)
 {
     return gvec2<type>(this* - other);
+}
+
+template<typename type>
+inline gvec2<type> gvec2<type>::cross()
+{
+    return gvec2<type>(-y, x);
 }
 
 template<typename type>
