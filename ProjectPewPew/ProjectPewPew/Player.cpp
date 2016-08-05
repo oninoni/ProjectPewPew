@@ -82,12 +82,6 @@ void Player::update(float deltaTime)
 
 	if (keyManager->keyPressed(K_FIRE_PRI)) {
 	}
-    
-	if (keyManager->keyPressed(K_ZOOM_IN))
-		view->setScale(view->getScale() * 2);
-
-	if (keyManager->keyPressed(K_ZOOM_OUT))
-		view->setScale(view->getScale() / 2);
 
 	pos.translatePosition(vec2(direction.x * SPEED * deltaTime / (abs(direction.y) + 1.0f), direction.y * SPEED * deltaTime / (abs(direction.x) + 1.0f)));
 }
