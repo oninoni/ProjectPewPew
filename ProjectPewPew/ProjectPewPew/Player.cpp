@@ -19,22 +19,22 @@ void Player::initVAO()
 
     vao->map(baWriteOnly);
     data.pos = vec2(0, 0);
-    data.tex = textureMap->getTexCoord("stone", vec2(0, 0));
+    data.tex = textureMap->getTexCoord("player", vec2(0, 0));
     vao->addVertex(&data);
     data.pos = vec2(1, 0);
-    data.tex = textureMap->getTexCoord("stone", vec2(1, 0));
+    data.tex = textureMap->getTexCoord("player", vec2(1, 0));
     vao->addVertex(&data);
     data.pos = vec2(1, 1);
-    data.tex = textureMap->getTexCoord("stone", vec2(1, 1));
+    data.tex = textureMap->getTexCoord("player", vec2(1, 1));
     vao->addVertex(&data);
     data.pos = vec2(1, 1);
-    data.tex = textureMap->getTexCoord("stone", vec2(1, 1));
+    data.tex = textureMap->getTexCoord("player", vec2(1, 1));
     vao->addVertex(&data);
     data.pos = vec2(0, 1);
-    data.tex = textureMap->getTexCoord("stone", vec2(0, 1));
+    data.tex = textureMap->getTexCoord("player", vec2(0, 1));
     vao->addVertex(&data);
     data.pos = vec2(0, 0);
-    data.tex = textureMap->getTexCoord("stone", vec2(0, 0));
+    data.tex = textureMap->getTexCoord("player", vec2(0, 0));
     vao->addVertex(&data);
     vao->unmap();
 }
@@ -46,7 +46,8 @@ Player::Player(Game* g)
     shader = g->getTextureShader();
 	view = g->getView();
 	textureMap = g->getTextureMap();
-    keyManager = new KeyManager(window);
+    keyManager = new InputManager(window);
+	cursor = new Cursor(g);
     
     pos.setOffset(vec2(-0.5, -0.5));
     pos.setPosLowerLimit(vec2(0.5, 0.5));
@@ -59,37 +60,36 @@ Player::~Player()
 {
 	delete keyManager;
     delete vao;
+	delete cursor;
 }
 
 void Player::update(float deltaTime) 
 {
 	keyManager->update();
+	ivec2 direction = ivec2(0, 0);
 
-	if (keyManager->keyDown(K_UP)) 
-		pos.translatePosition(vec2(0, 1.42f * deltaTime));
+	if (keyManager->keyDown(K_UP))
+		direction.y++;
 	
-    if (keyManager->keyDown(K_DOWN)) 
-		pos.translatePosition(vec2(0, -1.42f * deltaTime));
+	if (keyManager->keyDown(K_DOWN))
+		direction.y--;
 
-	if (keyManager->keyDown(K_RIGHT)) 
-		pos.translatePosition(vec2(1.42f * deltaTime, 0));
+	if (keyManager->keyDown(K_RIGHT))
+		direction.x++;
 	
-	if (keyManager->keyDown(K_LEFT)) 
-		pos.translatePosition(vec2(-1.42f * deltaTime, 0));
+	if (keyManager->keyDown(K_LEFT))
+		direction.x--;
 
-    /*
-	if (keyManager->keyPressed(K_ZOOM_IN))
-		view->setScale(view->getScale() * 2);
+	if (keyManager->keyPressed(K_FIRE_PRI)) {
+	}
 
-	if (keyManager->keyPressed(K_ZOOM_OUT))
-		view->setScale(view->getScale() / 2);
-    */
-	//cout << pos.getPosition() << endl;
+	pos.translatePosition(vec2(direction.x * SPEED * deltaTime / (abs(direction.y) + 1.0f), direction.y * SPEED * deltaTime / (abs(direction.x) + 1.0f)));
 }
 
 void Player::render() {
     glUniformMatrix3fv(shader->getUniformLocation("model"), 1, blFalse, pos.getMatrix().ptr());
     vao->render();
+	cursor->render();
 }
 
 Location & Player::getPos()

@@ -159,10 +159,11 @@
   <ItemGroup>
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="BGGrid.h" />
+    <ClInclude Include="Cursor.h" />
     <ClInclude Include="FGGrid.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
-    <ClInclude Include="KeyManager.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="lodePNG.h" />
     <ClInclude Include="Matrix3.h" />
@@ -182,10 +183,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BGGrid.cpp" />
+    <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="FGGrid.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GLEnums.cpp" />
-    <ClCompile Include="KeyManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="lodePNG.cpp" />
     <ClCompile Include="Matrix3.cpp" />

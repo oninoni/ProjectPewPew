@@ -1,9 +1,14 @@
 #include "stdafx.h"
 
-bool Game::initShader()
+bool Game::initTextureShader()
 {
     textureShader = new Shader;
     return textureShader->loadVertFragShader("texture");
+}
+
+bool Game::initLaserShader() {
+	laserShader = new Shader;
+	return laserShader->loadVertFragShader("laser");
 }
 
 bool Game::initGL()
@@ -27,6 +32,8 @@ bool Game::initGL()
         cout << "Window could not be created! You suck!" << endl;
         return false;
     }
+
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
     glfwMakeContextCurrent(window);
 
@@ -128,7 +135,7 @@ Game::Game(int* argc, char** argv)
     if (!initGL())
         return;
 
-    if (!initShader())
+    if (!initTextureShader())
         return;
 
     srand(GetTickCount());
@@ -174,6 +181,10 @@ BGGrid * Game::getBGGrid() {
 
 Player * Game::getPlayer() {
 	return player;
+}
+
+Shader * Game::getLaserShader() {
+	return laserShader;
 }
 
 Shader * Game::getTextureShader()

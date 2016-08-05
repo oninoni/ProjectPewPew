@@ -1,9 +1,12 @@
 #pragma once
 
+#define SPEED 2
+
 class Player
 {
 private:
-	KeyManager* keyManager;
+	Cursor* cursor;
+	InputManager* keyManager;
 
 	GLFWwindow* window;
 	FGGrid* grid;

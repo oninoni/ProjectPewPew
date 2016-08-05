@@ -21,10 +21,12 @@ private:
     float runTime;
 
     Shader* textureShader;
+	Shader* laserShader;
 
     //std::vector<Entity> entitys;
 
-    bool initShader();
+    bool initTextureShader();
+	bool initLaserShader();
 
     bool initGL();
     void start();
@@ -45,8 +47,10 @@ public:
 	FGGrid* getFGGrid();
 	BGGrid* getBGGrid();
 	Player* getPlayer();
-    Shader* getTextureShader();
 	TextureMap* getTextureMap();
 	View* getView();
+
+	Shader* getLaserShader();
+	Shader* getTextureShader();
 };
 

@@ -28,9 +28,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>source\Game\Grid</Filter>
     </ClCompile>
@@ -43,9 +40,6 @@
     <ClCompile Include="lodePNG.cpp">
       <Filter>source\Other</Filter>
     </ClCompile>
-    <ClCompile Include="KeyManager.cpp">
-      <Filter>source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Location.cpp">
       <Filter>source\Math</Filter>
     </ClCompile>
@@ -57,6 +51,15 @@
     </ClCompile>
     <ClCompile Include="Matrix3.cpp">
       <Filter>source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>source\Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>source\Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>source\Game\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,9 +96,6 @@
     <ClInclude Include="Game.h">
       <Filter>header\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>header\Game</Filter>
-    </ClInclude>
     <ClInclude Include="lodePNG.h">
       <Filter>header\Other</Filter>
     </ClInclude>
@@ -111,9 +111,6 @@
     <ClInclude Include="Tile.h">
       <Filter>header\Game\Grid</Filter>
     </ClInclude>
-    <ClInclude Include="KeyManager.h">
-      <Filter>header\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Attribute.h">
       <Filter>header\OpenGL</Filter>
     </ClInclude>
@@ -125,6 +122,15 @@
     </ClInclude>
     <ClInclude Include="Matrix3.h">
       <Filter>header\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>header\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>header\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>header\Game\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +192,12 @@
     </Filter>
     <Filter Include="resources\Tile Textures">
       <UniqueIdentifier>{787887cd-7f23-48a0-aec0-e08ac8d5eba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Game\Player">
+      <UniqueIdentifier>{2af961b8-03d2-435f-a5db-a2b97944f950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Game\Player">
+      <UniqueIdentifier>{9715eddf-e2bc-4c19-82ba-4514c5d1ca60}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

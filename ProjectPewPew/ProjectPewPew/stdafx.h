@@ -44,9 +44,11 @@ using namespace std;
 
 // Game Logic    
 class Game;
+class Player;
 #include "Tile.h"
 #include "BGGrid.h"
 #include "FGGrid.h"
-#include "KeyManager.h"
+#include "Cursor.h"
+#include "InputManager.h"
 #include "Player.h"
 #include "Game.h"
