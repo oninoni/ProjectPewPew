@@ -46,6 +46,9 @@ Location::Location(bool inverted)
     position = vec2(0, 0);
     offset = vec2(0, 0);
     rotation = 0;
+    posLowerLimit = vec2(-INFINITY, -INFINITY);
+    posUpperLimit = vec2(+INFINITY, +INFINITY);
+    
     matChanged = true;
     this->inverted = inverted;
 }
@@ -71,7 +74,8 @@ float Location::getRotation()
 
 void Location::setPosition(vec2 position)
 {
-    this->position = position;
+    this->position.x = min(max(position.x, posLowerLimit.x), posUpperLimit.x);
+    this->position.y = min(max(position.y, posLowerLimit.y), posUpperLimit.y);
     matChanged = true;
 }
 
@@ -87,9 +91,23 @@ void Location::setRotation(float rotation)
     matChanged = true;
 }
 
+void Location::setPosLowerLimit(vec2 limit)
+{
+    posLowerLimit = limit;
+    position.x = max(position.x, limit.x);
+    position.y = max(position.y, limit.y);
+}
+
+void Location::setPosUpperLimit(vec2 limit)
+{
+    posUpperLimit = limit;
+    position.x = min(position.x, limit.x);
+    position.y = min(position.y, limit.y);
+}
+
 void Location::translatePosition(vec2 amount)
 {
-    position += amount;
+    setPosition(position + amount);
     matChanged = true;
 }
 

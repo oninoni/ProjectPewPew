@@ -11,6 +11,9 @@ private:
     bool matChanged;
     Matrix3 mat;
 
+    vec2 posLowerLimit;
+    vec2 posUpperLimit;
+
     void doTranslation(vec2 vec);
     void doRotation(float angle);
 
@@ -26,6 +29,9 @@ public:
     void setPosition(vec2 position);
     void setOffset(vec2 offset);
     void setRotation(float rotation);
+
+    void setPosLowerLimit(vec2 limit);
+    void setPosUpperLimit(vec2 limit);
     
     void translatePosition(vec2 amount);
     void translateOffset(vec2 amount);

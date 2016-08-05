@@ -46,9 +46,6 @@
     <ClCompile Include="KeyManager.cpp">
       <Filter>source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="matrix3.cpp">
-      <Filter>source\Math</Filter>
-    </ClCompile>
     <ClCompile Include="Location.cpp">
       <Filter>source\Math</Filter>
     </ClCompile>
@@ -57,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3.cpp">
+      <Filter>source\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,9 +114,6 @@
     <ClInclude Include="KeyManager.h">
       <Filter>header\Game</Filter>
     </ClInclude>
-    <ClInclude Include="matrix3.h">
-      <Filter>header\Math</Filter>
-    </ClInclude>
     <ClInclude Include="Attribute.h">
       <Filter>header\OpenGL</Filter>
     </ClInclude>
@@ -125,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>header\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3.h">
+      <Filter>header\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
