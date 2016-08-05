@@ -204,6 +204,8 @@
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="laser.vert" />
+    <None Include="laser.frag" />
     <None Include="texture.frag">
       <DeploymentContent>true</DeploymentContent>
     </None>

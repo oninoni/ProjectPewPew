@@ -48,7 +48,7 @@ Location::Location(bool inverted)
     rotation = 0;
     posLowerLimit = vec2(-INFINITY, -INFINITY);
     posUpperLimit = vec2(+INFINITY, +INFINITY);
-    
+
     matChanged = true;
     this->inverted = inverted;
 }
