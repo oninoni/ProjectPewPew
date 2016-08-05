@@ -48,7 +48,9 @@ Player::Player(Game* g)
 	textureMap = g->getTextureMap();
     keyManager = new KeyManager(window);
     
-    //pos.setOffset(vec2(-0.5, -0.5));
+    pos.setOffset(vec2(-0.5, -0.5));
+    pos.setPosLowerLimit(vec2(0.5, 0.5));
+    pos.setPosUpperLimit(vec2((float)grid->getSize().x, (float)grid->getSize().y) - vec2(0.5, 0.5));
 
     initVAO();
 }
@@ -63,35 +65,25 @@ void Player::update(float deltaTime)
 {
 	keyManager->update();
 
-	if (keyManager->keyDown(K_UP)) {
-		float maxTranslation = grid->getSize().y - pos.getPosition().y;
-		cout << pos.getPosition().y << endl;
-		float translation = maxTranslation < 1.42f * deltaTime ? maxTranslation : 1.42f * deltaTime;
-		view->getPos()->translateOffset(vec2(0, translation));
-		pos.translatePosition(vec2(0, translation));
-	}
+	if (keyManager->keyDown(K_UP)) 
+		pos.translatePosition(vec2(0, 1.42f * deltaTime));
 	
-    if (keyManager->keyDown(K_DOWN)) {
-		view->getPos()->translateOffset(vec2(0, -1.42f * deltaTime));
+    if (keyManager->keyDown(K_DOWN)) 
 		pos.translatePosition(vec2(0, -1.42f * deltaTime));
-	}
 
-	if (keyManager->keyDown(K_RIGHT)) {
-		view->getPos()->translateOffset(vec2(1.42f * deltaTime, 0));
+	if (keyManager->keyDown(K_RIGHT)) 
 		pos.translatePosition(vec2(1.42f * deltaTime, 0));
-	}
 	
-	if (keyManager->keyDown(K_LEFT)) {
-		view->getPos()->translateOffset(vec2(-1.42f * deltaTime, 0));
+	if (keyManager->keyDown(K_LEFT)) 
 		pos.translatePosition(vec2(-1.42f * deltaTime, 0));
-	}
 
+    /*
 	if (keyManager->keyPressed(K_ZOOM_IN))
-		view->setScale(view->getScale() * 1.1f);
+		view->setScale(view->getScale() * 2);
 
 	if (keyManager->keyPressed(K_ZOOM_OUT))
-		view->setScale(view->getScale() / 1.1f);
-
+		view->setScale(view->getScale() / 2);
+    */
 	//cout << pos.getPosition() << endl;
 }
 

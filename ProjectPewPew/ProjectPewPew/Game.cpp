@@ -19,11 +19,8 @@ bool Game::initGL()
 
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-    glfwWindowHint(GLFW_SAMPLES, 0);
-
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    // GLFW_OPENGL_COMPAT_PROFILE causes glitchy borders, don't use it
+    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     if (!(window = glfwCreateWindow(1280, 720, "Project PewPew", NULL, NULL)))
     {
@@ -39,7 +36,7 @@ bool Game::initGL()
         return false;
     }
 
-    glfwSwapInterval(0); // V-Sync off (on is default, but it glitches if you don't call it)
+    glfwSwapInterval(1); // V-Sync off (on is default, but it glitches if you don't call it)
 
 	glEnable(GL_BLEND);
 	glBlendFunc(bfsSrcAlpha, bfdOneMinusSrcAlpha);
@@ -67,8 +64,8 @@ void Game::start()
     glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);
 
 	view = new View(textureShader);
-	view->setScale(vec2(0.2f, 0.2f));
-	view->uniform("view");
+	view->setScale(vec2(2 * 64.0f / h, 2 * 64.0f / h));
+    view->uniform("view");
 
 	fgGrid = new FGGrid(20, 10, this);
 	bgGrid = new BGGrid(20, 10, this);
