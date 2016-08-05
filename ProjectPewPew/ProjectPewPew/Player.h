@@ -24,5 +24,7 @@ public:
 
 	void update(float deltaT);
 	void render();
+
+    Location & getPos();
 };
 

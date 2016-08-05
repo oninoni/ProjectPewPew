@@ -59,19 +59,19 @@ void TextureMap::buildPage(bool freeTextureData)
     while (size * size < textureCount)
         size *= 2;
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size * texSize.x, size * texSize.y, 0, GL_BGRA, GL_UNSIGNED_BYTE, NULL);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size * texSize.x, size * texSize.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
     int x = 0;
     int y = 0;
     for (pair<string, TextureMapItem*> pair : tiles)
     {
         TextureMapItem* t = pair.second;
-        t->pos = vec2((float)x, (float)y) / vec2((float) texSize.x, (float) texSize.y);
+        t->pos = vec2((float)x, (float)y) / (float)size;
 
-        glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, texSize.x, texSize.y, GL_BGRA, GL_UNSIGNED_BYTE, t->getData());
+        glTexSubImage2D(GL_TEXTURE_2D, 0, x * texSize.x, y * texSize.y, texSize.x, texSize.y, GL_RGBA, GL_UNSIGNED_BYTE, t->getData());
 
-        if ((x = (x += texSize.x) % (size * texSize.x)) == 0)
-            y += texSize.y;
+        if ((x = ++x % (size)) == 0)
+            y++;
 
         if (freeTextureData)
             t->freeData();
@@ -80,6 +80,12 @@ void TextureMap::buildPage(bool freeTextureData)
 
 texcoord TextureMap::getTexCoord(string name, texcoord texCoord)
 {
+    if (!tiles[name])
+    {
+        cout << "Texture with name " << name << " does not exist! Returned texcoord [0|0]" << endl;
+        return texcoord(0, 0);
+    }
+
     texcoord result;
     result.x = tiles[name]->pos.x + texCoord.x / size;
     result.y = tiles[name]->pos.y + texCoord.y / size;

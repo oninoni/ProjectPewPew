@@ -21,9 +21,29 @@ BGGrid::BGGrid(int sX, int sY, Game* g)
 	sizeX = sX;
 	sizeY = sY;
 
+    string s;
+
 	for (int x = 0; x < sizeX; x++) {
 		for (int y = 0; y < sizeY; y++) {
-			tileMap.push_back(Tile(x, y, "grass", g));
+            switch (rand() % 5)
+            {
+            case 0:
+                s = "grass";
+                break;
+            case 1:
+                s = "stone";
+                break;
+            case 2:
+                s = "stone_sexy";
+                break;
+            case 3:
+                s = "stone_bricks";
+                break;
+            case 4:
+                s = "wooden_planks";
+                break;
+            }
+            tileMap.push_back(Tile(x, y, s, g));
 		}
 	}
 
@@ -41,6 +61,7 @@ BGGrid::BGGrid(int sX, int sY, Game* g)
 
 BGGrid::~BGGrid()
 {
+    delete vao;
 }
 
 void BGGrid::update(double deltaT) {
@@ -48,7 +69,7 @@ void BGGrid::update(double deltaT) {
 }
 
 void BGGrid::render() {
-	matrix3 matrix42;
+	Matrix3 matrix42;
 	matrix42.loadIdentity();
 	glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix42.ptr());
 	vao->render();

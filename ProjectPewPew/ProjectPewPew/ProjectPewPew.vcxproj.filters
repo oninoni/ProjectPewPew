@@ -128,11 +128,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="texture.frag">
-      <Filter>resources</Filter>
-    </None>
     <None Include="texture.vert">
-      <Filter>resources</Filter>
+      <Filter>resources\Shader</Filter>
+    </None>
+    <None Include="texture.frag">
+      <Filter>resources\Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -181,16 +181,31 @@
     <Filter Include="resources">
       <UniqueIdentifier>{c6a224a4-f13e-45c9-ae5d-ef728cca23a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resources\Shader">
+      <UniqueIdentifier>{16a2cbe8-908c-405b-b838-41f9a15339cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\Tile Textures">
+      <UniqueIdentifier>{787887cd-7f23-48a0-aec0-e08ac8d5eba1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="grass.png">
-      <Filter>resources</Filter>
+      <Filter>resources\Tile Textures</Filter>
     </Image>
     <Image Include="player.png">
-      <Filter>resources</Filter>
+      <Filter>resources\Tile Textures</Filter>
     </Image>
     <Image Include="stone.png">
-      <Filter>resources</Filter>
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
+    <Image Include="wooden_planks.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
+    <Image Include="stone_bricks.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
+    <Image Include="stone_sexy.png">
+      <Filter>resources\Tile Textures</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

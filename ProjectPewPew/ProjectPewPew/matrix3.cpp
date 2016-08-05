@@ -1,15 +1,15 @@
 #include "stdafx.h"
 
-matrix3::matrix3()
+Matrix3::Matrix3()
 {
     clear();
 }                  
 
-matrix3::~matrix3()
+Matrix3::~Matrix3()
 {
 }
 
-void matrix3::clear(float value)
+void Matrix3::clear(float value)
 {
     if (value == 0)
         memset(data, 0, sizeof(data));
@@ -19,7 +19,7 @@ void matrix3::clear(float value)
                 data[x][y] = value;
 }
 
-void matrix3::loadIdentity()
+void Matrix3::loadIdentity()
 {
     clear();
     data[0][0] = 1;
@@ -27,67 +27,67 @@ void matrix3::loadIdentity()
     data[2][2] = 1;
 }
 
-float * matrix3::ptr()
+float * Matrix3::ptr()
 {
     return data[0]; // = (float*)data
 }
 
-float &matrix3::operator()(int x, int y)
+float &Matrix3::operator()(int x, int y)
 {
     return data[x][y];
 }
 
-matrix3 matrix3::operator+(matrix3 & other)
+Matrix3 Matrix3::operator+(Matrix3 & other)
 {
-    matrix3 result;
+    Matrix3 result;
     for (int x = 0; x < 3; x++)
         for (int y = 0; y < 3; y++)
             result(x, y) = (*this)(x, y) + other(x, y);
     return result;
 }
 
-matrix3 matrix3::operator-(matrix3 & other)
+Matrix3 Matrix3::operator-(Matrix3 & other)
 {
-    matrix3 result;
+    Matrix3 result;
     for (int x = 0; x < 3; x++)
         for (int y = 0; y < 3; y++)
             result(x, y) = (*this)(x, y) - other(x, y);
     return result;
 }
 
-matrix3 matrix3::operator*(matrix3 & other)
+Matrix3 Matrix3::operator*(Matrix3 & other)
 {
-    matrix3 result;
+    Matrix3 result;
     for (int x = 0; x < 3; x++)
         for (int y = 0; y < 3; y++)
             result(x, y) = (*this)(0, y) * other(x, 0) + (*this)(1, y) * other(x, 1) + (*this)(2, y) * other(x, 2);
     return result;
 }
 
-matrix3 matrix3::operator*(float value)
+Matrix3 Matrix3::operator*(float value)
 {
-    matrix3 result;
+    Matrix3 result;
     for (int x = 0; x < 3; x++)
         for (int y = 0; y < 3; y++)
             result(x, y) = (*this)(x, y) * value;
     return result;
 }
 
-matrix3 matrix3::transpose()
+Matrix3 Matrix3::transpose()
 {
-    matrix3 result;
+    Matrix3 result;
     for (int x = 0; x < 3; x++)
         for (int y = 0; y < 3; y++)
             result(x, y) = (*this)(x, y);
     return result;
 }
 
-matrix3 operator*(float value, matrix3 & mat)
+Matrix3 operator*(float value, Matrix3 & mat)
 {
     return mat * value;
 }
 
-vec2 operator*(matrix3 & mat, vec2 vec)
+vec2 operator*(Matrix3 & mat, vec2 vec)
 {
     vec2 result;
     result.x = mat(0, 0) * vec.x + mat(1, 0) * vec.y + mat(2, 0);

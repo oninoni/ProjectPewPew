@@ -9,7 +9,7 @@ private:
     bool inverted;
 
     bool matChanged;
-    matrix3 mat;
+    Matrix3 mat;
 
     void doTranslation(vec2 vec);
     void doRotation(float angle);
@@ -31,7 +31,7 @@ public:
     void translateOffset(vec2 amount);
     void rotate(float angle);
 
-    matrix3 getMatrix();
+    Matrix3 getMatrix();
     bool getChanged();
 };
 

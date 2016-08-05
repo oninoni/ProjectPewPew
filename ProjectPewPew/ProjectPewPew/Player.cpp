@@ -88,3 +88,8 @@ void Player::render() {
     glUniformMatrix3fv(shader->getUniformLocation("model"), 1, blFalse, pos.getMatrix().ptr());
     vao->render();
 }
+
+Location & Player::getPos()
+{
+    return pos;
+}

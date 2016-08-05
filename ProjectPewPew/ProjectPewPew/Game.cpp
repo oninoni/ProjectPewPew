@@ -19,8 +19,11 @@ bool Game::initGL()
 
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
+    glfwWindowHint(GLFW_SAMPLES, 0);
+
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    // GLFW_OPENGL_COMPAT_PROFILE causes glitchy borders, don't use it
 
     if (!(window = glfwCreateWindow(1280, 720, "Project PewPew", NULL, NULL)))
     {
@@ -36,7 +39,7 @@ bool Game::initGL()
         return false;
     }
 
-    glfwSwapInterval(1); // V-Sync on (on is default, but it glitches if you don't call it)
+    glfwSwapInterval(0); // V-Sync off (on is default, but it glitches if you don't call it)
 
 	glEnable(GL_BLEND);
 	glBlendFunc(bfsSrcAlpha, bfdOneMinusSrcAlpha);
@@ -48,11 +51,16 @@ void Game::start()
 {
 	textureMap = new TextureMap();
 
+    textureMap->addTexture("player.png");
+
     textureMap->addTexture("grass.png");
-	textureMap->addTexture("player.png");
-	textureMap->addTexture("stone.png");
-	textureMap->buildPage();
-	textureMap->uniform(*textureShader, "tex");
+    textureMap->addTexture("stone.png");
+    textureMap->addTexture("stone_sexy.png");
+    textureMap->addTexture("stone_bricks.png");
+    textureMap->addTexture("wooden_planks.png");
+
+    textureMap->buildPage();
+	textureMap->uniform(textureShader, "tex");
 
     int w, h;
     glfwGetWindowSize(window, &w, &h);
@@ -95,6 +103,7 @@ void Game::update()
     updateDeltaTime();
 
 	player->update(deltaTime);
+    view->getPos().setPosition(player->getPos().getPosition());
 
 	fgGrid->update(deltaTime);
 	bgGrid->update(deltaTime);
@@ -102,7 +111,7 @@ void Game::update()
 
 void Game::render()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(amColorDepth);
 	
 	bgGrid->render();
 	fgGrid->render();
@@ -125,6 +134,8 @@ Game::Game(int* argc, char** argv)
     if (!initShader())
         return;
 
+    srand(GetTickCount());
+
     start();
 }
 
@@ -136,6 +147,7 @@ Game::~Game()
 
     delete textureShader;
 	delete textureMap;
+    delete view;
 
     glfwTerminate();
     cout << "Game stopped!" << endl;

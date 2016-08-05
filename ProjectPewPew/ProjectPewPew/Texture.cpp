@@ -34,10 +34,10 @@ void Texture::bind()
     }
 }
 
-void Texture::uniform(Shader & shader, string name)
+void Texture::uniform(Shader * shader, string name)
 {
-    shader.enable();
-    glUniform1i(shader.getUniformLocation(name), unitID);
+    shader->enable();
+    glUniform1i(shader->getUniformLocation(name), unitID);
 }
 
 void Texture::init()

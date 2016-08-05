@@ -11,7 +11,7 @@ public:
 
     void bind();
 
-    void uniform(Shader &shader, string name);
+    void uniform(Shader * shader, string name);
 
     static void init();
 

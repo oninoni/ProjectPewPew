@@ -2,7 +2,7 @@
 
 void Location::doTranslation(vec2 vec)
 {
-    matrix3 m;
+    Matrix3 m;
     m.loadIdentity();
     m(2, 0) = vec.x;
     m(2, 1) = vec.y;
@@ -11,7 +11,7 @@ void Location::doTranslation(vec2 vec)
 
 void Location::doRotation(float angle)
 {
-    matrix3 m;
+    Matrix3 m;
     m.clear();
     m(2, 2) = 1;  
     float r = angle / 180 * (float)PI;
@@ -105,7 +105,7 @@ void Location::rotate(float angle)
     matChanged = true;
 }
 
-matrix3 Location::getMatrix()
+Matrix3 Location::getMatrix()
 {
     if (matChanged)
         buildMatrix();

@@ -1,12 +1,12 @@
 #pragma once
-class matrix3
+class Matrix3
 {
 private:
     float data[3][3];
 
 public:
-    matrix3();
-    ~matrix3();
+    Matrix3();
+    ~Matrix3();
 
     void clear(float value = 0);
     void loadIdentity();
@@ -16,17 +16,17 @@ public:
     float &operator()(int x, int y);
 
     // matrix with matrix
-    matrix3 operator+(matrix3 &other);
-    matrix3 operator-(matrix3 &other);
-    matrix3 operator*(matrix3 &other);
+    Matrix3 operator+(Matrix3 &other);
+    Matrix3 operator-(Matrix3 &other);
+    Matrix3 operator*(Matrix3 &other);
     
     // matrix with value
-    matrix3 operator*(float value);
-    friend matrix3 operator*(float value, matrix3 &mat);
+    Matrix3 operator*(float value);
+    friend Matrix3 operator*(float value, Matrix3 &mat);
 
     // vector with matrix
-    friend vec2 operator*(vec2 vec, matrix3 &mat);
+    friend vec2 operator*(vec2 vec, Matrix3 &mat);
 
-    matrix3 transpose();
+    Matrix3 transpose();
 };
 

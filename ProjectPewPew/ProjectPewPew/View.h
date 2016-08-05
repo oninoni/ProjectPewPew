@@ -8,7 +8,7 @@ private:
     Shader* shader;
     int uniformLocation;
 
-    matrix3 matrix;
+    Matrix3 matrix;
 
     bool matChanged;
 
@@ -22,7 +22,7 @@ public:
 
     void buildMatrix();
 
-    Location * getPos();
+    Location & getPos();
     vec2 getScale();
     void setScale(vec2 scale);
 };
