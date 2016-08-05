@@ -23,8 +23,8 @@ BGGrid::BGGrid(int sX, int sY, Game* g)
 
     string s;
 
-	for (int x = 0; x < sizeX; x++) {
-		for (int y = 0; y < sizeY; y++) {
+	for (int x = 0; x < size.x; x++) {
+		for (int y = 0; y < size.y; y++) {
             switch (rand() % 5)
             {
             case 0:
