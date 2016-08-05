@@ -18,8 +18,8 @@ BGGrid::BGGrid() {
 
 BGGrid::BGGrid(int sX, int sY, Game* g)
 {
-	sizeX = sX;
-	sizeY = sY;
+	size.x = sX;
+	size.y = sY;
 
     string s;
 
@@ -73,4 +73,8 @@ void BGGrid::render() {
 	matrix42.loadIdentity();
 	glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix42.ptr());
 	vao->render();
+}
+
+ivec2 BGGrid::getSize() {
+	return size;
 }

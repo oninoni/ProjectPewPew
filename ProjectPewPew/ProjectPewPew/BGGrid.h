@@ -3,8 +3,7 @@ class BGGrid
 {
 private:
 	vector<Tile> tileMap;
-	int sizeX;
-	int sizeY;
+	ivec2 size;
 
 	int uniformLocation;
 
@@ -18,4 +17,6 @@ public:
 
 	void update(double deltaT);
 	void render();
+
+	ivec2 getSize();
 };
