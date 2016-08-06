@@ -16,5 +16,6 @@ public:
     // and there game doesn't now about player yet...
 	~Cursor();
 
+	void updateLaser();
 	void render();
 };
