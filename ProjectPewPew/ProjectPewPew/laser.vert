@@ -9,6 +9,7 @@ in float vlength;
 in vec4 vcolor;
 
 out vec2 ftexcoord;
+out float flength;
 out vec4 fcolor;
 
 void main()
