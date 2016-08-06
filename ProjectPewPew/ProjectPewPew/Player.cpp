@@ -51,7 +51,7 @@ Player::Player(Game* g)
     input = new InputManager(g);
 	cursor = new Cursor(g, this);
 
-	gun = new Gun(g);
+	gun = new Gun(g, this);
     
     pos.setOffset(vec2(-0.5, -0.5));
     pos.setPosLowerLimit(vec2(0.5, 0.5));

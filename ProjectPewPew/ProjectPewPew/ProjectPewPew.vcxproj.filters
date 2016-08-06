@@ -246,7 +246,7 @@
     <Image Include="crosshair.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
-    <Image Include="laserGun.png">
+    <Image Include="laser_gun.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
   </ItemGroup>

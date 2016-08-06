@@ -6,7 +6,7 @@ private:
 	VAO* gunVAO;
 	TextureMap* textureMap;
 public:
-	Gun(Game* g);
+	Gun(Game* g, Player* p);
 	~Gun();
 
 	void update(float deltaTime);

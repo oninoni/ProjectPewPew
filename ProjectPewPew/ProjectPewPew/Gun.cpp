@@ -1,13 +1,13 @@
 #include "stdafx.h"
 
-Gun::Gun(Game * g) {
-	player = g->getPlayer();
+Gun::Gun(Game * g, Player* p) {
+	player = p;
 	textureMap = g->getTextureMap();
 
 	gunVAO = new VAO(g->getTextureShader());
 	gunVAO->generate(6, buDynamicDraw);
 
-	textureMap->setTexture("laserGun");
+	textureMap->setTexture("laser_gun");
 
 	struct {
 		vec2 pos;
@@ -51,6 +51,6 @@ void Gun::update(float deltaTime) {
 
 void Gun::render() {
 	gunVAO->getPos() = player->getPos();
-
+	//gunVAO->getPos().setOffset(vec2(0.0f, 0.0f));
 	gunVAO->render();
 }

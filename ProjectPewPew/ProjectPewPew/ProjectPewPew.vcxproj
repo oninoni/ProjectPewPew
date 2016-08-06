@@ -220,7 +220,7 @@
   <ItemGroup>
     <Image Include="crosshair.png" />
     <Image Include="grass.png" />
-    <Image Include="laserGun.png" />
+    <Image Include="laser_gun.png" />
     <Image Include="player.png" />
     <Image Include="stone.png" />
     <Image Include="stone_bricks.png" />
