@@ -7,7 +7,7 @@ Cursor::Cursor(Game* g, Player* player)
     input = player->getInputManager();
 
 	vaoLaser = new VAO(g->getLaserShader()); 
-	vaoLaser->generate(6, buDynamicDraw);    
+	vaoLaser->generate(6, buDynamicDraw);
 
 	vaoCrosshair = new VAO(g->getTextureShader());
     vaoCrosshair->generate(6, buStaticDraw);
@@ -61,18 +61,17 @@ void Cursor::updateLaser() {
 
 	vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
 
-	points[0] = player->getPos().getPosition() - direction.cross().normalize() / 10.0f;
-	points[1] = points[0] + direction;
-	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 10.0f;
-	points[2] = points[3] + direction;
+	points[0] = player->getPos().getPosition() - direction.cross().normalize() / 50.0f;
+	points[1] = points[0] + direction * 1.42f;
+	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 50.0f;
+	points[2] = points[3] + direction * 1.42f;
 
 	float length = direction.length();
-
-	//cout << "Direction: X= " << direction.x << " / Y= " << direction.y << endl;
 
 	struct {
 		vec2 pos;
 		vec2 vtexcoord;
+		float length;
 		float r, g, b, a;
 	} data;
 
@@ -81,10 +80,11 @@ void Cursor::updateLaser() {
 	data.b = 0.0f;
 	data.a = 1.0f;
 
+	data.length = length;
+
 	vaoLaser->map(baWriteOnly);
 	data.pos = points[0];
 	data.vtexcoord = vec2(-1, 0);
-	//cout << "0,0: X= " << data.pos.x << " / Y= " << data.pos.y << endl;
 	vaoLaser->addVertex(&data);
 	data.pos = points[1];
 	data.vtexcoord = vec2(-1, length);
