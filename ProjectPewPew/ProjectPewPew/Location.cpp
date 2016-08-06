@@ -158,6 +158,11 @@ void Location::approach(Location & other, float delta)
     approachScale(other, delta);
 }
 
+void Location::operator=(Location & other)
+{
+    approach(other, 1);
+}
+
 void Location::setPosLowerLimit(vec2 limit)
 {
     posLowerLimit = limit;
