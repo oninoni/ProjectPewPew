@@ -64,6 +64,11 @@ Location::Location(bool inverted)
     this->inverted = inverted;
 }
 
+Location::Location(Location & other)
+{
+    approach(other, 1);
+}
+
 Location::~Location()
 {
 }
@@ -158,9 +163,9 @@ void Location::approach(Location & other, float delta)
     approachScale(other, delta);
 }
 
-void Location::operator=(Location & other)
+Location& Location::operator=(Location & other)
 {
-    approach(other, 1);
+    return Location(other);
 }
 
 void Location::setPosLowerLimit(vec2 limit)

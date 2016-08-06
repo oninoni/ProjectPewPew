@@ -22,6 +22,7 @@ private:
     void buildMatrix();
 public:
     Location(bool inverted = false);
+    Location(Location &other);
     ~Location();
 
     vec2 getPosition();
@@ -41,7 +42,7 @@ public:
     void approachScale(Location &other, float delta);
     void approach(Location &other, float delta);
 
-    void operator=(Location &other);
+    Location& operator=(Location &other);
 
     void setPosLowerLimit(vec2 limit);
     void setPosUpperLimit(vec2 limit);
