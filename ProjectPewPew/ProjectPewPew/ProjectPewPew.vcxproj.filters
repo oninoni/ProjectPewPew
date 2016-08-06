@@ -64,6 +64,9 @@
     <ClCompile Include="Matrix2.cpp">
       <Filter>source\Math</Filter>
     </ClCompile>
+    <ClCompile Include="Gun.cpp">
+      <Filter>source\Game\Guns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -138,6 +141,9 @@
     <ClInclude Include="Matrix2.h">
       <Filter>header\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Gun.h">
+      <Filter>header\Game\Guns</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="texture.vert">
@@ -211,6 +217,12 @@
     <Filter Include="source\Game\Player">
       <UniqueIdentifier>{9715eddf-e2bc-4c19-82ba-4514c5d1ca60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Game\Guns">
+      <UniqueIdentifier>{71db311b-625c-414a-ac7a-87e427cbb759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Game\Guns">
+      <UniqueIdentifier>{b642e825-21b4-4454-82ff-6b2a1cb785e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="grass.png">
@@ -232,6 +244,9 @@
       <Filter>resources\Tile Textures</Filter>
     </Image>
     <Image Include="crosshair.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
+    <Image Include="laserGun.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
   </ItemGroup>

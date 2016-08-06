@@ -17,6 +17,8 @@ private:
     Shader* shader;
     VAO* vao;
 
+	Gun* gun;
+
     const float speed = 4.2f;
 
     void initVAO();

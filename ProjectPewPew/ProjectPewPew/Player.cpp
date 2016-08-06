@@ -50,10 +50,12 @@ Player::Player(Game* g)
 
     input = new InputManager(g);
 	cursor = new Cursor(g, this);
+
+	gun = new Gun(g);
     
     pos.setOffset(vec2(-0.5, -0.5));
     pos.setPosLowerLimit(vec2(0.5, 0.5));
-    pos.setPosUpperLimit(vec2((float)grid->getSize().x, (float)grid->getSize().y) - vec2(0.5, 0.5));
+	pos.setPosUpperLimit(vec2((float)grid->getSize().x, (float)grid->getSize().y) - vec2(0.5, 0.5));
 
     initVAO();
 }
@@ -63,6 +65,7 @@ Player::~Player()
 	delete input;
     delete vao;
 	delete cursor;
+	delete gun;
 }
 
 void Player::update(float deltaTime) 
@@ -88,13 +91,16 @@ void Player::update(float deltaTime)
 
     if (dir != vec2(0, 0))
 	    pos.translatePosition(dir.normalize() * speed * deltaTime);
+
+	gun->update(deltaTime);
 }
 
 void Player::render() 
 {
+	cursor->render();
+	gun->render();
     vao->getPos() = pos;
     vao->render();
-	cursor->render();
 }
 
 InputManager * Player::getInputManager()

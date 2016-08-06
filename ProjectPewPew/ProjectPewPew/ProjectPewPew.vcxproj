@@ -163,6 +163,7 @@
     <ClInclude Include="FGGrid.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
+    <ClInclude Include="Gun.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="lodePNG.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="FGGrid.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GLEnums.cpp" />
+    <ClCompile Include="Gun.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="lodePNG.cpp" />
@@ -218,6 +220,7 @@
   <ItemGroup>
     <Image Include="crosshair.png" />
     <Image Include="grass.png" />
+    <Image Include="laserGun.png" />
     <Image Include="player.png" />
     <Image Include="stone.png" />
     <Image Include="stone_bricks.png" />

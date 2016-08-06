@@ -47,10 +47,12 @@ class VAO;
 // Game Logic    
 class Game;
 class Player;
+class Gun;
 #include "Tile.h"
 #include "BGGrid.h"
 #include "FGGrid.h"       
 #include "InputManager.h"
 #include "Cursor.h"
 #include "Player.h"
+#include "Gun.h"
 #include "Game.h"
