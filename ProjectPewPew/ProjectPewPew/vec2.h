@@ -34,6 +34,7 @@ struct gvec2 sealed
 
     float lengthSqr();
     float length();
+    float getAngle();
 
     gvec2<type> normalize();
 
@@ -177,6 +178,24 @@ template<typename type>
 inline float gvec2<type>::length()
 {
     return sqrt(lengthSqr());
+}
+
+template<typename type>
+inline float gvec2<type>::getAngle()
+{
+    if (y > 0)
+        return atan(x / y) * 180 / (float)PI;
+    if (y < 0)
+        return atan(x / y) * 180 / (float)PI + 180;
+    else
+    {
+        if (x > 0)
+            return 90;
+        else if (x < 0)
+            return 270;
+        else
+            return 0;
+    }
 }
 
 template<typename type>

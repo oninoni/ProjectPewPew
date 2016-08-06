@@ -7,6 +7,11 @@ TextureData::TextureData(string filename)
     data = new byte[filedata.size()];
     memcpy(data, filedata.data(), filedata.size());
 
+    char *s = (char*)filedata.data();
+    char *d = (char*)data;
+    for (unsigned int y = 0; y < size.y; y++)
+        memcpy(d + y * size.x * 4, s + (size.y - y - 1) * size.x * 4, size.x * 4);
+
     // extract C:\PATH/[filename.ext]                            
     size_t a = filename.rfind('/');
     size_t b = filename.rfind('\\');

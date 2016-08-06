@@ -16,6 +16,8 @@ public:
     // and there game doesn't now about player yet...
 	~Cursor();
 
+    vec2 getDirection();
+
 	void updateLaser();
 	void update(float deltaTime);
 	void render();
