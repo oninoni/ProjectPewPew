@@ -214,6 +214,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="crosshair.png" />
     <Image Include="grass.png" />
     <Image Include="player.png" />
     <Image Include="stone.png" />

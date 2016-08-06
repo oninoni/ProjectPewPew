@@ -1,7 +1,5 @@
 #pragma once
 
-#define SPEED 2
-
 class Player
 {
 private:
@@ -18,6 +16,8 @@ private:
 
     Shader* shader;
     VAO* vao;
+
+    const float speed = 4.2f;
 
     void initVAO();
 

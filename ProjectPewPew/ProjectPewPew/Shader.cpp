@@ -116,6 +116,21 @@ int Shader::getAttribLocation(string name)
         return *(locations[name] = new int(glGetAttribLocation(program, name.c_str())));
 }
 
+void Shader::addAttribute(int count, string name, GLDataType type)
+{
+    attributes.push_back(Attribute(count, name, type));
+}
+
+int Shader::getAttribCount()
+{
+    return attributes.size();
+}
+
+Shader::Attribute Shader::getAttribute(int i)
+{
+    return attributes[i];
+}
+
 void Shader::enable()
 {
     if (activeShader != this)

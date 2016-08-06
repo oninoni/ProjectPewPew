@@ -33,13 +33,14 @@ using namespace std;
 #include "Location.h"
 
 // OpenGL
+class VAO;
 #include "GLEnums.h"
 #include "Shader.h"
+#include "VAO.h"
 #include "Texture.h"
 #include "TextureData.h"
 #include "TextureMapItem.h"
 #include "TextureMap.h"
-#include "VAO.h"
 #include "View.h"
 
 // Game Logic    

@@ -225,6 +225,9 @@
     <Image Include="stone_sexy.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
+    <Image Include="crosshair.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

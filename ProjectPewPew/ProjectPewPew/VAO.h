@@ -17,6 +17,9 @@ private:
     vector<Attribute> attributes;
     Shader* shader;
 
+    void addAttribute(DWORD count, string name, GLDataType dataType = dtFloat);
+    void genAttributes();
+
     static VAO* boundVAO;
 
 protected:
@@ -29,11 +32,8 @@ public:
 	~VAO();
 
     void bind();
-    void unbind();
-
-    void addAttribute(DWORD count, string name, GLDataType dataType = dtFloat);
-    void genAttributes();
-
+    void unbind();   
+    
     void generate(DWORD maxSize, GLBufferUsage usage);
 
     bool map(GLBufferAccess access);

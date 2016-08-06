@@ -3,12 +3,29 @@
 bool Game::initTextureShader()
 {
     textureShader = new Shader;
-    return textureShader->loadVertFragShader("texture");
+    if (!textureShader->loadVertFragShader("texture"))
+    {
+        cout << "Texture Shader not loaded! You suck" << endl;
+        return false;
+    }
+    textureShader->addAttribute(2, "vpos");
+    textureShader->addAttribute(2, "vtexcoord");
+    textureShader->addAttribute(2, "vminborder");
+    textureShader->addAttribute(2, "vmaxborder");
+    return true;
 }
 
 bool Game::initLaserShader() {
 	laserShader = new Shader;
-	return laserShader->loadVertFragShader("laser");
+    if (!laserShader->loadVertFragShader("laser"))
+    {
+        cout << "Laser Shader not loaded! You suck" << endl;
+        return false;
+    }
+    laserShader->addAttribute(2, "vpos");
+    laserShader->addAttribute(2, "vtexcoord");
+    laserShader->addAttribute(4, "vcolor");
+    return true;
 }
 
 bool Game::initGL()
@@ -28,6 +45,7 @@ bool Game::initGL()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     if (!(window = glfwCreateWindow(1280, 720, "Project PewPew", NULL, NULL)))
+    //if (!(window = glfwCreateWindow(1920, 1080, "Project PewPew", glfwGetPrimaryMonitor(), NULL)))
     {
         cout << "Window could not be created! You suck!" << endl;
         return false;
@@ -43,7 +61,7 @@ bool Game::initGL()
         return false;
     }
 
-    glfwSwapInterval(1); // V-Sync off (on is default, but it glitches if you don't call it)
+    glfwSwapInterval(0); // V-Sync off (on is default, but it glitches if you don't call it)
 
 	glEnable(GL_BLEND);
 	glBlendFunc(bfsSrcAlpha, bfdOneMinusSrcAlpha);
@@ -62,22 +80,30 @@ void Game::start()
     textureMap->addTexture("stone_sexy.png");
     textureMap->addTexture("stone_bricks.png");
     textureMap->addTexture("wooden_planks.png");
+    textureMap->addTexture("crosshair.png");
 
     textureMap->buildPage();
 	textureMap->uniform(textureShader, "tex");
 
     int w, h;
     glfwGetWindowSize(window, &w, &h);
-    glUniform1f(textureShader->getUniformLocation("aspect"), (float)w / h);     
+    float aspect = (float)w / h;
+    glUniform1f(textureShader->getUniformLocation("aspect"), aspect);     
 
 	view = new View(textureShader);
-	view->setScale(vec2(2 * 64.0f / h, 2 * 64.0f / h));
+	view->setScale(vec2(0.2f, 0.2f));
     view->uniform("view");
 
-	fgGrid = new FGGrid(20, 10, this);
-	bgGrid = new BGGrid(20, 10, this);
+	fgGrid = new FGGrid(30, 30, this);
+	bgGrid = new BGGrid(30, 30, this);
+
+    vec2 scale = view->getScale();
+    vec2 limit = vec2(aspect / scale.x, 1 / scale.y);
+    view->getPos().setPosLowerLimit(limit);
+    view->getPos().setPosUpperLimit(vec2(bgGrid->getSize().x, bgGrid->getSize().y) - limit);
 
 	player = new Player(this);
+    player->getPos().setPosition(vec2(bgGrid->getSize().x, bgGrid->getSize().y) / 2);
 
     runTime = 0;
     oldTime = (float)glfwGetTime();
@@ -109,6 +135,8 @@ void Game::update()
 	player->update(deltaTime);
     view->getPos().setPosition(player->getPos().getPosition());
 
+    //view->setScale(vec2(sinf(runTime) / 10.0f + 0.2f, sinf(runTime) / 10.0f + 0.2f));
+
 	fgGrid->update(deltaTime);
 	bgGrid->update(deltaTime);
 }
@@ -128,6 +156,8 @@ void Game::render()
 Game::Game(int* argc, char** argv)
 {
     cout << "Game started!" << endl;
+
+    memset(this, 0, sizeof(Game));
 
     this->argc = argc;
     this->argv = argv;

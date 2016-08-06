@@ -233,13 +233,13 @@ enum GLBufferTarget {
 };
 
 enum GLBufferUsage {
-    buStreamDraw = GL_STREAM_DRAW,
+    buStreamDraw = GL_STREAM_DRAW,   // Data updates every frame
     buStreamRead,
     buStreamCopy,
-    buStaticDraw = GL_STATIC_DRAW,
+    buStaticDraw = GL_STATIC_DRAW,   // Data updates almost never
     buStaticRead,
     buStaticCopy,
-    buDynamicDraw = GL_DYNAMIC_DRAW,
+    buDynamicDraw = GL_DYNAMIC_DRAW, // Data updates not every frame but very often
     buDynamicRead,
     buDynamicCopy
 };

@@ -78,16 +78,34 @@ void TextureMap::buildPage(bool freeTextureData)
     }
 }
 
-texcoord TextureMap::getTexCoord(string name, texcoord texCoord)
+bool TextureMap::setTexture(string name)
 {
     if (!tiles[name])
     {
-        cout << "Texture with name " << name << " does not exist! Returned texcoord [0|0]" << endl;
-        return texcoord(0, 0);
+        cout << "Texture with name " << name << " does not exist!" << endl;
+        texture = "";
+        return false;
     }
+    texture = name;
+    return true;
+}
 
+texcoord TextureMap::getMinBorder()
+{
+    return getTexCoord(vec2(0, 0) /* + vec2(0.5f / texSize.x, 0.5f / texSize.y) */);
+}
+
+texcoord TextureMap::getMaxBorder()
+{
+    return getTexCoord(vec2(1, 1) /* - vec2(0.5f / texSize.x, 0.5f / texSize.y) */);
+}
+
+texcoord TextureMap::getTexCoord(texcoord texCoord)
+{
+    if (texture == "")
+        return vec2(0, 0);
     texcoord result;
-    result.x = tiles[name]->pos.x + texCoord.x / size;
-    result.y = tiles[name]->pos.y + texCoord.y / size;
+    result.x = tiles[texture]->pos.x + texCoord.x / size;
+    result.y = tiles[texture]->pos.y + texCoord.y / size;
     return result;
 }

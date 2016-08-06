@@ -10,6 +10,8 @@ private:
 
     string_hashmap<TextureMapItem*> tiles;
 
+    string texture;
+
 public:
     TextureMap();
     ~TextureMap();
@@ -19,6 +21,10 @@ public:
     
     void buildPage(bool freeTextureData = true);
 
-    texcoord getTexCoord(string name, texcoord texCoord);
+    bool setTexture(string name);
+
+    texcoord getTexCoord(texcoord texCoord);
+    texcoord getMinBorder();
+    texcoord getMaxBorder();
 };
 

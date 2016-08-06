@@ -28,6 +28,13 @@ VAO::VAO(Shader* shader, GLRenderMode renderMode)
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
     glBindBuffer(btArrayBuffer, vbo);
+
+    for (int i = 0; i < shader->getAttribCount(); i++)
+    {
+        Shader::Attribute a = shader->getAttribute(i);
+        addAttribute(a.count, a.name, a.type);
+    }
+    genAttributes();
 }
 
 VAO::~VAO() 

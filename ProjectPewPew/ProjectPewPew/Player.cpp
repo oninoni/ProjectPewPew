@@ -4,37 +4,38 @@ void Player::initVAO()
 {
     vao = new VAO(shader);
 
-    vao->addAttribute(2, "vpos");
-    vao->addAttribute(2, "vtexcoord");
-    vao->genAttributes();
-
     vao->generate(6, buStaticDraw);
 
     struct {
         vec2 pos;
         vec2 tex;
+        vec2 minborder;
+        vec2 maxborder;
     } data;
 
-    cout << "Size of data = " << sizeof(data) << endl;
+    textureMap->setTexture("player");
+
+    data.minborder = textureMap->getMinBorder();
+    data.maxborder = textureMap->getMaxBorder();
 
     vao->map(baWriteOnly);
     data.pos = vec2(0, 0);
-    data.tex = textureMap->getTexCoord("player", vec2(0, 0));
+    data.tex = textureMap->getTexCoord(vec2(0, 0));
     vao->addVertex(&data);
     data.pos = vec2(1, 0);
-    data.tex = textureMap->getTexCoord("player", vec2(1, 0));
+    data.tex = textureMap->getTexCoord(vec2(1, 0));
     vao->addVertex(&data);
     data.pos = vec2(1, 1);
-    data.tex = textureMap->getTexCoord("player", vec2(1, 1));
+    data.tex = textureMap->getTexCoord(vec2(1, 1));
     vao->addVertex(&data);
     data.pos = vec2(1, 1);
-    data.tex = textureMap->getTexCoord("player", vec2(1, 1));
+    data.tex = textureMap->getTexCoord(vec2(1, 1));
     vao->addVertex(&data);
     data.pos = vec2(0, 1);
-    data.tex = textureMap->getTexCoord("player", vec2(0, 1));
+    data.tex = textureMap->getTexCoord(vec2(0, 1));
     vao->addVertex(&data);
     data.pos = vec2(0, 0);
-    data.tex = textureMap->getTexCoord("player", vec2(0, 0));
+    data.tex = textureMap->getTexCoord(vec2(0, 0));
     vao->addVertex(&data);
     vao->unmap();
 }
@@ -66,24 +67,25 @@ Player::~Player()
 void Player::update(float deltaTime) 
 {
 	keyManager->update();
-	ivec2 direction = ivec2(0, 0);
+	vec2 dir = vec2(0, 0);
 
 	if (keyManager->keyDown(K_UP))
-		direction.y++;
+		dir.y += 1;
 	
 	if (keyManager->keyDown(K_DOWN))
-		direction.y--;
+		dir.y -= 1;
 
 	if (keyManager->keyDown(K_RIGHT))
-		direction.x++;
+		dir.x += 1;
 	
 	if (keyManager->keyDown(K_LEFT))
-		direction.x--;
+		dir.x -= 1;
 
 	if (keyManager->keyPressed(K_FIRE_PRI)) {
 	}
 
-	pos.translatePosition(vec2(direction.x * SPEED * deltaTime / (abs(direction.y) + 1.0f), direction.y * SPEED * deltaTime / (abs(direction.x) + 1.0f)));
+    if (dir != vec2(0, 0))
+	    pos.translatePosition(dir.normalize() * speed * deltaTime);
 }
 
 void Player::render() {

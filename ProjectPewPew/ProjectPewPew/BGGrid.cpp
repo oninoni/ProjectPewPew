@@ -49,10 +49,6 @@ BGGrid::BGGrid(int sX, int sY, Game* g)
 
 	vao = new VAO(g->getTextureShader());
 
-	vao->addAttribute(2, "vpos");
-	vao->addAttribute(2, "vtexcoord");
-	vao->genAttributes();
-
 	uniformLocation = g->getTextureShader()->getUniformLocation("model");
 
 	buildVAO();

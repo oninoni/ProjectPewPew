@@ -35,6 +35,8 @@ struct gvec2 sealed
     float lengthSqr();
     float length();
 
+    gvec2<type> normalize();
+
     type x, y;
 };
 
@@ -175,4 +177,10 @@ template<typename type>
 inline float gvec2<type>::length()
 {
     return sqrt(lengthSqr());
+}
+
+template<typename type>
+inline gvec2<type> gvec2<type>::normalize()
+{
+    return *this / length();
 }
