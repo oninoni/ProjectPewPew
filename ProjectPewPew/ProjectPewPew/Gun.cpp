@@ -50,7 +50,7 @@ void Gun::update(float deltaTime) {
 }
 
 void Gun::render() {
-	gunVAO->getPos() = player->getPos();
-	//gunVAO->getPos().setOffset(vec2(0.0f, 0.0f));
+	gunVAO->getPos()= player->getPos();
+	gunVAO->getPos().setOffset(vec2(0.0f, 0.0f));
 	gunVAO->render();
 }
