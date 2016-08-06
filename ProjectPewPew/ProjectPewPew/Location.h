@@ -5,6 +5,7 @@ private:
     vec2 position;
     vec2 offset;
     float rotation;
+    vec2 scale;
 
     bool inverted;
 
@@ -16,6 +17,7 @@ private:
 
     void doTranslation(vec2 vec);
     void doRotation(float angle);
+    void doScale(vec2 scale);
 
     void buildMatrix();
 public:
@@ -25,10 +27,13 @@ public:
     vec2 getPosition();
     vec2 getOffset();
     float getRotation();
+    vec2 getScale();
 
     void setPosition(vec2 position);
     void setOffset(vec2 offset);
     void setRotation(float rotation);
+    void setScale(vec2 scale);
+    void setScale(float scale);
 
     void setPosLowerLimit(vec2 limit);
     void setPosUpperLimit(vec2 limit);

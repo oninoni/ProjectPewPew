@@ -18,8 +18,16 @@ void Location::doRotation(float angle)
     m(0, 0) = cos(r);
     m(0, 1) = -sin(r);
     m(1, 0) = sin(r);
-    m(1, 1) = cos(r);
+    m(1, 1) = cos(r);   
+    mat = mat * m;
+}
 
+void Location::doScale(vec2 scale)
+{
+    Matrix3 m;
+    m(0, 0) = scale.x;
+    m(1, 1) = scale.y;
+    m(2, 2) = 1;
     mat = mat * m;
 }
 
@@ -29,6 +37,7 @@ void Location::buildMatrix()
     if (inverted)
     {
         doTranslation(-offset);
+        doScale(scale);
         doRotation(-rotation);
         doTranslation(-position);
     }
@@ -36,6 +45,7 @@ void Location::buildMatrix()
     {
         doTranslation(position);
         doRotation(rotation);
+        doScale(scale);
         doTranslation(offset);
     }
     matChanged = false;
@@ -46,6 +56,7 @@ Location::Location(bool inverted)
     position = vec2(0, 0);
     offset = vec2(0, 0);
     rotation = 0;
+    scale = vec2(1, 1);
     posLowerLimit = vec2(-INFINITY, -INFINITY);
     posUpperLimit = vec2(+INFINITY, +INFINITY);
 
@@ -72,6 +83,11 @@ float Location::getRotation()
     return rotation;
 }
 
+vec2 Location::getScale()
+{
+    return scale;
+}
+
 void Location::setPosition(vec2 position)
 {
     this->position.x = min(max(position.x, posLowerLimit.x), posUpperLimit.x);
@@ -88,6 +104,19 @@ void Location::setOffset(vec2 offset)
 void Location::setRotation(float rotation)
 {
     this->rotation = rotation;
+    matChanged = true;
+}
+
+void Location::setScale(vec2 scale)
+{
+    this->scale = scale;
+    matChanged = true;
+}
+
+void Location::setScale(float scale)
+{
+    this->scale.x = scale;
+    this->scale.y = scale;
     matChanged = true;
 }
 
