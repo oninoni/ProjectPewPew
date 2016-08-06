@@ -46,6 +46,8 @@ Cursor::Cursor(Game* g, Player* player)
     data.tex = textureMap->getTexCoord(vec2(0, 0));
     vaoCrosshair->addVertex(&data);
     vaoCrosshair->unmap();
+
+	vaoCrosshair->getPos().setScale(0.5f);
 }
 
 Cursor::~Cursor() 
@@ -66,7 +68,7 @@ void Cursor::updateLaser() {
 
 	float length = direction.length();
 
-	cout << "Direction: X= " << direction.x << " / Y= " << direction.y << endl;
+	//cout << "Direction: X= " << direction.x << " / Y= " << direction.y << endl;
 
 	struct {
 		vec2 pos;
@@ -82,7 +84,7 @@ void Cursor::updateLaser() {
 	vaoLaser->map(baWriteOnly);
 	data.pos = points[0];
 	data.vtexcoord = vec2(-1, 0);
-	cout << "0,0: X= " << data.pos.x << " / Y= " << data.pos.y << endl;
+	//cout << "0,0: X= " << data.pos.x << " / Y= " << data.pos.y << endl;
 	vaoLaser->addVertex(&data);
 	data.pos = points[1];
 	data.vtexcoord = vec2(-1, length);
@@ -104,7 +106,7 @@ void Cursor::updateLaser() {
 
 void Cursor::update(float deltaTime) {
 	updateLaser();
-	vaoCrosshair->getPos().rotate();
+	vaoCrosshair->getPos().rotate(deltaTime * 45);
 }
 
 

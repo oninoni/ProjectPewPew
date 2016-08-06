@@ -135,7 +135,6 @@ void Game::update()
 
 	player->update(deltaTime);
     view->getPos().setPosition(player->getPos().getPosition());
-
     
 	fgGrid->update(deltaTime);
 	bgGrid->update(deltaTime);
