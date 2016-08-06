@@ -89,13 +89,14 @@ void Game::start()
     int w, h;
     glfwGetWindowSize(window, &w, &h);
     float aspect = (float)w / h;
-    glUniform1f(textureShader->getUniformLocation("aspect"), aspect);     
+    glUniform1f(textureShader->getUniformLocation("aspect"), 1);     
 
 	view = new View();
     view->addShader(textureShader);
     view->addShader(laserShader);
 
 	view->getPos().setScale(vec2(0.2f, 0.2f));
+    view->setAspect(aspect);
 
 	fgGrid = new FGGrid(30, 30, this);
 	bgGrid = new BGGrid(30, 30, this);
@@ -107,6 +108,7 @@ void Game::start()
 
 	player = new Player(this);
     player->getPos().setPosition(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) / 2);
+    view->getPos().setPosition(player->getPos().getPosition());
 
     runTime = 0;
     oldTime = (float)glfwGetTime();

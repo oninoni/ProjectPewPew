@@ -12,6 +12,8 @@ private:
     bool matChanged;
     bool invMatChanged;
 
+    float aspect;
+
     void buildMatrix();
 
     const string name = "view";
@@ -26,6 +28,8 @@ public:
     void addShader(Shader* shader);
     
     void render();
+
+    void setAspect(float aspect);
 
     Location & getPos();
 };

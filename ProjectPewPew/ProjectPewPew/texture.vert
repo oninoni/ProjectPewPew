@@ -3,8 +3,6 @@
 uniform mat3 view;
 uniform mat3 model;
 
-uniform float aspect;
-
 in vec2 vpos;
 in vec2 vtexcoord;
 in vec2 vminborder;
@@ -21,6 +19,5 @@ void main()
     fmaxborder = vmaxborder;
 
     vec3 p = view * model * vec3(vpos, 1);
-    gl_Position = vec4(p, 1);
-    gl_Position.x /= aspect;
+    gl_Position = vec4(p, 1);;
 }

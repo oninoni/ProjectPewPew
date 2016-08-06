@@ -59,11 +59,11 @@ Cursor::~Cursor()
 void Cursor::updateLaser() {
 	vec2 points[4];
 
-	vec2 direction = (input->getGridMousePos() - player->getPos().getPosition());
+	vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
 
-	points[0] = -direction.cross().normalize() / 10.0f;
+	points[0] = player->getPos().getPosition() - direction.cross().normalize() / 10.0f;
 	points[1] = points[0] + direction;
-	points[3] = direction.cross().normalize() / 10.0f;
+	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 10.0f;
 	points[2] = points[3] + direction;
 
 	float length = direction.length();

@@ -3,6 +3,7 @@
 View::View()
 {
     pos = new Location(true);
+    aspect = 1;
 }
 
 View::~View()
@@ -35,6 +36,12 @@ void View::render()
     }
 }
 
+void View::setAspect(float aspect)
+{
+    this->aspect = aspect;
+    matChanged = true;
+}
+
 void View::addShader(Shader * shader)
 {
     locations[shader] = shader->getUniformLocation(name);
@@ -42,7 +49,12 @@ void View::addShader(Shader * shader)
 
 void View::buildMatrix()
 {
-    matrix = pos->getMatrix();       
+    matrix = pos->getMatrix();
+    Matrix3 m;
+    m(0, 0) = 1 / aspect;
+    m(1, 1) = 1;
+    m(2, 2) = 1;
+    matrix = m * matrix;
     invMatChanged = true;
 }
 
