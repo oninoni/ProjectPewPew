@@ -10,7 +10,7 @@ Shader * VAO::getShader()
 void VAO::beforeRender()
 {
     shader->enable();
-    glUniformMatrix3fv(shader->getUniformLocation("model"), 1, blFalse, pos.getMatrix().ptr());
+    glUniformMatrix3fv(location, 1, blFalse, pos.getMatrix().ptr());
 }
 
 void VAO::afterRender()
@@ -22,6 +22,8 @@ VAO::VAO(Shader* shader, GLRenderMode renderMode)
 {
     this->shader = shader;
     this->renderMode = renderMode;
+
+    location = shader->getUniformLocation(name);
 
     stride = 0;
     pvbo = 0;

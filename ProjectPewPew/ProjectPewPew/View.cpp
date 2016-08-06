@@ -1,9 +1,8 @@
 #include "stdafx.h"
 
-View::View(Shader* shader)
+View::View()
 {
     pos = new Location(true);
-    this->shader = shader;     
 }
 
 View::~View()
@@ -25,16 +24,20 @@ Matrix3 View::getInvMatrix()
     return invMatrix;
 }
 
-void View::uniform(string name)
-{
-    uniformLocation = shader->getUniformLocation(name);
-}
-
 void View::render()
 {
     if (matChanged || pos->getChanged())
         buildMatrix();
-    glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix.ptr());
+    for (pair<Shader*, int> p : locations)
+    {
+        p.first->enable();
+        glUniformMatrix3fv(p.second, 1, blFalse, matrix.ptr());
+    }
+}
+
+void View::addShader(Shader * shader)
+{
+    locations[shader] = shader->getUniformLocation(name);
 }
 
 void View::buildMatrix()
