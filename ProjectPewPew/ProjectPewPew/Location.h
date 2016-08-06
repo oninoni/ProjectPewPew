@@ -35,6 +35,10 @@ public:
     void setScale(vec2 scale);
     void setScale(float scale);
 
+    void approachPosition(Location &other, float delta);
+    void approachOffset(Location &other, float delta);
+    void approachRotation(Location &other, float delta);
+    void approachScale(Location &other, float delta);
     void approach(Location &other, float delta);
 
     void setPosLowerLimit(vec2 limit);

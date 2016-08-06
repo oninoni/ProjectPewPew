@@ -120,7 +120,19 @@ void Location::setScale(float scale)
     matChanged = true;
 }
 
-void Location::approach(Location & other, float delta)
+void Location::approachPosition(Location & other, float delta)
+{
+    delta = min(max(delta, 0), 1);
+    setPosition(position * (1 - delta) + other.position * delta);
+}
+
+void Location::approachOffset(Location & other, float delta)
+{
+    delta = min(max(delta, 0), 1);
+    setOffset(offset * (1 - delta) + other.offset * delta);
+}
+
+void Location::approachRotation(Location & other, float delta)
 {
     float r = other.rotation;
     if (rotation - r > 180)
@@ -129,11 +141,21 @@ void Location::approach(Location & other, float delta)
         r -= 360;
 
     delta = min(max(delta, 0), 1);
-
-    setPosition(position * (1 - delta) + other.position * delta);
-    setOffset(offset * (1 - delta) + other.offset * delta);
-    setScale(scale * (1 - delta) + other.offset * delta);
     setRotation(rotation * (1 - delta) + r * delta);
+}
+
+void Location::approachScale(Location & other, float delta)
+{    
+    delta = min(max(delta, 0), 1);
+    setScale(scale * (1 - delta) + other.offset * delta);    
+}
+
+void Location::approach(Location & other, float delta)
+{
+    approachPosition(other, delta);
+    approachOffset(other, delta);
+    approachRotation(other, delta);
+    approachScale(other, delta);
 }
 
 void Location::setPosLowerLimit(vec2 limit)
