@@ -66,7 +66,14 @@ Location::Location(bool inverted)
 
 Location::Location(Location & other)
 {
-    approach(other, 1);
+    //approach(other, 1);
+    position = other.position;
+    offset = other.position;
+    scale = other.scale;
+    rotation = other.rotation;
+    posLowerLimit = other.posLowerLimit;
+    posUpperLimit = other.posUpperLimit;
+    other.matChanged = true;
 }
 
 Location::~Location()
@@ -163,9 +170,10 @@ void Location::approach(Location & other, float delta)
     approachScale(other, delta);
 }
 
-Location& Location::operator=(Location & other)
+Location Location::operator=(Location & other)
 {
-    return Location(other);
+    approach(other, 1);
+    return *this;
 }
 
 void Location::setPosLowerLimit(vec2 limit)

@@ -46,11 +46,11 @@ Gun::~Gun() {
 }
 
 void Gun::update(float deltaTime) {
-
+        
 }
 
 void Gun::render() {
-	gunVAO->getPos() = player->getPos();
+	//gunVAO->getPos() = player->getPos();
 
-	gunVAO->render();
+	//gunVAO->render();
 }
