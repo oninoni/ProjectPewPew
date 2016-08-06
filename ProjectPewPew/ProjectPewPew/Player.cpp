@@ -72,6 +72,8 @@ void Player::update(float deltaTime)
 {
 	input->update();
 	cursor->update(deltaTime);
+    pos.setRotation(cursor->getDirection().getAngle());
+
 	vec2 dir = vec2(0, 0);
 
 	if (input->keyDown(kaUp))

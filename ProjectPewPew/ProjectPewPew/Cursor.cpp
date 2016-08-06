@@ -56,10 +56,15 @@ Cursor::~Cursor()
     delete vaoCrosshair;
 }
 
+vec2 Cursor::getDirection()
+{
+    return player->getPos().getPosition().vectorTo(input->getGridMousePos());
+}
+
 void Cursor::updateLaser() {
 	vec2 points[4];
 
-	vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
+	vec2 direction = getDirection();
 
 	points[0] = player->getPos().getPosition() - direction.cross().normalize() / 25.0f;
 	points[1] = points[0] + direction.normalize() * 15.0f;
