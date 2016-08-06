@@ -28,7 +28,7 @@ struct gvec2 sealed
     gvec2<type> operator+=(const gvec2<type> &other);
     gvec2<type> operator-=(const gvec2<type> &other);
 
-    gvec2<type> vectorTo(const gvec2<type> &other);
+    gvec2<type> vectorTo(gvec2<type> &other);
 
     gvec2<type> cross();
 
@@ -149,9 +149,9 @@ inline gvec2<type> gvec2<type>::operator-=(const gvec2<type>& other)
 }
 
 template<typename type>
-inline gvec2<type> gvec2<type>::vectorTo(const gvec2<type> &other)
+inline gvec2<type> gvec2<type>::vectorTo(gvec2<type> &other)
 {
-    return gvec2<type>(this* - other);
+    return other - *this;
 }
 
 template<typename type>

@@ -7,6 +7,6 @@ out vec4 outcolor;
 
 void main()
 {
-    float alpha = sqrt(1 - ftexcoord.x * ftexcoord.x) * cos(ftexcoord.y);
+    float alpha = sqrt(1 - ftexcoord.x * ftexcoord.x);
     outcolor = alpha * fcolor; 
 }

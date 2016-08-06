@@ -22,7 +22,7 @@ vec2 InputManager::getMousePos()
     glfwGetCursorPos(window, &x, &y);
     int w, h;
     glfwGetWindowSize(window, &w, &h);
-    return vec2((float)x / h * 2 - (float)w/h, 1 - (float)y / h * 2);
+    return vec2((float)x / w * 2 - 1, 1 - (float)y / h * 2);
 }
 
 vec2 InputManager::getGridMousePos()
