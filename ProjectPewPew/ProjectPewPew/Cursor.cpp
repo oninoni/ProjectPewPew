@@ -62,9 +62,9 @@ void Cursor::updateLaser() {
 	vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
 
 	points[0] = player->getPos().getPosition() - direction.cross().normalize() / 50.0f;
-	points[1] = points[0] + direction * 2.0f;
+	points[1] = points[0] + direction.normalize() * 10.0f;
 	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 50.0f;
-	points[2] = points[3] + direction * 2.0f;
+	points[2] = points[3] + direction.normalize() * 10.0f;
 
 	float length = direction.length();
 
@@ -80,7 +80,7 @@ void Cursor::updateLaser() {
 	data.b = 0.0f;
 	data.a = 1.0f;
 
-	data.length = length;
+	data.length = 10;
 
 	vaoLaser->map(baWriteOnly);
 	data.pos = points[0];
