@@ -15,6 +15,7 @@ Cursor::Cursor(Game* g, Player* player)
     
     TextureMap* textureMap = g->getTextureMap();
     textureMap->setTexture("crosshair");
+
     struct {
         vec2 pos;
         texcoord tex;
@@ -45,35 +46,75 @@ Cursor::Cursor(Game* g, Player* player)
     data.tex = textureMap->getTexCoord(vec2(0, 0));
     vaoCrosshair->addVertex(&data);
     vaoCrosshair->unmap();
+
+	vaoCrosshair->getPos().setScale(0.5f);
 }
 
 Cursor::~Cursor() 
 {
-    delete vaoLaser;  // immer muss ich hinter dir aufräumen...
-    delete vaoCrosshair; // schreib doch einfach gleich das delete dazu wenn du new schreibst .-.
+    delete vaoLaser;
+    delete vaoCrosshair;
 }
 
-void Cursor::render() 
+void Cursor::updateLaser() {
+	vec2 points[4];
+
+	vec2 direction = (input->getGridMousePos() - player->getPos().getPosition());
+
+	points[0] = -direction.cross().normalize() / 10.0f;
+	points[1] = points[0] + direction;
+	points[3] = direction.cross().normalize() / 10.0f;
+	points[2] = points[3] + direction;
+
+	float length = direction.length();
+
+	//cout << "Direction: X= " << direction.x << " / Y= " << direction.y << endl;
+
+	struct {
+		vec2 pos;
+		vec2 vtexcoord;
+		float r, g, b, a;
+	} data;
+
+	data.r = 1.0f;
+	data.g = 0.0f;
+	data.b = 0.0f;
+	data.a = 1.0f;
+
+	vaoLaser->map(baWriteOnly);
+	data.pos = points[0];
+	data.vtexcoord = vec2(-1, 0);
+	//cout << "0,0: X= " << data.pos.x << " / Y= " << data.pos.y << endl;
+	vaoLaser->addVertex(&data);
+	data.pos = points[1];
+	data.vtexcoord = vec2(-1, length);
+	vaoLaser->addVertex(&data);
+	data.pos = points[2];
+	data.vtexcoord = vec2(1, length);
+	vaoLaser->addVertex(&data);
+	data.pos = points[2];
+	data.vtexcoord = vec2(1, length);
+	vaoLaser->addVertex(&data);
+	data.pos = points[3];
+	data.vtexcoord = vec2(1, 0);
+	vaoLaser->addVertex(&data);
+	data.pos = points[0];
+	data.vtexcoord = vec2(-1, 0);
+	vaoLaser->addVertex(&data);
+	vaoLaser->unmap();
+}
+
+void Cursor::update(float deltaTime) {
+	vaoCrosshair->getPos().rotate(deltaTime * 45);
+}
+
+
+
+void Cursor::render()
 {      
     vaoCrosshair->getPos().setPosition(input->getGridMousePos());
     vaoCrosshair->render();
 
-    //cout << xPos << "/" << yPos << endl;
-
-	/*vec2 points[4];
-
-	points[0] = player->getPos();
-
-	struct {
-		vec2 pos;
-		vec2 tex;
-		float r, g, b, a;
-	} data;
-
-	vaoLaser->map(baWriteOnly);
-	vaoLaser->
-	vaoLaser->unmap();
-
+	updateLaser();
 	vaoLaser->render();
-	vaoTarget->render();*/
 }
