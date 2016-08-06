@@ -11,6 +11,20 @@ View::~View()
     delete pos;
 }
 
+Matrix3 View::getMatrix()
+{
+    if (matChanged || pos->getChanged())
+        buildMatrix();
+    return matrix;
+}
+
+Matrix3 View::getInvMatrix()
+{
+    if (invMatChanged || pos->getChanged())
+        invMatrix = getMatrix().inverse();
+    return invMatrix;
+}
+
 void View::uniform(string name)
 {
     uniformLocation = shader->getUniformLocation(name);
@@ -33,6 +47,7 @@ void View::buildMatrix()
     matrix(1, 1) *= scale.y;
     matrix(2, 1) *= scale.y;
     matChanged = false;
+    invMatChanged = true;
 }
 
 Location & View::getPos()

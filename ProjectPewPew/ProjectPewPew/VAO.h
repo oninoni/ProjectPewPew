@@ -17,6 +17,8 @@ private:
     vector<Attribute> attributes;
     Shader* shader;
 
+    Location pos;
+
     void addAttribute(DWORD count, string name, GLDataType dataType = dtFloat);
     void genAttributes();
 
@@ -41,6 +43,7 @@ public:
 
     bool addVertex(void *data);
 
+    Location& getPos();
     void render();
 };
 

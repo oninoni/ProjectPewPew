@@ -10,6 +10,7 @@ Shader * VAO::getShader()
 void VAO::beforeRender()
 {
     shader->enable();
+    glUniformMatrix3fv(shader->getUniformLocation("model"), 1, blFalse, pos.getMatrix().ptr());
 }
 
 void VAO::afterRender()
@@ -139,6 +140,11 @@ bool VAO::addVertex(void * data)
     vbopos += stride;
     size++;
     return true;
+}
+
+Location & VAO::getPos()
+{
+    return pos;
 }
 
 void VAO::render()

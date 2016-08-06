@@ -61,6 +61,9 @@
     <ClCompile Include="Cursor.cpp">
       <Filter>source\Game\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix2.cpp">
+      <Filter>source\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -131,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="Cursor.h">
       <Filter>header\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2.h">
+      <Filter>header\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

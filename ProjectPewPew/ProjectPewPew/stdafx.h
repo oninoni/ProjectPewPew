@@ -29,7 +29,8 @@ using namespace std;
 
 // Math
 #include "vec2.h"
-#include "matrix3.h"
+#include "Matrix2.h"
+#include "Matrix3.h"
 #include "Location.h"
 
 // OpenGL
@@ -48,8 +49,8 @@ class Game;
 class Player;
 #include "Tile.h"
 #include "BGGrid.h"
-#include "FGGrid.h"
-#include "Cursor.h"
+#include "FGGrid.h"       
 #include "InputManager.h"
+#include "Cursor.h"
 #include "Player.h"
 #include "Game.h"

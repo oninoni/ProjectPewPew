@@ -15,7 +15,8 @@ bool Game::initTextureShader()
     return true;
 }
 
-bool Game::initLaserShader() {
+bool Game::initLaserShader() 
+{
 	laserShader = new Shader;
     if (!laserShader->loadVertFragShader("laser"))
     {
@@ -100,10 +101,10 @@ void Game::start()
     vec2 scale = view->getScale();
     vec2 limit = vec2(aspect / scale.x, 1 / scale.y);
     view->getPos().setPosLowerLimit(limit);
-    view->getPos().setPosUpperLimit(vec2(bgGrid->getSize().x, bgGrid->getSize().y) - limit);
+    view->getPos().setPosUpperLimit(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) - limit);
 
 	player = new Player(this);
-    player->getPos().setPosition(vec2(bgGrid->getSize().x, bgGrid->getSize().y) / 2);
+    player->getPos().setPosition(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) / 2);
 
     runTime = 0;
     oldTime = (float)glfwGetTime();
@@ -200,23 +201,28 @@ float Game::getRunTime()
     return runTime;
 }
 
-GLFWwindow * Game::getWindow() {
+GLFWwindow * Game::getWindow() 
+{
 	return window;
 }
 
-FGGrid * Game::getFGGrid() {
+FGGrid * Game::getFGGrid()
+{
 	return fgGrid;
 }
 
-BGGrid * Game::getBGGrid() {
+BGGrid * Game::getBGGrid() 
+{
 	return bgGrid;
 }
 
-Player * Game::getPlayer() {
+Player * Game::getPlayer()
+{
 	return player;
 }
 
-Shader * Game::getLaserShader() {
+Shader * Game::getLaserShader() 
+{
 	return laserShader;
 }
 
@@ -225,10 +231,12 @@ Shader * Game::getTextureShader()
     return textureShader;
 }
 
-TextureMap * Game::getTextureMap() {
+TextureMap * Game::getTextureMap() 
+{
 	return textureMap;
 }
 
-View * Game::getView() {
+View * Game::getView()
+{
 	return view;
 }

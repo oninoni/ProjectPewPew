@@ -1,34 +1,41 @@
 #pragma once
 
-enum KeyCodes {
-	K_UP,
-	K_DOWN,
-	K_LEFT,
-	K_RIGHT,
-	K_FIRE_PRI,
-	K_FIRE_SEC,
-	K_RELOAD,
-	K_SIZE
+enum KeyAction {
+	kaUp,
+	kaDown,
+	kaLeft,
+	kaRight,
+	kaFirePrimary,
+	kaFireSecondary,
+	kaReload,
+
+    // add new above
+	KA_SIZE
 };
 
 class InputManager {
 private:
 	GLFWwindow* window;
+    View* view;
 
-	int keyBinds[K_SIZE];
-	bool keyStateOld[K_SIZE];
-	bool keyState[K_SIZE];
+	int keyBinds[KA_SIZE];
+	bool keyStateOld[KA_SIZE];
+	bool keyState[KA_SIZE];
 public:
-	InputManager(GLFWwindow* w);
+	InputManager(Game* g);
 	~InputManager();
 
-	void bindKey(KeyCodes keycode, int keyID);
+    vec2 getMousePos();
+    vec2 getGridMousePos();
+
+	void bindKey(KeyAction keyaction, int keyID);
+    void bindDefaults();
 
 	void update();
 
-	bool keyPressed(KeyCodes keycode);
-	bool keyReleased(KeyCodes keycode);
-	bool keyDown(KeyCodes keycode);
-	bool keyUp(KeyCodes keycode);
+	bool keyPressed(KeyAction keyaction);
+	bool keyReleased(KeyAction keyaction);
+	bool keyDown(KeyAction keyaction);
+	bool keyUp(KeyAction keyaction);
 };
 

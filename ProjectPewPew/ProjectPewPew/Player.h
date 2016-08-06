@@ -4,7 +4,7 @@ class Player
 {
 private:
 	Cursor* cursor;
-	InputManager* keyManager;
+	InputManager* input;
 
 	GLFWwindow* window;
 	FGGrid* grid;
@@ -27,6 +27,8 @@ public:
 
 	void update(float deltaT);
 	void render();
+
+    InputManager* getInputManager();
 
     Location & getPos();
 };

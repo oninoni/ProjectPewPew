@@ -47,8 +47,9 @@ Player::Player(Game* g)
     shader = g->getTextureShader();
 	view = g->getView();
 	textureMap = g->getTextureMap();
-    keyManager = new InputManager(window);
-	cursor = new Cursor(g);
+
+    input = new InputManager(g);
+	cursor = new Cursor(g, this);
     
     pos.setOffset(vec2(-0.5, -0.5));
     pos.setPosLowerLimit(vec2(0.5, 0.5));
@@ -59,39 +60,45 @@ Player::Player(Game* g)
 
 Player::~Player()
 {
-	delete keyManager;
+	delete input;
     delete vao;
 	delete cursor;
 }
 
 void Player::update(float deltaTime) 
 {
-	keyManager->update();
+	input->update();
 	vec2 dir = vec2(0, 0);
 
-	if (keyManager->keyDown(K_UP))
+	if (input->keyDown(kaUp))
 		dir.y += 1;
 	
-	if (keyManager->keyDown(K_DOWN))
+	if (input->keyDown(kaDown))
 		dir.y -= 1;
 
-	if (keyManager->keyDown(K_RIGHT))
+	if (input->keyDown(kaRight))
 		dir.x += 1;
 	
-	if (keyManager->keyDown(K_LEFT))
+	if (input->keyDown(kaLeft))
 		dir.x -= 1;
 
-	if (keyManager->keyPressed(K_FIRE_PRI)) {
+	if (input->keyPressed(kaFirePrimary)) {
 	}
 
     if (dir != vec2(0, 0))
 	    pos.translatePosition(dir.normalize() * speed * deltaTime);
 }
 
-void Player::render() {
-    glUniformMatrix3fv(shader->getUniformLocation("model"), 1, blFalse, pos.getMatrix().ptr());
+void Player::render() 
+{
+    vao->getPos() = pos;
     vao->render();
 	cursor->render();
+}
+
+InputManager * Player::getInputManager()
+{
+    return input;
 }
 
 Location & Player::getPos()
