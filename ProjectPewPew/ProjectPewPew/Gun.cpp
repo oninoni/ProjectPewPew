@@ -8,7 +8,7 @@ Gun::Gun(Game * g, Player* p) {
 	gunVAO->generate(6, buDynamicDraw);
 
 	textureMap->setTexture("laser_gun");
-
+	
 	struct {
 		vec2 pos;
 		texcoord tex;
@@ -51,6 +51,6 @@ void Gun::update(float deltaTime) {
 
 void Gun::render() {
 	gunVAO->getPos()= player->getPos();
-	gunVAO->getPos().setOffset(vec2(0.0f, 0.0f));
+	gunVAO->getPos().setOffset(gunVAO->getPos().getOffset() + vec2(0.0f, 0.3f));
 	gunVAO->render();
 }
