@@ -104,7 +104,6 @@ void Cursor::updateLaser() {
 
 void Cursor::update(float deltaTime) {
 	updateLaser();
-	vaoCrosshair->getPos().rotate();
 }
 
 

@@ -17,5 +17,6 @@ public:
 	~Cursor();
 
 	void updateLaser();
+	void update(float deltaTime);
 	void render();
 };
