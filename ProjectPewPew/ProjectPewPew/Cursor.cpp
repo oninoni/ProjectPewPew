@@ -105,7 +105,6 @@ void Cursor::updateLaser() {
 }
 
 void Cursor::update(float deltaTime) {
-	updateLaser();
 	vaoCrosshair->getPos().rotate(deltaTime * 45);
 }
 
@@ -116,5 +115,6 @@ void Cursor::render()
     vaoCrosshair->getPos().setPosition(input->getGridMousePos());
     vaoCrosshair->render();
 
-	//vaoLaser->render();
+	updateLaser();
+	vaoLaser->render();
 }
