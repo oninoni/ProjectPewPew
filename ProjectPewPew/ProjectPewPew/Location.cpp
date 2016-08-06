@@ -103,7 +103,7 @@ void Location::setOffset(vec2 offset)
 
 void Location::setRotation(float rotation)
 {
-    this->rotation = rotation;
+    this->rotation = fmod(rotation + 180, 360.0f) - 180;
     matChanged = true;
 }
 
@@ -118,6 +118,22 @@ void Location::setScale(float scale)
     this->scale.x = scale;
     this->scale.y = scale;
     matChanged = true;
+}
+
+void Location::approach(Location & other, float delta)
+{
+    float r = other.rotation;
+    if (rotation - r > 180)
+        r += 360;
+    else if (rotation - r < -180)
+        r -= 360;
+
+    delta = min(max(delta, 0), 1);
+
+    setPosition(position * (1 - delta) + other.position * delta);
+    setOffset(offset * (1 - delta) + other.offset * delta);
+    setScale(scale * (1 - delta) + other.offset * delta);
+    setRotation(rotation * (1 - delta) + r * delta);
 }
 
 void Location::setPosLowerLimit(vec2 limit)

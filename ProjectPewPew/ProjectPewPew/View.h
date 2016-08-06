@@ -4,9 +4,8 @@ class View
 private:
     Location* pos;
 
-    Shader* shader;
-    int uniformLocation;
-
+    unordered_map<Shader*, int> locations;
+    
     Matrix3 matrix;
     Matrix3 invMatrix;
 
@@ -15,14 +14,17 @@ private:
 
     void buildMatrix();
 
+    const string name = "view";
+
 public:
-    View(Shader* shader);
+    View();
     ~View();
 
     Matrix3 getMatrix();
     Matrix3 getInvMatrix();
 
-    void uniform(string name);
+    void addShader(Shader* shader);
+    
     void render();
 
     Location & getPos();

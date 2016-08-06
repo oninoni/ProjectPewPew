@@ -5,6 +5,8 @@ private:
     GLuint vao;
     GLuint vbo;
 
+    int location;
+
     void* pvbo;
     DWORD vbopos;
 
@@ -23,6 +25,8 @@ private:
     void genAttributes();
 
     static VAO* boundVAO;
+
+    const string name = "model";
 
 protected:
     Shader* getShader();

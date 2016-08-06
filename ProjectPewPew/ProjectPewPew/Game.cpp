@@ -91,9 +91,11 @@ void Game::start()
     float aspect = (float)w / h;
     glUniform1f(textureShader->getUniformLocation("aspect"), aspect);     
 
-	view = new View(textureShader);
+	view = new View();
+    view->addShader(textureShader);
+    view->addShader(laserShader);
+
 	view->getPos().setScale(vec2(0.2f, 0.2f));
-    view->uniform("view");
 
 	fgGrid = new FGGrid(30, 30, this);
 	bgGrid = new BGGrid(30, 30, this);
