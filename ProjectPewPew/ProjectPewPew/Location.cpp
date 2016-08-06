@@ -152,7 +152,7 @@ void Location::approachRotation(Location & other, float delta)
 void Location::approachScale(Location & other, float delta)
 {    
     delta = min(max(delta, 0), 1);
-    setScale(scale * (1 - delta) + other.offset * delta);    
+    setScale(scale * (1 - delta) + other.scale * delta);    
 }
 
 void Location::approach(Location & other, float delta)
