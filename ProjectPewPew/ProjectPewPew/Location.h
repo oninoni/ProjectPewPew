@@ -41,6 +41,8 @@ public:
     void approachScale(Location &other, float delta);
     void approach(Location &other, float delta);
 
+    void operator=(Location &other);
+
     void setPosLowerLimit(vec2 limit);
     void setPosUpperLimit(vec2 limit);
     
