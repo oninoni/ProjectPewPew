@@ -92,13 +92,13 @@ void Game::start()
     glUniform1f(textureShader->getUniformLocation("aspect"), aspect);     
 
 	view = new View(textureShader);
-	view->setScale(vec2(0.2f, 0.2f));
+	view->getPos().setScale(vec2(0.2f, 0.2f));
     view->uniform("view");
 
 	fgGrid = new FGGrid(30, 30, this);
 	bgGrid = new BGGrid(30, 30, this);
 
-    vec2 scale = view->getScale();
+    vec2 scale = view->getPos().getScale();
     vec2 limit = vec2(aspect / scale.x, 1 / scale.y);
     view->getPos().setPosLowerLimit(limit);
     view->getPos().setPosUpperLimit(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) - limit);
@@ -136,8 +136,7 @@ void Game::update()
 	player->update(deltaTime);
     view->getPos().setPosition(player->getPos().getPosition());
 
-    //view->setScale(vec2(sinf(runTime) / 10.0f + 0.2f, sinf(runTime) / 10.0f + 0.2f));
-
+    
 	fgGrid->update(deltaTime);
 	bgGrid->update(deltaTime);
 }

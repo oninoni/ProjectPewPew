@@ -3,7 +3,6 @@ class View
 {
 private:
     Location* pos;
-    vec2 scale;
 
     Shader* shader;
     int uniformLocation;
@@ -27,7 +26,5 @@ public:
     void render();
 
     Location & getPos();
-    vec2 getScale();
-    void setScale(vec2 scale);
 };
 
