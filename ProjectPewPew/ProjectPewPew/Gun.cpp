@@ -46,7 +46,7 @@ Gun::~Gun() {
 }
 
 void Gun::update(float deltaTime) {
-
+        
 }
 
 void Gun::render() {
