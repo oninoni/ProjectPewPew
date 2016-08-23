@@ -103,6 +103,9 @@ void Game::start()
 	fgGrid = new FGGrid(30, 30, this);
 	bgGrid = new BGGrid(30, 30, this);
 
+	fgGrid->init();
+	bgGrid->init();
+
     vec2 scale = view->getPos().getScale();
     vec2 limit = vec2(aspect / scale.x, 1 / scale.y);
     view->getPos().setPosLowerLimit(limit);

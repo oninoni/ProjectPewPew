@@ -22,7 +22,7 @@ private:
     const float speed = 4.2f;
 
     void initVAO();
-
+	bool checkCollision(vec2 pos);
 public:
 	Player(Game* g);
     ~Player();

@@ -1,15 +1,37 @@
 #include "stdafx.h"
 
 void BGGrid::buildVAO() {
-	vao->generate(tileMap.size() * 6, buStaticDraw);
+	int size = 0;
+
+	for (size_t i = 0; i < tileMap.size(); i++) {
+		if (tileMap.at(i).getTexture() != "air") {
+			size++;
+		}
+	}
+	vao->generate(size * 6, buStaticDraw);
 
 	vao->map(baWriteOnly);
 
 	for (size_t i = 0; i < tileMap.size(); i++) {
-		tileMap.at(i).addToVAO(vao);
+		if (tileMap.at(i).getTexture() != "air") {
+			tileMap.at(i).addToVAO(vao);
+		}
 	}
 
 	vao->unmap();
+}
+
+void BGGrid::buildTileMap(Game* g) {
+	tileMap.clear();
+	
+	string s;
+
+	for (int x = 0; x < size.x; x++) {
+		for (int y = 0; y < size.y; y++) {
+			s = "grass";
+			tileMap.push_back(Tile(ivec2(x, y), s, g));
+		}
+	}
 }
 
 BGGrid::BGGrid() {
@@ -21,43 +43,23 @@ BGGrid::BGGrid(int sX, int sY, Game* g)
 	size.x = sX;
 	size.y = sY;
 
-    string s;
-
-	for (int x = 0; x < size.x; x++) {
-		for (int y = 0; y < size.y; y++) {
-            switch (rand() % 5)
-            {
-            case 0:
-                s = "grass";
-                break;
-            case 1:
-                s = "stone";
-                break;
-            case 2:
-                s = "stone_sexy";
-                break;
-            case 3:
-                s = "stone_bricks";
-                break;
-            case 4:
-                s = "wooden_planks";
-                break;
-            }
-            tileMap.push_back(Tile(x, y, s, g));
-		}
-	}
-
-	vao = new VAO(g->getTextureShader());
-
-	uniformLocation = g->getTextureShader()->getUniformLocation("model");
-
-	buildVAO();
+	game = g;
 }
 
 
 BGGrid::~BGGrid()
 {
     delete vao;
+}
+
+void BGGrid::init() {
+	buildTileMap(game);
+
+	vao = new VAO(game->getTextureShader());
+
+	uniformLocation = game->getTextureShader()->getUniformLocation("model");
+
+	buildVAO();
 }
 
 void BGGrid::update(double deltaT) {
@@ -73,4 +75,8 @@ void BGGrid::render() {
 
 ivec2 BGGrid::getSize() {
 	return size;
+}
+
+vector<Tile> BGGrid::getTileMap() {
+	return tileMap;
 }

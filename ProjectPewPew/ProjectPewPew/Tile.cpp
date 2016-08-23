@@ -1,15 +1,17 @@
 #include "stdafx.h"
 
-Tile::Tile(int x, int y, string texture, Game* g) :
-	Tile(ivec2(x, y), texture, g)
-{
-}
-
 Tile::Tile(ivec2 pos, string texture, Game* g)
 {
+	solid = false;
     this->pos = pos;
     this->texture = texture;
 	textureMap = g->getTextureMap();
+}
+
+Tile::Tile(ivec2 pos, string texture, Game * g, bool s):
+	Tile(pos, texture, g)
+{
+	solid = s;
 }
 
 Tile::~Tile() 
@@ -49,4 +51,12 @@ void Tile::addToVAO(VAO* vao)
 	data.pos = vec2(pos.x + 0.0f, pos.y + 0.0f);
 	data.tex = textureMap->getTexCoord(vec2(0, 0));
 	vao->addVertex(&data);
+}
+
+string Tile::getTexture() {
+	return texture;
+}
+
+bool Tile::isSolid() {
+	return solid;
 }
