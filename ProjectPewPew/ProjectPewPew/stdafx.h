@@ -55,4 +55,5 @@ class Gun;
 #include "Cursor.h"
 #include "Player.h"
 #include "Gun.h"
+#include "Entity.h"
 #include "Game.h"

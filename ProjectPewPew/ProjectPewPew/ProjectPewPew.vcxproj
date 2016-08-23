@@ -160,6 +160,7 @@
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="BGGrid.h" />
     <ClInclude Include="Cursor.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="FGGrid.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClCompile Include="BGGrid.cpp" />
     <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FGGrid.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GLEnums.cpp" />

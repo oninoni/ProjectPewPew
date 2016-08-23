@@ -188,6 +188,8 @@ Game::~Game()
 	delete fgGrid;
 
     delete textureShader;
+    delete laserShader;
+
 	delete textureMap;
     delete view;
 
