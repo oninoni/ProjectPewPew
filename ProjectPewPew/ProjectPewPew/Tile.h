@@ -4,11 +4,16 @@ private:
     ivec2 pos;
 	TextureMap* textureMap;
 	string texture;
+
+	boolean solid;
 public:
-	Tile(int x, int y, string texture, Game* g);
     Tile(ivec2 pos, string texture, Game* g);
+	Tile(ivec2 pos, string texture, Game* g, bool s);
 	~Tile();
 
 	void addToVAO(VAO* vao);
+
+	string getTexture();
+	bool isSolid();
 };
 

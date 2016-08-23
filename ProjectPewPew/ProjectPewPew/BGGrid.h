@@ -2,21 +2,28 @@
 class BGGrid
 {
 private:
-	vector<Tile> tileMap;
-	ivec2 size;
 
+	void buildTileMap(Game* g);
+protected:
 	int uniformLocation;
+	void buildVAO();
+
+	Game* game;
+	ivec2 size;
+	vector<Tile> tileMap;
 
 	VAO* vao;
-
-	void buildVAO();
 public:
 	BGGrid();
     BGGrid(int sizeX, int sizeY, Game* g);
     ~BGGrid();
 
+	void init();
+
 	void update(double deltaT);
 	void render();
 
 	ivec2 getSize();
+
+	vector<Tile> getTileMap();
 };

@@ -40,6 +40,12 @@ void Player::initVAO()
     vao->unmap();
 }
 
+bool Player::checkCollision(vec2 pos) {
+	ivec2 size = grid->getSize();
+	Tile tile = grid->getTileMap().at(((int)pos.y) + ((int)pos.x) * size.y);
+	return tile.isSolid();
+}
+
 Player::Player(Game* g)
 {
 	window = g->getWindow();
@@ -76,16 +82,16 @@ void Player::update(float deltaTime)
 
 	vec2 dir = vec2(0, 0);
 
-	if (input->keyDown(kaUp))
+	if (input->keyDown(kaUp)    && !checkCollision(pos.getPosition() + vec2(0,  speed * deltaTime)))
 		dir.y += 1;
 	
-	if (input->keyDown(kaDown))
+	if (input->keyDown(kaDown)  && !checkCollision(pos.getPosition() + vec2(0, -speed * deltaTime)))
 		dir.y -= 1;
 
-	if (input->keyDown(kaRight))
+	if (input->keyDown(kaRight) && !checkCollision(pos.getPosition() + vec2( speed * deltaTime, 0)))
 		dir.x += 1;
 	
-	if (input->keyDown(kaLeft))
+	if (input->keyDown(kaLeft)  && !checkCollision(pos.getPosition() + vec2(-speed * deltaTime, 0)))
 		dir.x -= 1;
 
 	if (input->keyPressed(kaFirePrimary)) {
