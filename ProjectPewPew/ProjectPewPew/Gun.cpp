@@ -41,16 +41,18 @@ Gun::Gun(Game * g, Player* p) {
 	gunVAO->unmap();
 }
 
-Gun::~Gun() {
-	delete gunVAO;
+Gun::~Gun() 
+{
+	delete gunVAO; // I'm so proud of you!
 }
 
-void Gun::update(float deltaTime) {
-        
+void Gun::update(float deltaTime) 
+{
+    gunVAO->getPos() = player->getPos();
+    gunVAO->getPos().setOffset(gunVAO->getPos().getOffset() + vec2(0.0f, 0.3f));
 }
 
-void Gun::render() {
-	gunVAO->getPos()= player->getPos();
-	gunVAO->getPos().setOffset(gunVAO->getPos().getOffset() + vec2(0.0f, 0.3f));
+void Gun::render() 
+{
 	gunVAO->render();
 }

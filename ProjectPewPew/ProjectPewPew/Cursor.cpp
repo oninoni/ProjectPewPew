@@ -1,10 +1,12 @@
 #include "stdafx.h"
 
-Cursor::Cursor(Game* g, Player* player) 
+Cursor::Cursor(Game* g, Player* player, FGGrid* gr) 
 {
 	window = g->getWindow();
 	this->player = player;
     input = player->getInputManager();
+
+    grid = gr;
 
 	vaoLaser = new VAO(g->getLaserShader()); 
 	vaoLaser->generate(6, buDynamicDraw);
@@ -71,7 +73,9 @@ void Cursor::updateLaser() {
 	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 25.0f;
 	points[2] = points[3] + direction.normalize() * 15.0f;
 
-	float length = direction.length();
+    RayCaster rayCaster(grid);
+
+	float length = 
 
 	struct {
 		vec2 pos;

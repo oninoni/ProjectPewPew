@@ -1,0 +1,44 @@
+#pragma once
+
+struct RayCastData {
+    ivec2 pos;
+    vec2 hitPos;
+    float distance;
+    bool up;
+    bool isX;
+
+    RayCastData operator=(RayCastData &other){
+        distance = other.distance;
+        hitPos.x = other.hitPos.x;
+        hitPos.y = other.hitPos.y;
+        pos.x = other.pos.x;
+        pos.y = other.pos.y;
+    }
+};
+
+class RayCaster
+{
+private:
+    ivec2 size;
+    vec2 point;
+    vec2 direction;
+
+    RayCastData active;
+
+    RayCastData X;
+    RayCastData Y;
+
+    bool lastWasX;
+
+    void calcDirection(RayCastData& d);
+public:
+    RayCaster(ivec2 s, vec2 p, vec2 d);
+    ~RayCaster();
+
+    bool next();
+
+    float getDistance();
+    ivec2 getTilePos();
+    vec2 getHitPos();
+};
+

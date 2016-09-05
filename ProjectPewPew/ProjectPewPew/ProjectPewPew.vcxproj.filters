@@ -67,6 +67,10 @@
     <ClCompile Include="Gun.cpp">
       <Filter>source\Game\Guns</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>source\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="RayCaster.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -144,6 +148,10 @@
     <ClInclude Include="Gun.h">
       <Filter>header\Game\Guns</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>header\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="RayCaster.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="texture.vert">
@@ -222,6 +230,30 @@
     </Filter>
     <Filter Include="header\Game\Guns">
       <UniqueIdentifier>{b642e825-21b4-4454-82ff-6b2a1cb785e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Game\Entities">
+      <UniqueIdentifier>{3e94067d-02dd-49c3-854e-fed3cd6a9a73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Game\Entities\Enemies">
+      <UniqueIdentifier>{d2153351-4a2a-4574-8a0e-5ead3f39352e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Game\Entities\Pickups">
+      <UniqueIdentifier>{97104e6f-5c3f-4857-92b0-aa249fb3664f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Game\Entities\Projectiles">
+      <UniqueIdentifier>{531e6c4a-120a-4d8e-8f3f-286699cd05c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Game\Entities">
+      <UniqueIdentifier>{f26d55be-60f8-481f-be98-343064a0f92b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Game\Entities\Projectiles">
+      <UniqueIdentifier>{eaed75c9-4c3c-49cc-bc12-67abbb77c930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Game\Entities\Enemies">
+      <UniqueIdentifier>{ce4163b8-b52e-4156-b80e-2b196d80c1cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Game\Entities\Pickups">
+      <UniqueIdentifier>{c809cbc3-2261-4982-80d2-4a47ee0b3723}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
