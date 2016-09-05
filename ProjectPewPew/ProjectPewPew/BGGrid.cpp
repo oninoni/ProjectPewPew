@@ -80,3 +80,11 @@ ivec2 BGGrid::getSize() {
 vector<Tile> BGGrid::getTileMap() {
 	return tileMap;
 }
+
+Tile & BGGrid::getTileAt(vec2 p) {
+	return getTileAt(ivec2((int) p.x, (int) p.y));
+}
+
+Tile & BGGrid::getTileAt(ivec2 p) {
+	return tileMap.at(p.y + p.x * size.y);
+}
