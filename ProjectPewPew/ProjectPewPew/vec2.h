@@ -32,6 +32,8 @@ struct gvec2 sealed
 
     gvec2<type> cross();
 
+    float dot(const gvec2<type> &other);
+
     float lengthSqr();
     float length();
     float getAngle();
@@ -159,6 +161,12 @@ template<typename type>
 inline gvec2<type> gvec2<type>::cross()
 {
     return gvec2<type>(-y, x);
+}
+
+template<typename type>
+inline float gvec2<type>::dot(const gvec2<type>& other)
+{
+    return x * other.x + y * other.y;
 }
 
 template<typename type>

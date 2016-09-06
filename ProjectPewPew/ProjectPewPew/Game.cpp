@@ -112,7 +112,7 @@ void Game::start()
     view->getPos().setPosUpperLimit(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) - limit);
 
 	player = new Player(this);
-    player->getPos().setPosition(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) / 2);
+    player->getPos().setPosition(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) / 2 + vec2(0.5f, 0.5f));
     view->getPos().setPosition(player->getPos().getPosition());
 
     runTime = 0;

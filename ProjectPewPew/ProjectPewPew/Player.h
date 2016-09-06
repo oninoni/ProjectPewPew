@@ -33,7 +33,5 @@ public:
     InputManager* getInputManager();
 
     Location & getPos();
-
-	float rayCast();
 };
 

@@ -13,7 +13,7 @@ private:
 
 	GLFWwindow* window;
 public:
-	Cursor(Game* g, Player* player, FGGrid gr);
+	Cursor(Game* g, Player* player, FGGrid* gr);
     // can't get player out of game because called in constructor of Player
     // and there game doesn't now about player yet...
 	~Cursor();

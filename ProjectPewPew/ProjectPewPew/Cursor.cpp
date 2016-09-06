@@ -73,9 +73,17 @@ void Cursor::updateLaser() {
 	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 25.0f;
 	points[2] = points[3] + direction.normalize() * 15.0f;
 
-    RayCaster rayCaster(grid);
+    RayCaster rayCaster(grid->getSize(), player->getPos().getPosition(), direction);
 
-	float length = 
+    float l = 10.0f;
+
+    while (rayCaster.next()) {
+        if (grid->getTileAt(rayCaster.getTilePos()).isSolid()) {
+            l = rayCaster.getDistance();
+            cout << "Distance detected: " << l << endl;
+            break;
+        }
+    }
 
 	struct {
 		vec2 pos;
@@ -89,7 +97,7 @@ void Cursor::updateLaser() {
 	data.b = 0.0f;
 	data.a = 1.0f;
 
-	data.length = 15;
+	data.length = l;
 
 	vaoLaser->map(baWriteOnly);
 	data.pos = points[0];

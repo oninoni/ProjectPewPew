@@ -55,7 +55,7 @@ Player::Player(Game* g)
 	textureMap = g->getTextureMap();
 
     input = new InputManager(g);
-	cursor = new Cursor(g, this);
+	cursor = new Cursor(g, this, grid);
 
 	gun = new Gun(g, this);
     
@@ -102,9 +102,7 @@ void Player::update(float deltaTime)
 
 	gun->update(deltaTime);
 
-	cout << "X: " << pos.getPosition().x << " /Y: " << pos.getPosition().y << endl;
-
-	rayCast();
+    //cout << "X: " << pos.getPosition().x << " /Y: " << pos.getPosition().y << endl;
 }
 
 void Player::render() 
@@ -123,42 +121,4 @@ InputManager * Player::getInputManager()
 Location & Player::getPos()
 {
     return pos;
-}
-
-float Player::rayCast() {
-	vec2& p = pos.getPosition();
-	float a = pos.getRotation();
-
-	vec2 pBlock = vec2(floor(p.x), floor(p.y));
-
-	while (!grid->getTileAt(pBlock).isSolid()){
-		float angles[4];
-		angles[0] = (p - pBlock + vec2(0.0f, 0.0f)).getAngle();	//Bottom Left  Corner Angle
-		angles[1] = (p - pBlock + vec2(0.0f, 1.0f)).getAngle();	//Top    Left  Corner Angle
-		angles[2] = (p - pBlock + vec2(1.0f, 1.0f)).getAngle();	//Top    Right Corner Angle
-		angles[3] = (p - pBlock + vec2(1.0f, 0.0f)).getAngle();	//Bottom Right Corner Angle
-
-		for (int i = 0; i < 4; i++) {
-			if (angles[i] < a && a <= angles[(i + 1) % 4]) {
-				switch (i) {
-					case 0:
-						pBlock = pBlock + vec2(0.0f, 0.0f);
-						break;
-					case 1:
-						pBlock = pBlock + vec2(0.0f, 1.0f);
-						break;
-					case 2:
-						pBlock = pBlock + vec2(1.0f, 1.0f);
-						break;
-					case 3:
-						pBlock = pBlock + vec2(1.0f, 0.0f);
-						break;
-				};
-			}
-		}
-
-		cout << "Bottom Left  Corner Angle " << angles[0] << endl;
-	}
-
-	return 0.0f;
 }
