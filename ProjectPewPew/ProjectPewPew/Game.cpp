@@ -25,7 +25,6 @@ bool Game::initLaserShader()
     }
     laserShader->addAttribute(2, "vpos");
     laserShader->addAttribute(2, "vtexcoord");
-	laserShader->addAttribute(1, "vlength");
     laserShader->addAttribute(4, "vcolor");
     return true;
 }
