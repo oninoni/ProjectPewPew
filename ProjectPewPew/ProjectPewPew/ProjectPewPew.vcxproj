@@ -229,6 +229,7 @@
     <Image Include="stone.png" />
     <Image Include="stone_bricks.png" />
     <Image Include="stone_sexy.png" />
+    <Image Include="Tint.png" />
     <Image Include="wooden_planks.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

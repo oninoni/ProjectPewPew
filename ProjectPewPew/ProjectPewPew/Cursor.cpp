@@ -68,11 +68,6 @@ void Cursor::updateLaser() {
 
 	vec2 direction = getDirection();
 
-	points[0] = player->getPos().getPosition() - direction.cross().normalize() / 25.0f;
-	points[1] = points[0] + direction.normalize() * 15.0f;
-	points[3] = player->getPos().getPosition() + direction.cross().normalize() / 25.0f;
-	points[2] = points[3] + direction.normalize() * 15.0f;
-
     RayCaster rayCaster(grid->getSize(), player->getPos().getPosition(), direction);
 
     float l = 10.0f;
@@ -84,6 +79,11 @@ void Cursor::updateLaser() {
             break;
         }
     }
+
+    points[0] = player->getPos().getPosition() - direction.cross().normalize() / 25.0f;
+    points[1] = points[0] + direction.normalize() * l;
+    points[3] = player->getPos().getPosition() + direction.cross().normalize() / 25.0f;
+    points[2] = points[3] + direction.normalize() * l;
 
 	struct {
 		vec2 pos;

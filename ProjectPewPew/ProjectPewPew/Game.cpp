@@ -84,6 +84,7 @@ void Game::start()
     textureMap->addTexture("wooden_planks.png");
     textureMap->addTexture("crosshair.png");
 	textureMap->addTexture("laser_gun.png");
+    textureMap->addTexture("Tint.png");
 
     textureMap->buildPage();
 	textureMap->uniform(textureShader, "tex");

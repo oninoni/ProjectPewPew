@@ -281,6 +281,9 @@
     <Image Include="laser_gun.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
+    <Image Include="Tint.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

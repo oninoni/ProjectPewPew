@@ -1,6 +1,6 @@
 #version 420
   
-uniform sampler2D tex;  
+uniform sampler2D tex;
 
 in vec2 ftexcoord;
 in vec2 fminborder;
