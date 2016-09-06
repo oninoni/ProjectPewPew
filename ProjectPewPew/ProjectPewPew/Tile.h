@@ -6,9 +6,9 @@ private:
 	string texture;
 
 	bool solid;
+    bool transparent;
 public:
-    Tile(ivec2 pos, string texture, Game* g);
-	Tile(ivec2 pos, string texture, Game* g, bool s);
+    Tile(ivec2 pos, string texture, Game* g, bool s = false, bool t = false);
 	~Tile();
 
 	void addToVAO(VAO* vao);
@@ -16,4 +16,3 @@ public:
 	string getTexture();
 	bool isSolid();
 };
-

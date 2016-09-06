@@ -1,17 +1,12 @@
 #include "stdafx.h"
 
-Tile::Tile(ivec2 pos, string texture, Game* g)
+Tile::Tile(ivec2 pos, string texture, Game * g, bool s, bool t)
 {
-	solid = false;
     this->pos = pos;
     this->texture = texture;
-	textureMap = g->getTextureMap();
-}
-
-Tile::Tile(ivec2 pos, string texture, Game * g, bool s):
-	Tile(pos, texture, g)
-{
+    textureMap = g->getTextureMap();
 	solid = s;
+    transparent = t;
 }
 
 Tile::~Tile() 
