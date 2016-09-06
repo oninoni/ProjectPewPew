@@ -73,9 +73,8 @@ void Cursor::updateLaser() {
 	float lastDistance = -1;
 	
     while (rayCaster.next()) {
-        if (grid->getTileAt(rayCaster.getTilePos()).isSolid()) {
+        if (!grid->getTileAt(rayCaster.getTilePos()).isTransparent()) {
 			lastDistance = rayCaster.getDistance();
-            cout << "Distance detected: " << lastDistance << endl;
             break;
         }
     }

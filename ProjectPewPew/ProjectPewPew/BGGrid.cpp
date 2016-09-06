@@ -88,3 +88,9 @@ Tile & BGGrid::getTileAt(vec2 p) {
 Tile & BGGrid::getTileAt(ivec2 p) {
 	return tileMap.at(p.y + p.x * size.y);
 }
+
+void BGGrid::setTileAt(ivec2 p, Tile t)
+{
+    tileMap[p.y + p.x * size.y] = t;
+    buildVAO();
+}

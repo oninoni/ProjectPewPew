@@ -11,5 +11,8 @@ public:
 
 	void update(double deltaT);
 	void render();
+
+    bool destroyTileAt(vec2 p);
+    bool destroyTileAt(ivec2 p);
 };
 

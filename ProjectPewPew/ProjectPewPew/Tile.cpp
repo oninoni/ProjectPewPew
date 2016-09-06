@@ -1,12 +1,13 @@
 #include "stdafx.h"
 
-Tile::Tile(ivec2 pos, string texture, Game * g, bool s, bool t)
+Tile::Tile(ivec2 pos, string texture, Game * g, bool s, bool t, bool d)
 {
     this->pos = pos;
     this->texture = texture;
     textureMap = g->getTextureMap();
 	solid = s;
     transparent = t;
+    destructable = d;
 }
 
 Tile::~Tile() 
@@ -54,4 +55,14 @@ string Tile::getTexture() {
 
 bool Tile::isSolid() {
 	return solid;
+}
+
+bool Tile::isTransparent()
+{
+    return transparent;
+}
+
+bool Tile::isDestrucable()
+{
+    return destructable;
 }

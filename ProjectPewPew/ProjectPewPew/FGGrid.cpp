@@ -3,25 +3,41 @@
 void FGGrid::buildTileMap(Game* g) {
 	tileMap.clear();
 
-	string s;
-	bool solid;
-
 	for (int x = 0; x < size.x; x++) {
 		for (int y = 0; y < size.y; y++) {
-			switch ((float)rand() / RAND_MAX > 0.2) {
-			case false:	
+            string s = "air";
+            bool solid = false;
+            bool transparent = true;
+            bool destructable = false;
+			switch (rand() % 10) {
+			case 1:	
 				if (x != 15 || y != 15)
 				{
 					s = "stone_bricks";
 					solid = true;
+                    transparent = false;
+                    destructable = true;
 					break;
 				}
-			default:
-				s = "air";
-				solid = false;
-				break;
+            case 2:
+                if (x != 15 || y != 15)
+                {
+                    s = "wooden_planks";
+                    solid = true;
+                    destructable = true;
+                    break;
+                }
+            case 3:
+            case 4:
+                if (x != 15 || y != 15)
+                {
+                    s = "stone_sexy";
+                    solid = true;
+                    transparent = false;
+                    break;
+                }
 			}
-			tileMap.push_back(Tile(ivec2(x, y), s, g, solid));
+			tileMap.push_back(Tile(ivec2(x, y), s, g, solid, transparent, destructable));
 		}
 	}
 }
@@ -51,4 +67,18 @@ void FGGrid::update(double deltaT) {
 
 void FGGrid::render() {
 	BGGrid::render();
+}
+
+bool FGGrid::destroyTileAt(vec2 p)
+{
+    return destroyTileAt((ivec2((int)p.x, (int)p.y)));
+}
+
+bool FGGrid::destroyTileAt(ivec2 p)
+{
+    Tile t = getTileAt(p);
+    if (t.isDestrucable()) {
+        setTileAt(p, Tile(p, "air", game));
+    }
+    return false;
 }

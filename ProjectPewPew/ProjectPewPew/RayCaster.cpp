@@ -31,7 +31,7 @@ void RayCaster::calcDirection(RayCastData& d) {
     float v = (direction.x * (planePos.y - point.y) - direction.y * (planePos.x - point.x)) / (plane.x * direction.y - plane.y * direction.x);
     float u = (planePos.x + v * plane.x - point.x) / direction.x;
 
-    d.hitPos = vec2(planePos.x, planePos.y) + plane * v;
+    d.hitPos = vec2((float)planePos.x, (float)planePos.y) + plane * v;
     d.distance = (point - d.hitPos).length();
 }
 

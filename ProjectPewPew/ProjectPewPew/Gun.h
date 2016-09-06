@@ -4,7 +4,11 @@ private:
 	Player* player; 
 	TextureMap* textureMap;
 
+    InputManager* input;
+    FGGrid* grid;
+
 	VAO* gunVAO;
+    VAO* beamVAO;
 public:
 	Gun(Game* g, Player* p);
 	~Gun();

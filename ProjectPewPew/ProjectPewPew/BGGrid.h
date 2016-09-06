@@ -28,4 +28,6 @@ public:
 	vector<Tile> getTileMap();
 	Tile& getTileAt(vec2 p);
 	Tile& getTileAt(ivec2 p);
+
+    void setTileAt(ivec2 p, Tile t);
 };
