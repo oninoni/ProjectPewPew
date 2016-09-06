@@ -5,7 +5,7 @@ private:
 	TextureMap* textureMap;
 	string texture;
 
-	boolean solid;
+	bool solid;
 public:
     Tile(ivec2 pos, string texture, Game* g);
 	Tile(ivec2 pos, string texture, Game* g, bool s);

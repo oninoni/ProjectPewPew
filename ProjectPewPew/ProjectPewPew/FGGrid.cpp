@@ -4,7 +4,7 @@ void FGGrid::buildTileMap(Game* g) {
 	tileMap.clear();
 
 	string s;
-	boolean solid;
+	bool solid;
 
 	for (int x = 0; x < size.x; x++) {
 		for (int y = 0; y < size.y; y++) {

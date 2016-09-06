@@ -9,8 +9,8 @@ RayCaster::RayCaster(ivec2 s, vec2 p, vec2 d){
     X.up = direction.x > 0 ? 1 : direction.x == 0 ? 0 : -1;
     Y.up = direction.y > 0 ? 1 : direction.y == 0 ? 0 : -1;
 
-    X.pos = ivec2(p.x, p.y);
-    Y.pos = ivec2(p.x, p.y);
+    X.pos = ivec2((int)p.x, (int)p.y);
+    Y.pos = ivec2((int)p.x, (int)p.y);
 
     X.isHorizontal = false;
     Y.isHorizontal = true;
