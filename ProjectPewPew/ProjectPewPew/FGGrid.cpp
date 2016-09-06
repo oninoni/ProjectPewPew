@@ -8,11 +8,14 @@ void FGGrid::buildTileMap(Game* g) {
 
 	for (int x = 0; x < size.x; x++) {
 		for (int y = 0; y < size.y; y++) {
-			switch (rand() % 5) {
-			case 0:
-				s = "stone_bricks";
-				solid = true;
-				break;
+			switch ((float)rand() / RAND_MAX > 0.2) {
+			case false:	
+				if (x != 15 || y != 15)
+				{
+					s = "stone_bricks";
+					solid = true;
+					break;
+				}
 			default:
 				s = "air";
 				solid = false;

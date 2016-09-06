@@ -70,7 +70,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>source\Game\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="RayCaster.cpp" />
+    <ClCompile Include="RayCaster.cpp">
+      <Filter>source\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -151,7 +153,9 @@
     <ClInclude Include="Entity.h">
       <Filter>header\Game\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="RayCaster.h" />
+    <ClInclude Include="RayCaster.h">
+      <Filter>header\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="texture.vert">

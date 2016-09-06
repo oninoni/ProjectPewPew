@@ -17,7 +17,7 @@ using namespace std;
 #include <unordered_map>
 #define _USE_MATH_DEFINES
 #include <math.h>
-//#include <vld.h>
+#include <vld.h>
 
 // External GL
 #include "GL/glew.h"
