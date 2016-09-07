@@ -7,7 +7,7 @@ struct gvec2 sealed
     gvec2(type x, type y);
 
     template <typename type2>
-    gvec2(gvec2<type2> other);
+    gvec2(gvec2<type2> &other);
     
     gvec2<type> operator+(const gvec2<type> &other);
     gvec2<type> operator+(type value);
@@ -255,7 +255,7 @@ inline gvec2<type> gvec2<type>::normalize() {
 
 template<typename type>
 template<typename type2>
-inline gvec2<type>::gvec2(gvec2<type2> other) {
+inline gvec2<type>::gvec2(gvec2<type2> &other) {
     x = (type)other.x;
     y = (type)other.y;
 }

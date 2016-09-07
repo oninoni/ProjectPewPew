@@ -8,8 +8,8 @@ RayCaster::RayCaster(ivec2 s, Line l){
     X.up = l.direction.x > 0 ? 1 : l.direction.x == 0 ? 0 : -1;
     Y.up = l.direction.y > 0 ? 1 : l.direction.y == 0 ? 0 : -1;
 
-    X.pos = ivec2((int)l.position.x, (int)l.position.y);
-    Y.pos = ivec2((int)l.position.x, (int)l.position.y);
+    X.pos = l.position;
+    Y.pos = l.position;
 
     X.isHorizontal = false;
     Y.isHorizontal = true;
@@ -26,7 +26,7 @@ RayCaster::~RayCaster(){
 void RayCaster::calcDirection(RayCastData& d) {
     vec2 plane = d.isHorizontal ? vec2(1,0) : vec2(0,1);
 	int offset = d.up == 1 ? 1 : 0;
-    vec2 planePos = vec2(d.pos.x, d.pos.y) + (d.isHorizontal ? vec2(0, offset) : vec2(offset, 0));
+    vec2 planePos = d.pos + (d.isHorizontal ? ivec2(0, offset) : ivec2(offset, 0));
     Line target(planePos, plane);
     IntersectionData data;
     line.intersect(target, data);
@@ -38,12 +38,12 @@ void RayCaster::calcDirection(RayCastData& d) {
 bool RayCaster::next()
 {
     if (X.up == 0) {
-        Y.pos = ivec2(Y.pos.x, Y.pos.y + Y.up);
+        Y.pos = Y.pos + ivec2(0, Y.up);
         active = Y;
         calcDirection(Y);
     }
     else if (Y.up == 0) {
-        X.pos = ivec2(X.pos.x + X.up, X.pos.y);
+        X.pos = X.pos + ivec2(X.up, 0);
         active = X;
         calcDirection(X);
     }
@@ -61,7 +61,7 @@ bool RayCaster::next()
         lastWasX = X.distance < Y.distance;
     }
 
-    if (active.pos.x < size.x && active.pos.x >= 0 && active.pos.y < size.y && active.pos.y >= 0) {
+    if (active.pos < size && active.pos >= vec2()){
         return true;
     }
     return false;
