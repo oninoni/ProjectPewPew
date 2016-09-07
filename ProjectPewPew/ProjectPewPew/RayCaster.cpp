@@ -65,8 +65,6 @@ bool RayCaster::next()
         return true;
     }
     return false;
-
-
 }
 
 float RayCaster::getDistance(){
