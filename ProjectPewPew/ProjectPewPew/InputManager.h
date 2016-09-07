@@ -1,5 +1,8 @@
 #pragma once
 
+#define IM_SCROLL_UP -2
+#define IM_SCROLL_DOWN -1
+
 enum KeyAction {
 	kaUp,
 	kaDown,
@@ -8,6 +11,8 @@ enum KeyAction {
 	kaFirePrimary,
 	kaFireSecondary,
 	kaReload,
+    kaWeaponSwitchUp,
+    kaWeaponSwitchDown,
 
     // add new above
 	KA_SIZE
@@ -15,15 +20,24 @@ enum KeyAction {
 
 class InputManager {
 private:
+    // Private Constructor cause only one Instance;
+    InputManager(Game* g);
+    ~InputManager();
+
 	GLFWwindow* window;
     View* view;
 
 	int keyBinds[KA_SIZE];
 	bool keyStateOld[KA_SIZE];
 	bool keyState[KA_SIZE];
+
+    int scrollData[2];
+
+    static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+
+    int getScroll(int keyCode);
 public:
-	InputManager(Game* g);
-	~InputManager();
+    static InputManager* getInstance(Game* g);
 
     vec2 getMousePos();
     vec2 getGridMousePos();
@@ -37,5 +51,7 @@ public:
 	bool keyReleased(KeyAction keyaction);
 	bool keyDown(KeyAction keyaction);
 	bool keyUp(KeyAction keyaction);
+
+    int* getScrollData();
 };
 

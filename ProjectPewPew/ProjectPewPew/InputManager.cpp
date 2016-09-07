@@ -1,11 +1,38 @@
 #include "stdafx.h"
 
-InputManager::InputManager(Game* g) 
+void InputManager::scroll_callback(GLFWwindow * window, double xoffset, double yoffset) {
+    if (yoffset != 0) {
+        cout << yoffset << endl;
+        if (yoffset > 0) {
+            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_UP] = yoffset;
+        }
+        else {
+            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_DOWN] = yoffset;
+        }
+    }
+}
+
+int InputManager::getScroll(int keyCode) {
+    if (keyCode == IM_SCROLL_DOWN || keyCode == IM_SCROLL_UP) {
+        return scrollData[keyCode + 2];
+    }
+    return -1;
+}
+
+InputManager* InputManager::getInstance(Game* g) {
+    // Static call to the one and only instance of this class!
+    static InputManager input(g);
+    return &input;
+}
+
+InputManager::InputManager(Game* g)
 {
 	window = g->getWindow();
     view = g->getView();
 
-    bindDefaults();	
+    glfwSetScrollCallback(window, scroll_callback);
+
+    bindDefaults();
 }
 
 InputManager::~InputManager() 
@@ -75,4 +102,8 @@ bool InputManager::keyDown(KeyAction keycode)
 bool InputManager::keyUp(KeyAction keycode)
 {
 	return !keyState[keycode];
+}
+
+int* InputManager::getScrollData() {
+    return scrollData;
 }

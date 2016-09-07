@@ -82,9 +82,9 @@ void Cursor::updateLaser() {
 	if (lastDistance == -1)
 		lastDistance = rayCaster.getDistance();
 
-    points[0] = player->getPos().getPosition() - direction.cross().normalize() / 25.0f;
+    points[0] = player->getPos().getPosition() - direction.cross().normalize() * 0.02f - direction.cross().normalize() * 0.1f;
     points[1] = points[0] + direction.normalize() * lastDistance;
-    points[3] = player->getPos().getPosition() + direction.cross().normalize() / 25.0f;
+    points[3] = player->getPos().getPosition() + direction.cross().normalize() * 0.02f - direction.cross().normalize() * 0.1f;
     points[2] = points[3] + direction.normalize() * lastDistance;
 
 	struct {

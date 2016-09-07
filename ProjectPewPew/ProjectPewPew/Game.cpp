@@ -200,6 +200,17 @@ Game::~Game()
     cout << "Game stopped!" << endl;
 }
 
+Game* Game::getInstance(int * argc, char ** argv) {
+    argcS = argc;
+    argvS = argv;
+    return getInstance();
+}
+
+Game* Game::getInstance() {
+    static Game game(argcS, argvS);
+    return &game;
+}
+
 float Game::getDeltaTime()
 {
     return deltaTime;
