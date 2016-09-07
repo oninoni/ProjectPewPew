@@ -1,41 +1,21 @@
 #include "stdafx.h"
 
 void BGGrid::buildVAO() {
-	int size = 0;
-
-	for (size_t i = 0; i < tileMap.size(); i++) {
-		if (tileMap.at(i).getTexture() != "air") {
-			size++;
-		}
-	}
-	vao->generate(size * 6, buStaticDraw);
+	vao->generate(size.x * size.y * 6, buStaticDraw);
 
 	vao->map(baWriteOnly);
 
-	for (size_t i = 0; i < tileMap.size(); i++) {
-		if (tileMap.at(i).getTexture() != "air") {
-			tileMap.at(i).addToVAO(vao);
-		}
-	}
+	for (DWORD i = 0; i < size.x * size.y; i++) 
+		tileMap[i].addToVAO(vao);	      
 
 	vao->unmap();
 }
 
-void BGGrid::buildTileMap(Game* g) {
-	tileMap.clear();
-	
-	string s;
-
-	for (int x = 0; x < size.x; x++) {
-		for (int y = 0; y < size.y; y++) {
-			s = "grass";
-			tileMap.push_back(Tile(ivec2(x, y), s, g));
-		}
-	}
-}
-
-BGGrid::BGGrid() {
-
+void BGGrid::buildTileMap(Game* g, string block) {
+	tileMap.clear(); 	
+	for (int x = 0; x < size.x; x++) 
+		for (int y = 0; y < size.y; y++)                                    
+            tileMap.push_back(Tile(ivec2(x, y), block, g));
 }
 
 BGGrid::BGGrid(int sX, int sY, Game* g)
@@ -44,6 +24,14 @@ BGGrid::BGGrid(int sX, int sY, Game* g)
 	size.y = sY;
 
 	game = g;
+
+    buildTileMap(game);
+
+    vao = new VAO(game->getTextureShader());
+
+    uniformLocation = game->getTextureShader()->getUniformLocation("model");
+
+    buildVAO();
 }
 
 
@@ -52,24 +40,14 @@ BGGrid::~BGGrid()
     delete vao;
 }
 
-void BGGrid::init() {
-	buildTileMap(game);
-
-	vao = new VAO(game->getTextureShader());
-
-	uniformLocation = game->getTextureShader()->getUniformLocation("model");
-
-	buildVAO();
-}
-
-void BGGrid::update(double deltaT) {
+void BGGrid::update(float deltaT) {
 
 }
 
 void BGGrid::render() {
-	Matrix3 matrix42;
-	matrix42.loadIdentity();
-	glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix42.ptr());
+	Matrix3 matrix;
+	matrix.loadIdentity();
+	glUniformMatrix3fv(uniformLocation, 1, blFalse, matrix.ptr());
 	vao->render();
 }
 
@@ -86,11 +64,17 @@ Tile & BGGrid::getTileAt(vec2 p) {
 }
 
 Tile & BGGrid::getTileAt(ivec2 p) {
-	return tileMap.at(p.y + p.x * size.y);
+    return tileMap[p.y + p.x * size.y];
 }
 
 void BGGrid::setTileAt(ivec2 p, Tile t)
 {
     tileMap[p.y + p.x * size.y] = t;
     buildVAO();
+}
+
+void BGGrid::fill(TileData tile)
+{
+    for (Tile &t : tileMap)
+        t.assign(tile);
 }

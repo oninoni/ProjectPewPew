@@ -17,7 +17,11 @@ using namespace std;
 #include <unordered_map>
 #define _USE_MATH_DEFINES
 #include <math.h>
+
+// Memory Leak Detector
+#ifdef _DEBUG
 #include <vld.h>
+#endif
 
 // External GL
 #include "GL/glew.h"

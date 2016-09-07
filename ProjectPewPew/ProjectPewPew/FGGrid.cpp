@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+/*
 void FGGrid::buildTileMap(Game* g) {
 	tileMap.clear();
 
@@ -41,6 +42,7 @@ void FGGrid::buildTileMap(Game* g) {
 		}
 	}
 }
+*/
 
 FGGrid::FGGrid(int sizeX, int sizeY, Game* g):
 	BGGrid(sizeX, sizeY, g)
@@ -51,17 +53,7 @@ FGGrid::~FGGrid()
 {
 }
 
-void FGGrid::init(){
-	buildTileMap(game);
-
-	vao = new VAO(game->getTextureShader());
-
-	uniformLocation = game->getTextureShader()->getUniformLocation("model");
-
-	buildVAO();
-}
-
-void FGGrid::update(double deltaT) {
+void FGGrid::update(float deltaT) {
 	BGGrid::update(deltaT);
 }
 
@@ -77,7 +69,7 @@ bool FGGrid::destroyTileAt(vec2 p)
 bool FGGrid::destroyTileAt(ivec2 p)
 {
     Tile t = getTileAt(p);
-    if (t.isDestrucable()) {
+    if (t.properties.is(tpDestructible)) {
         setTileAt(p, Tile(p, "air", game));
     }
     return false;

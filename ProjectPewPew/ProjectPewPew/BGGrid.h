@@ -1,9 +1,9 @@
 #pragma once
 class BGGrid
 {
-private:
+private:        
+    void buildTileMap(Game * g, string block = "air");
 
-	void buildTileMap(Game* g);
 protected:
 	int uniformLocation;
 	void buildVAO();
@@ -13,14 +13,12 @@ protected:
 	vector<Tile> tileMap;
 
 	VAO* vao;
+
 public:
-	BGGrid();
     BGGrid(int sizeX, int sizeY, Game* g);
     ~BGGrid();
 
-	void init();
-
-	void update(double deltaT);
+	void update(float deltaT);
 	void render();
 
 	ivec2 getSize();
@@ -30,4 +28,6 @@ public:
 	Tile& getTileAt(ivec2 p);
 
     void setTileAt(ivec2 p, Tile t);
+
+    void fill(TileData tile);
 };

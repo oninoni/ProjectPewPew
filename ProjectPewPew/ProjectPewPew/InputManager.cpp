@@ -1,32 +1,30 @@
 #include "stdafx.h"
 
 void InputManager::scroll_callback(GLFWwindow * window, double xoffset, double yoffset) {
-    if (yoffset != 0) {
-        cout << yoffset << endl;
-        if (yoffset > 0) {
-            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_UP] = yoffset;
-        }
-        else {
-            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_DOWN] = yoffset;
-        }
-    }
+	cout << "X: " << xoffset << ", Y: " << yoffset << endl;
+	Game* game = (Game*)glfwGetWindowUserPointer(window);
+	if (yoffset != 0) {
+		if (yoffset > 0) {
+			game->getPlayer()->getInputManager()->getScrollData()[IM_SCROLL_UP + 2] = (int)yoffset;
+		}
+		else {
+			game->getPlayer()->getInputManager()->getScrollData()[IM_SCROLL_DOWN + 2] = (int)-yoffset;
+		}
+	}
 }
 
 int InputManager::getScroll(int keyCode) {
     if (keyCode == IM_SCROLL_DOWN || keyCode == IM_SCROLL_UP) {
-        return scrollData[keyCode + 2];
+		int k = keyCode + 2;
+		int result = scrollData[k];
+		scrollData[k] = 0;
+		return result;
     }
     return -1;
 }
 
-InputManager* InputManager::getInstance(Game* g) {
-    // Static call to the one and only instance of this class!
-    static InputManager input(g);
-    return &input;
-}
-
 InputManager::InputManager(Game* g)
-{
+{	
 	window = g->getWindow();
     view = g->getView();
 
@@ -41,10 +39,6 @@ InputManager::~InputManager()
 
 vec2 InputManager::getMousePos()
 {
-    // sry wollte es testen und habs schnell selbst geschrieben...
-    // du kannst es aber noch besser machen
-    // ich würds machen, dass man ne möglichkeit hat rauszufinden ob sich der cursor bewegt hat
-    // dann muss das laser-VAO nicht jeden frame geupdated werden
     double x, y;
     glfwGetCursorPos(window, &x, &y);
     int w, h;
@@ -73,6 +67,8 @@ void InputManager::bindDefaults()
     bindKey(kaFirePrimary, GLFW_MOUSE_BUTTON_LEFT);
     bindKey(kaFireSecondary, GLFW_MOUSE_BUTTON_RIGHT);
     bindKey(kaReload, GLFW_KEY_R);
+	bindKey(kaWeaponSwitchUp, IM_SCROLL_UP);
+	bindKey(kaWeaponSwitchDown, IM_SCROLL_DOWN);
 }
 
 void InputManager::update() 
@@ -80,7 +76,9 @@ void InputManager::update()
 	for (int i = 0; i < KA_SIZE; i++) 
     {
 		keyStateOld[i] = keyState[i];
-		keyState[i] = glfwGetKey(window, keyBinds[i]) == 1 || glfwGetMouseButton(window, keyBinds[i]) == 1;
+		keyState[i] = glfwGetKey(window, keyBinds[i]) == 1 || 
+					  glfwGetMouseButton(window, keyBinds[i]) == 1 ||
+					  getScroll(keyBinds[i]) > 0;
 	}
 }
 

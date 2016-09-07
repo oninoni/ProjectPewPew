@@ -6,9 +6,6 @@ static char** argvS;
 class Game
 {
 private:
-    Game(int* argc, char** argv);
-    ~Game();
-
     GLFWwindow* window;
 
 	TextureMap* textureMap;
@@ -44,11 +41,10 @@ private:
 	void render();
 
 public:
+	Game(int* argc, char** argv);
+	~Game();
 
-    static Game* getInstance(int* argc, char** argv);
-    static Game* getInstance();
-
-    float getDeltaTime();
+	float getDeltaTime();
     float getRunTime();
 
 	GLFWwindow* getWindow();

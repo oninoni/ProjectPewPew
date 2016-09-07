@@ -52,6 +52,8 @@ bool Game::initGL()
         return false;
     }
 
+	glfwSetWindowUserPointer(window, this);
+
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
     glfwMakeContextCurrent(window);
@@ -76,6 +78,7 @@ void Game::start()
 
     textureMap->addTexture("player.png");
 
+    textureMap->addTexture("air.png");
     textureMap->addTexture("grass.png");
     textureMap->addTexture("stone.png");
     textureMap->addTexture("stone_sexy.png");
@@ -103,9 +106,8 @@ void Game::start()
 	fgGrid = new FGGrid(30, 30, this);
 	bgGrid = new BGGrid(30, 30, this);
 
-	fgGrid->init();
-	bgGrid->init();
-
+    bgGrid->fill(TileData("grass"));
+                
     vec2 scale = view->getPos().getScale();
     vec2 limit = vec2(aspect / scale.x, 1 / scale.y);
     view->getPos().setPosLowerLimit(limit);
@@ -120,9 +122,8 @@ void Game::start()
 
     while (!glfwWindowShouldClose(window))
     {
-		update();
-
-        view->render();
+		update();   
+        
 		render();
 
         glfwPollEvents();
@@ -152,7 +153,9 @@ void Game::update()
 void Game::render()
 {
 	glClear(amColorDepth);
-	
+
+    view->render();
+
 	bgGrid->render();
 	fgGrid->render();
 
@@ -198,17 +201,6 @@ Game::~Game()
 
     glfwTerminate();
     cout << "Game stopped!" << endl;
-}
-
-Game* Game::getInstance(int * argc, char ** argv) {
-    argcS = argc;
-    argvS = argv;
-    return getInstance();
-}
-
-Game* Game::getInstance() {
-    static Game game(argcS, argvS);
-    return &game;
 }
 
 float Game::getDeltaTime()

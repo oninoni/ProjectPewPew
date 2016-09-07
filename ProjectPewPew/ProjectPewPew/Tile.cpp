@@ -1,18 +1,43 @@
 #include "stdafx.h"
 
-Tile::Tile(ivec2 pos, string texture, Game * g, bool s, bool t, bool d)
+Properties::Properties()
+    : properties(TP_SIZE)
 {
-    this->pos = pos;
-    this->texture = texture;
-    textureMap = g->getTextureMap();
-	solid = s;
-    transparent = t;
-    destructable = d;
 }
 
-Tile::~Tile() 
+bool Properties::is(TileProperty prop)
 {
+    return properties[prop];
+}
 
+void Properties::set(TileProperty prop)
+{
+    properties[prop] = true;
+}
+
+void Properties::clear(TileProperty prop)
+{
+    properties[prop] = false;
+}
+
+void Properties::clearAll(TileProperty prop)
+{
+    properties.clear();
+}
+
+TileData::TileData(string texture)
+{
+    this->texture = texture;      
+}
+
+Tile::Tile(ivec2 pos, string texture, Game * g)
+    : TileData(texture)
+{
+    textureMap = g->getTextureMap();
+}
+
+Tile::~Tile()
+{ 
 }
 
 void Tile::addToVAO(VAO* vao) 
@@ -49,20 +74,12 @@ void Tile::addToVAO(VAO* vao)
 	vao->addVertex(&data);
 }
 
-string Tile::getTexture() {
-	return texture;
-}
-
-bool Tile::isSolid() {
-	return solid;
-}
-
-bool Tile::isTransparent()
+string TileData::getTexture()
 {
-    return transparent;
+    return texture;
 }
 
-bool Tile::isDestrucable()
+void TileData::assign(TileData &other)
 {
-    return destructable;
+    texture = other.texture;
 }

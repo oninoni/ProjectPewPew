@@ -37,15 +37,26 @@ public:
 	VAO(Shader* shader, GLRenderMode renderMode = rmTriangles);
 	~VAO();
 
+	// mostly not neccessary outside of this class
     void bind();
     void unbind();   
-    
+
+    // get memory in the GPU
     void generate(DWORD maxSize, GLBufferUsage usage);
 
+	// copies data between GPU and RAM, enabling addVertex() between map and unmap
     bool map(GLBufferAccess access);
     void unmap();
 
     bool addVertex(void *data);
+	
+	// alternative to map/unmap if VAO size is constant
+	bool forceSize(int count); 
+	
+	// change data directly in the VAO without having to map it first
+	bool changeVertex(DWORD index, void* data);
+	bool changeVerticies(DWORD index, DWORD count, void* data);
+	bool changeAttribute(DWORD index, DWORD attribute, void* data);
 
     Location& getPos();
     void render();

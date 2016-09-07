@@ -73,7 +73,7 @@ void Cursor::updateLaser() {
 	float lastDistance = -1;
 	
     while (rayCaster.next()) {
-        if (!grid->getTileAt(rayCaster.getTilePos()).isTransparent()) {
+        if (!grid->getTileAt(rayCaster.getTilePos()).properties.is(tpTransparent)) {
 			lastDistance = rayCaster.getDistance();
             break;
         }

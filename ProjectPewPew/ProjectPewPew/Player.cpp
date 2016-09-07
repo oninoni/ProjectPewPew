@@ -43,7 +43,7 @@ void Player::initVAO()
 bool Player::checkCollision(vec2 pos) {
 	ivec2 size = grid->getSize();
 	Tile tile = grid->getTileAt(pos);
-	return tile.isSolid();
+	return tile.properties.is(tpSolid);
 }
 
 Player::Player(Game* g)
@@ -54,7 +54,7 @@ Player::Player(Game* g)
 	view = g->getView();
 	textureMap = g->getTextureMap();
 
-    input = InputManager::getInstance(g);
+    input = new InputManager(g);
 	cursor = new Cursor(g, this, grid);
 
 	gun = new Gun(g, this);
@@ -71,6 +71,7 @@ Player::~Player()
     delete vao;
 	delete cursor;
 	delete gun;
+	delete input;
 }
 
 void Player::update(float deltaTime) 

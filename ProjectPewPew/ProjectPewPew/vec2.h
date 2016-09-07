@@ -4,13 +4,14 @@ template <typename type>
 struct gvec2 sealed
 {
     gvec2();
-    gvec2(type x, type y);
-    
+    gvec2(type x, type y);     
+
     gvec2<type> operator+(const gvec2<type> &other);
     gvec2<type> operator+(type value);
     template<typename t>
     friend gvec2<t> operator+(t value, const gvec2<t> &vec);
 
+    
     gvec2<type> operator-();
 
     gvec2<type> operator-(const gvec2<type> &other);

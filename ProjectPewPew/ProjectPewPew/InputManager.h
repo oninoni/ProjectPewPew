@@ -20,10 +20,6 @@ enum KeyAction {
 
 class InputManager {
 private:
-    // Private Constructor cause only one Instance;
-    InputManager(Game* g);
-    ~InputManager();
-
 	GLFWwindow* window;
     View* view;
 
@@ -37,7 +33,8 @@ private:
 
     int getScroll(int keyCode);
 public:
-    static InputManager* getInstance(Game* g);
+	InputManager(Game* g);
+	~InputManager();
 
     vec2 getMousePos();
     vec2 getGridMousePos();

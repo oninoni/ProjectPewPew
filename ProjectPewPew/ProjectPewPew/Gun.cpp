@@ -49,7 +49,8 @@ Gun::Gun(Game * g, Player* p) {
 
 Gun::~Gun() 
 {
-	delete gunVAO; // I'm so proud of you!
+	delete gunVAO; 
+	delete beamVAO;
 }
 
 void Gun::setBeamVAO(vec2 direction, float length, float width, float r, float g, float b, float a) {
@@ -67,10 +68,10 @@ void Gun::setBeamVAO(vec2 direction, float length, float width, float r, float g
         float r, g, b, a;
     } data;
 
-    data.r = 0.0f;
-    data.g = 1.0f;
-    data.b = 0.0f;
-    data.a = 1.0f;
+    data.r = r;
+    data.g = g;
+    data.b = b;
+    data.a = a;
 
     beamVAO->map(baWriteOnly);
     data.pos = points[0];
@@ -107,7 +108,7 @@ void Gun::update(float deltaTime)
         float lastDistance = -1;
 
         while (rayCaster.next()) {
-            if (grid->getTileAt(rayCaster.getTilePos()).isSolid()) {
+            if (grid->getTileAt(rayCaster.getTilePos()).properties.is(tpSolid)) {
                 if (grid->destroyTileAt(rayCaster.getTilePos())) {
                     rayCaster.next();
                 }
@@ -119,7 +120,7 @@ void Gun::update(float deltaTime)
         if (lastDistance == -1)
             lastDistance = rayCaster.getDistance();
 
-        setBeamVAO(direction, lastDistance, 0.25f, 1.0f, 0.0f, 0.0f, 1.0f);
+        setBeamVAO(direction, lastDistance, 0.25f, 1.0f, 0.0f, 1.0f, 1.0f);
     }
 }
 

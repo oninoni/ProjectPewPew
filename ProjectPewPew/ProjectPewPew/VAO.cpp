@@ -144,6 +144,58 @@ bool VAO::addVertex(void * data)
     return true;
 }
 
+bool VAO::forceSize(int count)
+{
+	if (size > maxSize)
+	{
+		cout << "Forced VAO size too big!" << endl;
+		return false;
+	}
+	size = count;
+	return true;
+}
+
+bool VAO::changeVertex(DWORD index, void * data)
+{
+	if (index >= maxSize)
+	{
+		cout << "Vertex index out of range!" << endl;
+		return false;
+	}
+	bind();
+	glBufferSubData(btArrayBuffer, index * stride, stride, data);
+	return true;
+}
+
+bool VAO::changeVerticies(DWORD index, DWORD count, void * data)
+{
+	if (index + count > maxSize)
+	{
+        cout << "Vertex range out of range!" << endl;
+        return false;
+	}
+    bind();
+    glBufferSubData(btArrayBuffer, index * stride, count * stride, data);
+    return true;
+}
+
+bool VAO::changeAttribute(DWORD index, DWORD attribute, void * data)
+{
+    if (index >= maxSize)
+    {
+        cout << "Vertex index out of range! (Attribute)" << endl;
+        return false;
+    }
+    if (attribute >= attributes.size())
+    {
+        cout << "Attribute index out of range!" << endl;
+        return false;
+    }
+    bind();
+    glBufferSubData(btArrayBuffer, index * stride + attributes[attribute].offset, attributes[attribute].dataSize, data);
+    return true;
+}
+
 Location & VAO::getPos()
 {
     return pos;
