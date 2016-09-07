@@ -58,3 +58,4 @@ class Gun;
 #include "Gun.h"
 #include "Entity.h"
 #include "Game.h"
+#include "HUD.h"

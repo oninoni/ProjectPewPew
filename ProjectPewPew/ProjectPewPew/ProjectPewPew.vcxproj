@@ -165,6 +165,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLEnums.h" />
     <ClInclude Include="Gun.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="lodePNG.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GLEnums.cpp" />
     <ClCompile Include="Gun.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="lodePNG.cpp" />
