@@ -54,7 +54,7 @@ Player::Player(Game* g)
 	view = g->getView();
 	textureMap = g->getTextureMap();
 
-    input = new InputManager(g);
+    input = InputManager::getInstance(g);
 	cursor = new Cursor(g, this, grid);
 
 	gun = new Gun(g, this);
@@ -68,7 +68,6 @@ Player::Player(Game* g)
 
 Player::~Player()
 {
-	delete input;
     delete vao;
 	delete cursor;
 	delete gun;
