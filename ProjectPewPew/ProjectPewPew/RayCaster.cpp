@@ -1,16 +1,15 @@
 #include "stdafx.h"
 
 
-RayCaster::RayCaster(ivec2 s, vec2 p, vec2 d){
+RayCaster::RayCaster(ivec2 s, Line l){
     size = s;
-    point = p;
-    direction = d;
+    line = l;
 
-    X.up = direction.x > 0 ? 1 : direction.x == 0 ? 0 : -1;
-    Y.up = direction.y > 0 ? 1 : direction.y == 0 ? 0 : -1;
+    X.up = l.direction.x > 0 ? 1 : l.direction.x == 0 ? 0 : -1;
+    Y.up = l.direction.y > 0 ? 1 : l.direction.y == 0 ? 0 : -1;
 
-    X.pos = ivec2((int)p.x, (int)p.y);
-    Y.pos = ivec2((int)p.x, (int)p.y);
+    X.pos = ivec2((int)l.position.x, (int)l.position.y);
+    Y.pos = ivec2((int)l.position.x, (int)l.position.y);
 
     X.isHorizontal = false;
     Y.isHorizontal = true;
@@ -27,12 +26,13 @@ RayCaster::~RayCaster(){
 void RayCaster::calcDirection(RayCastData& d) {
     vec2 plane = d.isHorizontal ? vec2(1,0) : vec2(0,1);
 	int offset = d.up == 1 ? 1 : 0;
-    ivec2 planePos = d.pos + (d.isHorizontal ? ivec2(0, offset) : ivec2(offset, 0));
-    float v = (direction.x * (planePos.y - point.y) - direction.y * (planePos.x - point.x)) / (plane.x * direction.y - plane.y * direction.x);
-    float u = (planePos.x + v * plane.x - point.x) / direction.x;
+    vec2 planePos = vec2(d.pos.x, d.pos.y) + (d.isHorizontal ? vec2(0, offset) : vec2(offset, 0));
+    Line target(planePos, plane);
+    IntersectionData data;
+    line.intersect(target, data);
 
-    d.hitPos = vec2((float)planePos.x, (float)planePos.y) + plane * v;
-    d.distance = (point - d.hitPos).length();
+    d.hitPos = line[data.u];
+    d.distance = (line.position - d.hitPos).length();
 }
 
 bool RayCaster::next()

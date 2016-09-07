@@ -76,6 +76,21 @@
     <ClCompile Include="HUD.cpp">
       <Filter>source\Game\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>source\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Hitbox.cpp">
+      <Filter>source\Math\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundHitbox.cpp">
+      <Filter>source\Math\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareHitbox.cpp">
+      <Filter>source\Math\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>source\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -161,6 +176,21 @@
     </ClInclude>
     <ClInclude Include="HUD.h">
       <Filter>header\Game\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>header\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Hitbox.h">
+      <Filter>header\Math\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundHitbox.h">
+      <Filter>header\Math\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareHitbox.h">
+      <Filter>header\Math\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>header\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +300,12 @@
     </Filter>
     <Filter Include="source\Game\GUI">
       <UniqueIdentifier>{07980a0b-11df-4c97-830e-78e4e4b85458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Math\Hitbox">
+      <UniqueIdentifier>{569f555c-a1af-4df8-a7cf-cb67f6ac9db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Math\Hitbox">
+      <UniqueIdentifier>{68146314-1db6-4f60-bd2c-c790c8763494}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ Cursor::Cursor(Game* g, Player* player, FGGrid* gr)
 
     grid = gr;
 
-	vaoLaser = new VAO(g->getLaserShader()); 
+	vaoLaser = new VAO(g->getLaserShader());
 	vaoLaser->generate(6, buDynamicDraw);
 
 	vaoCrosshair = new VAO(g->getTextureShader());
@@ -68,7 +68,7 @@ void Cursor::updateLaser() {
 
 	vec2 direction = getDirection();
 
-    RayCaster rayCaster(grid->getSize(), player->getPos().getPosition(), direction);
+    RayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition(), direction));
 
 	float lastDistance = -1;
 	

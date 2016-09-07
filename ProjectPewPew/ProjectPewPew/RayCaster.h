@@ -20,8 +20,7 @@ class RayCaster
 {
 private:
     ivec2 size;
-    vec2 point;
-    vec2 direction;
+    Line line;
 
     RayCastData active;
 
@@ -32,7 +31,7 @@ private:
 
     void calcDirection(RayCastData& d);
 public:
-    RayCaster(ivec2 s, vec2 p, vec2 d);
+    RayCaster(ivec2 s, Line l);
     ~RayCaster();
 
     bool next();

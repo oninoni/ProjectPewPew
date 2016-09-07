@@ -29,9 +29,17 @@ using namespace std;
 
 // Math
 #include "vec2.h"
+#include "Line.h"
 #include "Matrix2.h"
 #include "Matrix3.h"
 #include "Location.h"
+#include "RayCaster.h"
+#include "Hitbox.h"
+
+class RoundHitbox;
+class SquareHitbox;
+#include "RoundHitbox.h"
+#include "SquareHitbox.h"
 
 // OpenGL
 class VAO;
@@ -51,11 +59,11 @@ class Gun;
 #include "Tile.h"
 #include "BGGrid.h"
 #include "FGGrid.h"
-#include "RayCaster.h"
 #include "InputManager.h"
 #include "Cursor.h"
 #include "Player.h"
 #include "Gun.h"
 #include "Entity.h"
+#include "EntityManager.h"
 #include "Game.h"
 #include "HUD.h"

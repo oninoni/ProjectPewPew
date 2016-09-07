@@ -1,17 +1,22 @@
 #pragma once
 
-template <typename type> 
+template <typename type>
 struct gvec2 sealed
 {
     gvec2();
     gvec2(type x, type y);
+
+    template <typename type2>
+    gvec2(gvec2<type2> other);
     
     gvec2<type> operator+(const gvec2<type> &other);
     gvec2<type> operator+(type value);
+
     template<typename t>
     friend gvec2<t> operator+(t value, const gvec2<t> &vec);
 
     gvec2<type> operator-();
+    gvec2<type> operator+();
 
     gvec2<type> operator-(const gvec2<type> &other);
     gvec2<type> operator-(type value);
@@ -25,10 +30,17 @@ struct gvec2 sealed
     bool operator==(const gvec2<type> &other);
     bool operator!=(const gvec2<type> &other);
 
+    bool operator>(const gvec2<type> &other);
+    bool operator<(const gvec2<type> &other);
+
+    bool operator>=(const gvec2<type> &other);
+    bool operator<=(const gvec2<type> &other);
+
     gvec2<type> operator+=(const gvec2<type> &other);
     gvec2<type> operator-=(const gvec2<type> &other);
 
     gvec2<type> vectorTo(gvec2<type> &other);
+    float distanceTo(gvec2<type> &other);
 
     gvec2<type> cross();
 
@@ -88,6 +100,11 @@ inline gvec2<type> gvec2<type>::operator-()
 }
 
 template<typename type>
+inline gvec2<type> gvec2<type>::operator+() {
+    return *this;
+}
+
+template<typename type>
 inline gvec2<type> gvec2<type>::operator-(const gvec2<type> &other)
 {
     return gvec2<type>(x - other.x, y - other.y);
@@ -136,6 +153,26 @@ inline bool gvec2<type>::operator!=(const gvec2<type>& other)
 }
 
 template<typename type>
+inline bool gvec2<type>::operator>(const gvec2<type>& other) {
+    return x > other.x && y > other.y;
+}
+
+template<typename type>
+inline bool gvec2<type>::operator<(const gvec2<type>& other) {
+    return x < other.x && y < other.y;
+}
+
+template<typename type>
+inline bool gvec2<type>::operator>=(const gvec2<type>& other) {
+    return x >= other.x && y >= other.y;
+}
+
+template<typename type>
+inline bool gvec2<type>::operator<=(const gvec2<type>& other) {
+    return x <= other.x && y <= other.y;
+}
+
+template<typename type>
 inline gvec2<type> gvec2<type>::operator+=(const gvec2<type>& other)
 {
     x += other.x;
@@ -155,6 +192,11 @@ template<typename type>
 inline gvec2<type> gvec2<type>::vectorTo(gvec2<type> &other)
 {
     return other - *this;
+}
+
+template<typename type>
+inline float gvec2<type>::distanceTo(gvec2<type>& other) {
+    return vectorTo(other).length();
 }
 
 template<typename type>
@@ -207,7 +249,13 @@ inline float gvec2<type>::getAngle()
 }
 
 template<typename type>
-inline gvec2<type> gvec2<type>::normalize()
-{
+inline gvec2<type> gvec2<type>::normalize() {
     return *this / length();
+}
+
+template<typename type>
+template<typename type2>
+inline gvec2<type>::gvec2(gvec2<type2> other) {
+    x = (type)other.x;
+    y = (type)other.y;
 }

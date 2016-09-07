@@ -102,7 +102,7 @@ void Gun::update(float deltaTime)
     if (input->keyDown(kaFirePrimary)) {
         vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
 
-        RayCaster rayCaster(grid->getSize(), player->getPos().getPosition(), direction);
+        RayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition(), direction));
 
         float lastDistance = -1;
 
