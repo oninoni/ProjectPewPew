@@ -37,7 +37,7 @@ using namespace std;
 #include "Hitbox.h"
 
 class RoundHitbox;
-class SquareHitbox;
+class RectHitbox;
 #include "RoundHitbox.h"
 #include "SquareHitbox.h"
 

@@ -6,8 +6,8 @@ public:
 
     HitboxType getType();
 
-    //bool collidesWith(Hitbox* box);
-    //bool collidesWith(vec2 pos, vec2 dir);
+    bool collidesWith(Hitbox* box);
+    bool collidesWith(Line l);
     bool collidesWith(vec2 pos);
 
     float radius;
