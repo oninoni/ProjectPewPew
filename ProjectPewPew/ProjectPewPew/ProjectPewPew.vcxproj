@@ -175,7 +175,7 @@
     <ClInclude Include="Matrix2.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="RayCaster.h" />
+    <ClInclude Include="GridRayCaster.h" />
     <ClInclude Include="RoundHitbox.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="RectHitbox.h" />
@@ -210,7 +210,7 @@
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProjectPewPew.cpp" />
-    <ClCompile Include="RayCaster.cpp" />
+    <ClCompile Include="GridRayCaster.cpp" />
     <ClCompile Include="RoundHitbox.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="RectHitbox.cpp" />

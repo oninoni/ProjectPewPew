@@ -1,13 +1,13 @@
 #pragma once
 
-struct RayCastData {
+struct GridRayCastData {
     ivec2 pos;
     vec2 hitPos;
     float distance;
     char up;
     bool isHorizontal;
 
-    RayCastData(){
+    GridRayCastData(){
         pos = ivec2(0, 0);
         hitPos = vec2(0, 0);
         distance = 0.0f;
@@ -16,23 +16,23 @@ struct RayCastData {
     }
 };
 
-class RayCaster
+class GridRayCaster
 {
 private:
     ivec2 size;
     Line line;
 
-    RayCastData active;
+    GridRayCastData active;
 
-    RayCastData X;
-    RayCastData Y;
+    GridRayCastData X;
+    GridRayCastData Y;
 
     bool lastWasX;
 
-    void calcDirection(RayCastData& d);
+    void calcDirection(GridRayCastData& d);
 public:
-    RayCaster(ivec2 s, Line l);
-    ~RayCaster();
+    GridRayCaster(ivec2 s, Line l);
+    ~GridRayCaster();
 
     bool next();
 

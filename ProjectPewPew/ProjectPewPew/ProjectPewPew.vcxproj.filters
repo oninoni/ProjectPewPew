@@ -70,9 +70,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>source\Game\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="RayCaster.cpp">
-      <Filter>source\Math</Filter>
-    </ClCompile>
     <ClCompile Include="HUD.cpp">
       <Filter>source\Game\GUI</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="RectHitbox.cpp">
       <Filter>source\Math\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRayCaster.cpp">
+      <Filter>source\Math\RayCaster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,9 +171,6 @@
     <ClInclude Include="Entity.h">
       <Filter>header\Game\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="RayCaster.h">
-      <Filter>header\Math</Filter>
-    </ClInclude>
     <ClInclude Include="HUD.h">
       <Filter>header\Game\GUI</Filter>
     </ClInclude>
@@ -191,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="RectHitbox.h">
       <Filter>header\Math\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRayCaster.h">
+      <Filter>header\Math\RayCaster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +306,12 @@
     </Filter>
     <Filter Include="header\Math\Hitbox">
       <UniqueIdentifier>{68146314-1db6-4f60-bd2c-c790c8763494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Math\RayCaster">
+      <UniqueIdentifier>{3d1a9878-de3b-4498-bff2-ae2d1fc4eabd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\Math\RayCaster">
+      <UniqueIdentifier>{9363fa3f-a615-4da8-a149-0c0e5fa2c354}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

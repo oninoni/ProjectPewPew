@@ -50,6 +50,7 @@ Gun::Gun(Game * g, Player* p) {
 Gun::~Gun() 
 {
 	delete gunVAO; // I'm so proud of you!
+    delete beamVAO;
 }
 
 void Gun::setBeamVAO(vec2 direction, float length, float width, float r, float g, float b, float a) {
@@ -102,7 +103,7 @@ void Gun::update(float deltaTime)
     if (input->keyDown(kaFirePrimary)) {
         vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
 
-        RayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition(), direction));
+        GridRayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition(), direction));
 
         float lastDistance = -1;
 

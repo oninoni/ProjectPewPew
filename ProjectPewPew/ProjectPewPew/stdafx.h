@@ -33,7 +33,8 @@ using namespace std;
 #include "Matrix2.h"
 #include "Matrix3.h"
 #include "Location.h"
-#include "RayCaster.h"
+#include "GridRayCaster.h"
+#include "EntityRayCaster.h"
 #include "Hitbox.h"
 
 class RoundHitbox;
