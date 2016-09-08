@@ -39,7 +39,7 @@ using namespace std;
 class RoundHitbox;
 class RectHitbox;
 #include "RoundHitbox.h"
-#include "SquareHitbox.h"
+#include "RectHitbox.h"
 
 // OpenGL
 class VAO;

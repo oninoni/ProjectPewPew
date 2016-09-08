@@ -4,10 +4,10 @@ void InputManager::scroll_callback(GLFWwindow * window, double xoffset, double y
     if (yoffset != 0) {
         cout << yoffset << endl;
         if (yoffset > 0) {
-            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_UP] = yoffset;
+            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_UP] = (int)yoffset;
         }
         else {
-            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_DOWN] = yoffset;
+            getInstance(Game::getInstance())->getScrollData()[IM_SCROLL_DOWN] = (int)yoffset;
         }
     }
 }

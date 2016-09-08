@@ -17,17 +17,19 @@ bool RoundHitbox::collidesWith(Hitbox * box) {
     if (type == HitboxType::Circle) {
         return box->position.distanceTo(position) <= ((RoundHitbox*)box)->radius + radius;
     }
-    else if (type == HitboxType::Rectangle) {
+    else if (type == HitboxType::Rect) {
         return ((RectHitbox*)box)->collidesWith(this);
     }
 }
 
-bool RoundHitbox::collidesWith(Line l) {
+bool RoundHitbox::collidesWith(Line l, vec2 &collision) {
     IntersectionData data;
     l.intersect(Line(position, l.direction.cross()), data);
-    return position.distanceTo(l[data.u]) <= radius;
+    collision = l[data.u];
+    return position.distanceTo(collision) <= radius;
 }
 
-bool RoundHitbox::collidesWith(vec2 pos) {
+bool RoundHitbox::collidesWith(vec2 pos, vec2 &collision) {
+    collision = pos;
     return position.distanceTo(pos) <= radius;
 }

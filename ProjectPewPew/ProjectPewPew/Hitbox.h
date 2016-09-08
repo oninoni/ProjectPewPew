@@ -1,7 +1,7 @@
 #pragma once
 
 enum HitboxType {
-    Rectangle,
+    Rect,
     Circle
 };
 
@@ -13,8 +13,8 @@ public:
     virtual HitboxType getType() = 0;
 
     virtual bool collidesWith(Hitbox* box) = 0;
-    virtual bool collidesWith(Line l) = 0;
-    virtual bool collidesWith(vec2 pos) = 0;
+    virtual bool collidesWith(Line l, vec2 &collision = vec2()) = 0;
+    virtual bool collidesWith(vec2 pos, vec2 &collision = vec2()) = 0;
 
     vec2 position;
 };
