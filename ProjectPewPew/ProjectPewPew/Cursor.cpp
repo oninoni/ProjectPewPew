@@ -68,7 +68,7 @@ void Cursor::updateLaser() {
 
 	vec2 direction = getDirection();
 
-    GridRayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition(), direction));
+    GridRayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition() - direction.cross().normalize() * 0.1f, direction));
 
 	float lastDistance = -1;
 	

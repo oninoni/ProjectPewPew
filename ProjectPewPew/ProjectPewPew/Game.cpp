@@ -154,6 +154,8 @@ void Game::update()
 
 	player->update(deltaTime);
     view->getPos().approachPosition(player->getPos(), 1 - exp(-4.2f * deltaTime));
+
+    cout << 1 / deltaTime << endl;
 }
 
 void Game::render()
