@@ -1,6 +1,6 @@
 #pragma once
 
-class RoundHitbox : Hitbox{
+class RoundHitbox : public Hitbox{
 public:
     RoundHitbox(vec2 p, float r);
     ~RoundHitbox();

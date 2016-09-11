@@ -19,6 +19,8 @@ private:
     FGGrid* fgGrid;
     BGGrid* bgGrid;
 
+    EntityManager* entityManager;
+
     Player* player;
     
     View* view;

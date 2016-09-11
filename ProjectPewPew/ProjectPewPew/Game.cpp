@@ -84,6 +84,7 @@ void Game::start()
     textureMap->addTexture("crosshair.png");
 	textureMap->addTexture("laser_gun.png");
     textureMap->addTexture("Tint.png");
+    textureMap->addTexture("blob.png");
 
     textureMap->buildPage();
 	textureMap->uniform(textureShader, "tex");
@@ -110,6 +111,10 @@ void Game::start()
     vec2 limit = vec2(aspect / scale.x, 1 / scale.y);
     view->getPos().setPosLowerLimit(limit);
     view->getPos().setPosUpperLimit(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) - limit);
+
+    entityManager = new EntityManager(this);
+
+    entityManager->addEntity(new Blob(this, Location(), vec2(0.5f, 0.5f)));
 
 	player = new Player(this);
     player->getPos().setPosition(vec2((float)bgGrid->getSize().x, (float)bgGrid->getSize().y) / 2 + vec2(0.5f, 0.5f));
@@ -142,11 +147,13 @@ void Game::update()
 {
     updateDeltaTime();
 
+    fgGrid->update(deltaTime);
+    bgGrid->update(deltaTime);
+
+    entityManager->update(deltaTime);
+
 	player->update(deltaTime);
     view->getPos().approachPosition(player->getPos(), 1 - exp(-4.2f * deltaTime));
-
-	fgGrid->update(deltaTime);
-	bgGrid->update(deltaTime);
 }
 
 void Game::render()
@@ -155,6 +162,8 @@ void Game::render()
 	
 	bgGrid->render();
 	fgGrid->render();
+
+    entityManager->render();
 
     player->render();
 

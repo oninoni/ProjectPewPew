@@ -34,7 +34,6 @@ using namespace std;
 #include "Matrix3.h"
 #include "Location.h"
 #include "GridRayCaster.h"
-#include "EntityRayCaster.h"
 #include "Hitbox.h"
 
 class RoundHitbox;
@@ -65,6 +64,7 @@ class Gun;
 #include "Player.h"
 #include "Gun.h"
 #include "Entity.h"
+#include "Blob.h"
 #include "EntityManager.h"
 #include "Game.h"
 #include "HUD.h"

@@ -91,6 +91,9 @@
     <ClCompile Include="GridRayCaster.cpp">
       <Filter>source\Math\RayCaster</Filter>
     </ClCompile>
+    <ClCompile Include="Blob.cpp">
+      <Filter>source\Game\Entities\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -191,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="GridRayCaster.h">
       <Filter>header\Math\RayCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Blob.h">
+      <Filter>header\Game\Entities\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -340,6 +346,9 @@
       <Filter>resources\Tile Textures</Filter>
     </Image>
     <Image Include="Tint.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
+    <Image Include="blob.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
   </ItemGroup>

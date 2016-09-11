@@ -15,6 +15,7 @@ HitboxType RectHitbox::getType() {
 bool RectHitbox::collidesWith(Hitbox * box) {
     if (box->getType() == HitboxType::Circle) {
         RoundHitbox* rbox = (RoundHitbox*)box;
+        //TODO
     }
     else if (box->getType() == HitboxType::Rect) {
         return  position + size >= box->position &&
@@ -24,7 +25,7 @@ bool RectHitbox::collidesWith(Hitbox * box) {
 
 bool RectHitbox::collidesWith(Line l, vec2 &collision) {
     if (l.direction.x == 0 || l.direction.y == 0) {
-        // Special Stuff
+        // TODO Special Stuff
     }
     else {
         Line horizontCheck(position + vec2(0, l.direction.y > 0 ? 1.0f : -1.0f), vec2(1, 0));

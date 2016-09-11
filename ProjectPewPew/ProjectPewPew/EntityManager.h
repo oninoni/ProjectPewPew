@@ -11,5 +11,6 @@ public:
     void render();
 
     void addEntity(Entity* e);
-};
 
+    vector<Entity*> rayCastAll(Line l, float length, vector<vec2> &hitPos = vector<vec2>());
+};

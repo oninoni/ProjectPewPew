@@ -1,6 +1,6 @@
 #pragma once
 
-class RectHitbox : Hitbox{
+class RectHitbox : public Hitbox{
 public:
     RectHitbox(vec2 p, vec2 s);
     ~RectHitbox();
