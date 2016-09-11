@@ -5,7 +5,9 @@ EntityManager::EntityManager(Game* g) {
 }
 
 EntityManager::~EntityManager() {
-
+    for (Entity* e : entities) {
+        delete e;
+    }
 }
 
 void EntityManager::update(float deltaT) {

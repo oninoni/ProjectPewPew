@@ -60,6 +60,8 @@ public:
 	TextureMap* getTextureMap();
 	View* getView();
 
+    EntityManager* getEntityManager();
+
 	Shader* getLaserShader();
 	Shader* getTextureShader();
 };

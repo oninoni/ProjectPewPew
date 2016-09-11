@@ -2,6 +2,7 @@
 
 Entity::Entity(Game* g, Location l, vec2 s, string t) {
     location = l;
+    hitbox = 0;
 
     location.setOffset(vec2(-0.5f, -0.5f));
 
@@ -17,6 +18,7 @@ Entity::Entity(Game* g, Location l, vec2 s, string t) {
 
 Entity::~Entity() {
     delete main;
+    delete hitbox;
 }
 
 void Entity::buildVAO() {
@@ -67,6 +69,7 @@ void Entity::render() {
 }
 
 void Entity::kill() {
+    cout << "UARG" << endl;
     isDead = true;
 }
 

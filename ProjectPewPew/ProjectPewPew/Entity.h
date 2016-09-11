@@ -1,7 +1,7 @@
 #pragma once
 class Entity abstract
 {
-private:
+protected:
     Location location;
     vec2 speed;
 

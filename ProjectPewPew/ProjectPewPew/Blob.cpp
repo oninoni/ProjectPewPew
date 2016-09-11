@@ -2,7 +2,8 @@
 
 Blob::Blob(Game* g, Location l, vec2 s):
     Entity(g, l, s, "blob"){
-
+    hitbox = new RectHitbox(l.getPosition(), vec2(1.0f, 1.0f));
+    l.setScale(0.5);
 }
 
 Blob::~Blob(){

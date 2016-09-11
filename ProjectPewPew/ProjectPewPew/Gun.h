@@ -6,6 +6,7 @@ private:
 
     InputManager* input;
     FGGrid* grid;
+    EntityManager* entityManager;
 
 	VAO* gunVAO;
     VAO* beamVAO;

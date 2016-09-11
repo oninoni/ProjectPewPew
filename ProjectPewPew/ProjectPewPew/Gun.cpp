@@ -6,6 +6,7 @@ Gun::Gun(Game * g, Player* p) {
     
     input = p->getInputManager();
     grid = g->getFGGrid();
+    entityManager = g->getEntityManager();
 
     beamVAO = new VAO(g->getLaserShader());
     beamVAO->generate(6, buDynamicDraw);
@@ -103,7 +104,9 @@ void Gun::update(float deltaTime)
     if (input->keyDown(kaFirePrimary)) {
         vec2 direction = player->getPos().getPosition().vectorTo(input->getGridMousePos());
 
-        GridRayCaster rayCaster(grid->getSize(), Line(player->getPos().getPosition(), direction));
+        Line fireLine(player->getPos().getPosition(), direction);
+
+        GridRayCaster rayCaster(grid->getSize(), fireLine);
 
         float lastDistance = -1;
 
@@ -121,6 +124,12 @@ void Gun::update(float deltaTime)
             lastDistance = rayCaster.getDistance();
 
         setBeamVAO(direction, lastDistance, 0.25f, 1.0f, 0.0f, 0.0f, 1.0f);
+
+        vector<Entity*> killed = entityManager->rayCastAll(fireLine, lastDistance);
+
+        for (Entity* e : killed) {
+            e->kill();
+        }
     }
 }
 
