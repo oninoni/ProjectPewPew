@@ -94,6 +94,9 @@
     <ClCompile Include="Blob.cpp">
       <Filter>source\Game\Entities\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Laser_Bolt.cpp">
+      <Filter>source\Game\Entities\Projectiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -197,6 +200,9 @@
     </ClInclude>
     <ClInclude Include="Blob.h">
       <Filter>header\Game\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Laser_Bolt.h">
+      <Filter>header\Game\Entities\Projectiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +355,9 @@
       <Filter>resources\Tile Textures</Filter>
     </Image>
     <Image Include="blob.png">
+      <Filter>resources\Tile Textures</Filter>
+    </Image>
+    <Image Include="laser_bolt.png">
       <Filter>resources\Tile Textures</Filter>
     </Image>
   </ItemGroup>

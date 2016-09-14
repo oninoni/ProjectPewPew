@@ -170,6 +170,7 @@
     <ClInclude Include="Hitbox.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Laser_Bolt.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="lodePNG.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="Hitbox.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Laser_Bolt.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="lodePNG.cpp" />
@@ -239,6 +241,7 @@
     <Image Include="blob.png" />
     <Image Include="crosshair.png" />
     <Image Include="grass.png" />
+    <Image Include="laser_bolt.png" />
     <Image Include="laser_gun.png" />
     <Image Include="player.png" />
     <Image Include="stone.png" />

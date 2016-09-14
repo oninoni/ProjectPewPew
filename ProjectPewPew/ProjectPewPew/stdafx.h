@@ -59,8 +59,11 @@ class Gun;
 #include "Tile.h"
 #include "BGGrid.h"
 #include "FGGrid.h"
+
 #include "Entity.h"
 #include "Blob.h"
+#include "Laser_Bolt.h"
+
 #include "EntityManager.h"
 #include "InputManager.h"
 #include "Cursor.h"

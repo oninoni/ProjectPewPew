@@ -15,7 +15,16 @@ HitboxType RectHitbox::getType() {
 bool RectHitbox::collidesWith(Hitbox * box) {
     if (box->getType() == HitboxType::Circle) {
         RoundHitbox* rbox = (RoundHitbox*)box;
-        //TODO
+        if (position >= rbox->position && position <= rbox->position) {
+            return true;
+        }
+        if (   rbox->collidesWith(Line(position       , vec2( 1.0f, 0.0f)), 1.0f)
+            || rbox->collidesWith(Line(position + size, vec2(-1.0f, 0.0f)), 1.0f)
+            || rbox->collidesWith(Line(position       , vec2(0.0f,  1.0f)), 1.0f)
+            || rbox->collidesWith(Line(position + size, vec2(0.0f, -1.0f)), 1.0f)) {
+            return true;
+        }
+        return false;
     }
     else if (box->getType() == HitboxType::Rect) {
         return  position + size >= box->position &&
@@ -25,7 +34,30 @@ bool RectHitbox::collidesWith(Hitbox * box) {
 
 bool RectHitbox::collidesWith(Line l, vec2 &collision) {
     if (l.direction.x == 0 || l.direction.y == 0) {
-        // TODO Special Stuff
+        if (l.direction.x == 0) {
+            Line verticalCheck(position + vec2(l.direction.x > 0 ? 1 : -1.0f, 0.0f), vec2(0, 1));
+            IntersectionData dv;
+            l.intersect(verticalCheck, dv);
+            vec2 pv = l[dv.u];
+            bool vInter = (pv >= position && pv <= position + size);
+
+            if (vInter) {
+                collision = pv;
+                return true;
+            }
+        }
+        else if (l.direction.y == 0) {
+            Line horizontCheck(position + vec2(0, l.direction.y > 0 ? 1.0f : -1.0f), vec2(1, 0));
+            IntersectionData dh;
+            l.intersect(horizontCheck, dh);
+            vec2 ph = l[dh.u];
+            bool hInter = (ph >= position && ph <= position + size);
+            
+            if (hInter) {
+                collision = ph;
+                return true;
+            }
+        }
     }
     else {
         Line horizontCheck(position + vec2(0, l.direction.y > 0 ? 1.0f : -1.0f), vec2(1, 0));
@@ -60,10 +92,8 @@ bool RectHitbox::collidesWith(Line l, vec2 &collision) {
             collision = pv;
             return true;
         }
-        else {
-            return false;
-        }
     }
+    return false;
 }
 
 bool RectHitbox::collidesWith(vec2 pos, vec2 &collision) {

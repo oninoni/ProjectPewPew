@@ -83,6 +83,7 @@ void Game::start()
     textureMap->addTexture("wooden_planks.png");
     textureMap->addTexture("crosshair.png");
 	textureMap->addTexture("laser_gun.png");
+    textureMap->addTexture("laser_bolt.png");
     textureMap->addTexture("Tint.png");
     textureMap->addTexture("blob.png");
 

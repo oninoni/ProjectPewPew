@@ -20,13 +20,14 @@ bool RoundHitbox::collidesWith(Hitbox * box) {
     else if (type == HitboxType::Rect) {
         return ((RectHitbox*)box)->collidesWith(this);
     }
+    return false;
 }
 
-bool RoundHitbox::collidesWith(Line l, vec2 &collision) {
+bool RoundHitbox::collidesWith(Line l, float length) {
     IntersectionData data;
     l.intersect(Line(position, l.direction.cross()), data);
-    collision = l[data.u];
-    return position.distanceTo(collision) <= radius;
+    vec2 collision = l[data.u];
+    return position.distanceTo(collision) <= radius && (l.position.distanceTo(collision) <= length || length == 0.0f);
 }
 
 bool RoundHitbox::collidesWith(vec2 pos, vec2 &collision) {
