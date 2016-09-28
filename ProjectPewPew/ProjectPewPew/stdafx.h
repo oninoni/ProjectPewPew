@@ -15,6 +15,7 @@ using namespace std;
 #include <Windows.h>
 #include <filesystem>
 #include <unordered_map>
+#include <set>
 #define _USE_MATH_DEFINES
 #include <math.h>
 
@@ -52,7 +53,9 @@ class VAO;
 class Game;
 class Player;
 class Gun;
+class BGGrid;
 #include "Tile.h"
+#include "Tiles.h"
 #include "BGGrid.h"
 #include "FGGrid.h"
 #include "RayCaster.h"

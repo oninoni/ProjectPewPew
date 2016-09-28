@@ -70,7 +70,7 @@ bool FGGrid::destroyTileAt(ivec2 p)
 {
     Tile t = getTileAt(p);
     if (t.properties.is(tpDestructible)) {
-        setTileAt(p, Tile(p, "air", game));
+        setTileAt(p, TileData("air"));
     }
     return false;
 }

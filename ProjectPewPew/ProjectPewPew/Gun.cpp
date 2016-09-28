@@ -5,7 +5,7 @@ Gun::Gun(Game * g, Player* p) {
 	textureMap = g->getTextureMap();
     
     input = p->getInputManager();
-    grid = g->getFGGrid();
+    grid = *g->getFGGrid();
 
     beamVAO = new VAO(g->getLaserShader());
     beamVAO->generate(6, buDynamicDraw);
@@ -108,8 +108,8 @@ void Gun::update(float deltaTime)
         float lastDistance = -1;
 
         while (rayCaster.next()) {
-            if (grid->getTileAt(rayCaster.getTilePos()).properties.is(tpSolid)) {
-                if (grid->destroyTileAt(rayCaster.getTilePos())) {
+            if (grid[rayCaster.getTilePos()].properties.is(tpSolid)) {
+                if (grid[rayCaster.getTilePos()] = TileData("air"))]) {
                     rayCaster.next();
                 }
                 lastDistance = rayCaster.getDistance();

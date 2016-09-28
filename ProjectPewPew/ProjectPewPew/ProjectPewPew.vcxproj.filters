@@ -162,6 +162,9 @@
     <ClInclude Include="HUD.h">
       <Filter>header\Game\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Tiles.h">
+      <Filter>header\Game\Grid</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="texture.vert">

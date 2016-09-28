@@ -6,13 +6,13 @@ private:
 
 protected:
 	int uniformLocation;
-	void buildVAO();
 
 	Game* game;
 	ivec2 size;
 	vector<Tile> tileMap;
 
 	VAO* vao;
+
 
 public:
     BGGrid(int sizeX, int sizeY, Game* g);
@@ -24,10 +24,9 @@ public:
 	ivec2 getSize();
 
 	vector<Tile> getTileMap();
-	Tile& getTileAt(vec2 p);
-	Tile& getTileAt(ivec2 p);
-
-    void setTileAt(ivec2 p, Tile t);
+	Tile& operator[](ivec2 p);
+    
+    int getIndex(ivec2 p);
 
     void fill(TileData tile);
 };

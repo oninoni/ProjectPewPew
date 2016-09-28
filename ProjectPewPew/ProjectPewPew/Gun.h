@@ -5,7 +5,7 @@ private:
 	TextureMap* textureMap;
 
     InputManager* input;
-    FGGrid* grid;
+    FGGrid& grid;
 
 	VAO* gunVAO;
     VAO* beamVAO;

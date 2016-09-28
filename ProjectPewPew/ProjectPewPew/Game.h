@@ -1,8 +1,5 @@
 #pragma once
 
-static int* argcS;
-static char** argvS;
-
 class Game
 {
 private:

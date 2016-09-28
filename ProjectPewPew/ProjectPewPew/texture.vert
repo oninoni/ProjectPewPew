@@ -19,5 +19,5 @@ void main()
     fmaxborder = vmaxborder;
 
     vec3 p = view * model * vec3(vpos, 1);
-    gl_Position = vec4(p, 1);;
+    gl_Position = vec4(p, 1);
 }

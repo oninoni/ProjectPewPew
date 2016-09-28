@@ -181,6 +181,7 @@
     <ClInclude Include="TextureData.h" />
     <ClInclude Include="TextureMapItem.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Tiles.h" />
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="vec2.h" />

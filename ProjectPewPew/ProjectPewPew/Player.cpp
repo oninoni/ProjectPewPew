@@ -42,7 +42,7 @@ void Player::initVAO()
 
 bool Player::checkCollision(vec2 pos) {
 	ivec2 size = grid->getSize();
-	Tile tile = grid->getTileAt(pos);
+	Tile tile = (*grid)[ivec2(pos)];
 	return tile.properties.is(tpSolid);
 }
 
